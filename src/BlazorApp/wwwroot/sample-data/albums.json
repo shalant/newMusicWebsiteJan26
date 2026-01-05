@@ -1,6 +1,7 @@
 [
   {
     "title": "Better Than TV",
+    "albumcoverurl": "",
     "description": "2014 debut from the Jazz musician. Doug Rosenberg is a member of the new generation of jazz musicians composing and improvising music for the next century. The Chicago Tribune hails his 'fearlessness of spirit and a robustness of tone that seem likely to win him a devoted following in coming years.' Rosenberg's work on saxophone has an instantly recognizable sound and personal melodic language. He is best known for his work with Eastern Blok and Goran Ivanovic. Doug Rosenberg has also collaborated with great musicians like Sam Barsh, Maurice Brown, Kelan Phil Cohran, Robert Glasper, Robert Baabe Irving III, Rakalam Bob Moses, and Kendrick Scott.",
     "url": "https://www.amazon.com/Better-Than-TV-Doug-Rosenberg/dp/B00G7RON4E",
     "reviews": [
@@ -12,6 +13,7 @@
   },
   {
     "title": "Goran Ivanovic Group",
+    "albumcoverurl": "",
     "description": "The Goran Ivanovic Group delivers a captivating fusion of traditional Balkan music and acoustic jazz with classical compositional integrity and a harmonic language that is both accessible to the mainstream jazz audience while bringing in substantial portions of the zesty, odd-metered rhythms and the vivid melodic embellishments of Eastern European folk music. Mixing both traditional and jazz instrumentation, adapting both styles to one another so that the conversation between genres is two-sided, their music is imbued with great energy and direction, revealing that the conversation going on is not only between styles, genres and cultures but between the instrumentalists and the audience and most importantly, between the heart and the mind. --CD Baby - Tamara Turner",
     "url": "https://www.amazon.com/Goran-Ivanovic-Group/dp/B000HWY64C",
     " reviews": [
@@ -32,16 +34,20 @@
         "header": "The best of Balkan jazz",
         "rating": 5,
         "content": "I'll admit, it took me too long to come around to this particular album. All things considered, it shouldn't. Once upon a time, a landmark album hit the acoustic guitar world-- Vlakto Stefanovski & Miroslav Tadic's Krushevo. It knocked the socks off of a lot of people with the fiery playing, Balkan/Macedonian melodies and unique blending of styles that came from Stefanovski, who was mainly a fusion guitarist famous in some circles from Leb i So, and Tadic, who can play classical, nylon string jazz, or whatever other weirdness he wants. (He teaches at Cal Arts.) After Krushevo, I went searching for Macedonian guitar music, which led to Goran Ivanovic's collaborations with Fareed Haque, and those are just amazing. Deeper into jazz than the Stefanovski/Tadic collaborations, and differently satisfying. When I first listened to The Goran Ivanovic Group, though, something about it didn't work for me. The horn. Balkan folk music is often based around horns, but I was looking for the guitar, like with Krushevo. Horns? Sure. Love 'em. But, it just didn't work for me. So, I put it aside. It took a while for me to appreciate this album and get the more nuanced blending of jazz arrangements with Balkan stylings. Upon long reflection, and later listening, I really get it. Yes, the horn is important. That's not to say that the Ivanovic/Haque albums aren't still revelatory. They are. However, the horn really is key here. Douglas Rosenberg's saxophone has a softer tone than I generally like with my horns, and that was sort of what put me off this album originally, but coming back to it now, I hear how it connects with folk melodies. And that, along with Ivanovic's guitar, makes for an album that blends jazz improvisations with something that really is more like traditional Balkan folk in a way that I can appreciate, after long consideration. This won't be the Ivanovic album for everyone. It isn't the one that showcases his picking skills most clearly, but that's the point. If you just want to hear flashy guitar work, he does that with Haque, or with Andreas Kapsalis. This album, though, really does reward close listening. It helps to listen to some horn-based Balkan music, though, to appreciate the roots."
-      },
+      }
     ]
   },
   {
     "title": "My Resume Site",
+    "albumcoverurl": "",
+
     "description": "Created from Microsoft's resume workshop and deployed to GitHub pages. Includes my experience and design abilities.",
     "url": "https://github.com/microsoft/workshop-library/tree/main/full/build-resume-website"
   },
   {
     "title": "GitHub Codespaces and github.dev",
+    "albumcoverurl": "",
+
     "description": "Video interview to explain when to use GitHub.dev versus GitHub Codespaces, and how best to use each tool.",
     "url": "https://www.youtube.com/watch?v=c3hHhRME_XI"
   }

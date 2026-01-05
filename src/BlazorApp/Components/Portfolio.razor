@@ -36,12 +36,12 @@
     [Parameter, EditorRequired]
     public required HeroImageService HeroImageService { get; set; }
 
-    private List<Project>? projects;
+    private List<Album>? projects;
     private HeroImage? hero;
 
     protected override async Task OnInitializedAsync()
     {
-        projects = await Http.GetFromJsonAsync<List<Project>>("sample-data/projects.json");
+        projects = await Http.GetFromJsonAsync<List<Album>>("sample-data/albums.json");
         hero = await HeroImageService.GetHeroAsync(img => img.Name is "portfolio");
     }
 }
