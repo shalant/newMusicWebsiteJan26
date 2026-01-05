@@ -36,7 +36,7 @@ section.light {
 
 section img.background {
   width: 100vmax;
-  height: 100%;
+  height: 150%;
   z-index: -1;
   position: absolute;
   top: 0;
@@ -47,16 +47,16 @@ section img.background {
 }
 
 h1 {
-  font-weight: 300;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 7rem;
-  margin: 0;
+    font-weight: 300;
+    /*font-family: "Cormorant Garamond", serif;*/
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 7rem;
+    margin: 0;
 }
 
 @media screen and (max-width: 300px) {
   h1 {
     font-weight: 300;
-    font-family: "Cormorant Garamond", serif;
     font-size: 3rem;
     margin: 0;
   }
@@ -234,4 +234,121 @@ img.social-icon {
 
     .loading-progress-text:after {
         content: var(--blazor-load-percentage-text, "Loading");
+    }
+
+
+/* 1. Transparent Navbar */
+.transparent-nav {
+    background-color: transparent !important;
+    padding-top: 1rem;
+    z-index: 10;
+}
+
+    .transparent-nav a {
+        color: #e0e0e0 !important;
+    }
+
+    .nav-link {
+        color: #e0e0e0 !important;
+        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+        margin-left: 1rem;
+        text-transform: uppercase;
+    }
+
+        .nav-link:hover {
+            color: #ffffff !important;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+    /* 2. Hero Wrapper & Image */
+    .hero-wrapper {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        background-color: #0d0414; /* Fallback color */
+    }
+
+    .hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        /* Grayscale + Contrast to match the moody photo style if using a generic image */
+        filter: grayscale(40%) contrast(1.1);
+        z-index: 0;
+    }
+    /* 3. The Purple Fog Overlay */
+    /* This creates the dark purple tint over the image */
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: radial-gradient(circle at center, rgba(46, 26, 71, 0.4) 0%, rgba(18, 10, 30, 0.95) 90%);
+    }
+    /* 4. Content Styling */
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+
+    .artist-name {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+    }
+
+    .artist-role {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 1.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        opacity: 0.9;
+    }
+    /* 5. Custom 'Ghost' Button */
+    .custom-cta-btn {
+        background-color: rgba(73, 56, 107, 0.5); /* Semi-transparent purple */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 12px 32px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+        .custom-cta-btn:hover {
+            background-color: rgba(99, 76, 145, 0.7);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+    /* Mobile Responsiveness */
+    @media (max-width: 600px) {
+        .artist-name {
+            font-size: 2.5rem;
+        }
+
+        .artist-role {
+            font-size: 1rem;
+        }
     }
