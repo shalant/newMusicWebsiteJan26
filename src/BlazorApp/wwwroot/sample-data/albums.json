@@ -16,7 +16,7 @@
     "albumcoverurl": "",
     "description": "The Goran Ivanovic Group delivers a captivating fusion of traditional Balkan music and acoustic jazz with classical compositional integrity and a harmonic language that is both accessible to the mainstream jazz audience while bringing in substantial portions of the zesty, odd-metered rhythms and the vivid melodic embellishments of Eastern European folk music. Mixing both traditional and jazz instrumentation, adapting both styles to one another so that the conversation between genres is two-sided, their music is imbued with great energy and direction, revealing that the conversation going on is not only between styles, genres and cultures but between the instrumentalists and the audience and most importantly, between the heart and the mind. --CD Baby - Tamara Turner",
     "url": "https://www.amazon.com/Goran-Ivanovic-Group/dp/B000HWY64C",
-    " reviews": [
+    "reviews": [
       {
         "author": "Amazon - Emily Covington",
         "header": "Highly Recommend",
@@ -38,17 +38,24 @@
     ]
   },
   {
-    "title": "My Resume Site",
-    "albumcoverurl": "",
+    "title": "Underwater",
+    "albumcoverurl": "https://m.media-amazon.com/images/I/51Qwc31uA3L._UX500_FMwebp_QL85_.jpg",
 
-    "description": "Created from Microsoft's resume workshop and deployed to GitHub pages. Includes my experience and design abilities.",
-    "url": "https://github.com/microsoft/workshop-library/tree/main/full/build-resume-website"
+    "description": "From underwater Eastern Blok give us a view of the night sky. Star and tides, mysterious currents - this music is at once foreign and familiar. The patient listener can learn to navigate these roots and fishes, perhaps eventually even to breathe... underwater.",
+    "url": "https://www.amazon.com/dp/B006HTEKHM/ref=sr_1_1?crid=2GP7I898970LE&dib=eyJ2IjoiMSJ9.chu-IQ2l9hq4-law_ewMJhY5SSmhjI0znGnihEAqOzXGjHj071QN20LucGBJIEps.bsqKnMZKdL-m0JC9TcZj9l3ryDEElkxnosrT6L1_hJU&dib_tag=se&keywords=eastern+blok+underwater+music&qid=1767636220&sprefix=eastern+blok+underwater+music%2Caps%2C117&sr=8-1"
   },
   {
-    "title": "GitHub Codespaces and github.dev",
-    "albumcoverurl": "",
-
-    "description": "Video interview to explain when to use GitHub.dev versus GitHub Codespaces, and how best to use each tool.",
-    "url": "https://www.youtube.com/watch?v=c3hHhRME_XI"
+    "title": "Folk Tales",
+    "albumcoverurl": "https://m.media-amazon.com/images/I/71oonD4d3qL._SL1000_.jpg",
+    "reviews": [
+      {
+        "author": "Amazon - George Ceffalio",
+        "header": "WOW!",
+        "rating": 5,
+        "content": "This music will bowl you over. If you are into instrumental music, pick this up. The flamenco guitar work along with phenomenal back up is pure pleasure for the ears."
+      }
+    ],
+      "description":"Eastern Blok s sophomore release, Folk Tales, features compositions that juxtapose a somber and serious sound with a lively and elusive beat. The group features classical guitar virtuoso Goran Ivanovic, who teamed up with Doug Rosenberg on saxophone and flute, Matthew Ulery on bass, and Michael Caskey, a five-time Detroit Music Award and Downbeat Magazine Award winner, on drums.",
+      "url" : "https://www.amazon.com/Folk-Tales-Eastern-Blok/dp/B000UE61NG"
   }
 ]
