@@ -3,3 +3,13 @@
 <div id="main">
     @Body
 </div>
+
+
+<MudThemeProvider />
+<MudPopoverProvider />
+
+@* Needed for dialogs *@
+<MudDialogProvider @rendermode="RenderMode.InteractiveWebAssembly"/>
+
+@* Needed for snackbars *@
+<MudSnackbarProvider />

@@ -1,0 +1,85 @@
+<section class="light" id="education">
+    <h2>Portfolio</h2>
+    <h4>Selected Value: @SelectedSheetMusic</h4>
+    <div>
+        @* <MudSelect @bind-Value="SelectedSheetMusicString" Label="Select sheet music" T="string" Placeholder="Please Select" AdornmentIcon="@Icons.Material.Filled.LibraryMusic" AdornmentColor="Color.Primary"> *@
+        <MudSelect @bind-Value="SelectedSheetMusicString" T="string" Variant="Variant.Text" ValueChanged="OpenSheetMusic">
+            @if (musicalSheets is not null)
+            {
+                @* @foreach (var item in musicalSheets)
+                {
+                    <MudSelectItem Value="@item.Title" T="string">@item.Title</MudSelectItem>
+                } *@
+                @* <MudSelectItem Value="@("One")">One</MudSelectItem>
+                <MudSelectItem Value="@("Two")">Two</MudSelectItem>
+                <MudSelectItem Value="@("Three")">Three</MudSelectItem>
+                <MudSelectItem Value="@("Four")">Four</MudSelectItem> *@
+            }
+            @foreach (var item in _states)
+            {
+                <MudSelectItem Value="@item" >@item</MudSelectItem>
+            }
+            }
+        </MudSelect>
+
+
+        <MudSelect @bind-Value="_value"
+                       Variant="Variant.Text"
+                       >
+        @foreach (var state in _states)
+                {
+                    <MudSelectItem Value="state">@state</MudSelectItem>
+                }
+            </MudSelect>
+    </div>
+</section>
+
+@code {
+    [Parameter, EditorRequired]
+    public required HttpClient Http { get; set; }
+
+    [Parameter, EditorRequired]
+    public required HeroImageService HeroImageService { get; set; }
+
+    private string _value;
+
+    private List<SheetMusic>? musicalSheets;
+    private HeroImage? hero;
+
+    public string SelectedSheetMusicString { get; set; } = "test";
+    public SheetMusic? SelectedSheetMusic { get; set; }
+    public List<SheetMusic> SheetMusics { get; set; } = new List<SheetMusic>();
+
+    private readonly string[] _states =
+    {
+        "Alabama", "Alaska", "Arizona", "Arkansas", "California",
+        "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
+        "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
+        "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts",
+        "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana",
+        "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
+        "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma",
+        "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
+        "Tennessee", "Texas", "Utah", "Vermont", "Virginia",
+        "Washington", "West Virginia", "Wisconsin", "Wyoming"
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        musicalSheets = await Http.GetFromJsonAsync<List<SheetMusic>>("sample-data/sheetmusic.json");
+        hero = await HeroImageService.GetHeroAsync(img => img.Name is "portfolio");
+
+        SheetMusics = new List<SheetMusic>
+        {
+            new SheetMusic { Id = 1, Title = "Fur Elise", URL = "Ludwig van Beethoven" },
+            new SheetMusic { Id = 2, Title = "Moonlight Sonata", URL = "Ludwig van Beethoven" },
+            new SheetMusic { Id = 3, Title = "Clair de Lune", URL = "Claude Debussy" }
+        };
+    }
+
+    protected void OpenSheetMusic(string args)
+    {
+        Console.WriteLine("opensheetmusic");
+        _value = args.ToString();
+    }
+}
