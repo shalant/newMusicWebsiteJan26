@@ -1,40 +1,23 @@
 <section class="light" id="education">
     <h2>Portfolio</h2>
-    <h4>Selected Value: @SelectedSheetMusic</h4>
+    <h4>Selected Value: @SelectedSheetMusic?.Title  </h4>
+    <h4>Song Value: @SongValue </h4>
     <div>
-        @* <MudSelect @bind-Value="SelectedSheetMusicString" Label="Select sheet music" T="string" Placeholder="Please Select" AdornmentIcon="@Icons.Material.Filled.LibraryMusic" AdornmentColor="Color.Primary"> *@
-        <MudSelect @bind-Value="SelectedSheetMusicString" T="string" Variant="Variant.Text" ValueChanged="OpenSheetMusic">
-            @if (musicalSheets is not null)
+        @* <select class="form-control" @onchange="@((args)=>OpenSheetMusic(args, SongValue))"> *@
+        <select class="form-control"">
+            <option value="-1">Select an song!</option>
+            @foreach (var item in SheetMusics)
             {
-                @* @foreach (var item in musicalSheets)
-                {
-                    <MudSelectItem Value="@item.Title" T="string">@item.Title</MudSelectItem>
-                } *@
-                @* <MudSelectItem Value="@("One")">One</MudSelectItem>
-                <MudSelectItem Value="@("Two")">Two</MudSelectItem>
-                <MudSelectItem Value="@("Three")">Three</MudSelectItem>
-                <MudSelectItem Value="@("Four")">Four</MudSelectItem> *@
+                <option value="@item.Id" @onclick="()=>SongValue=item.Id">@item.Title</option>
             }
-            @foreach (var item in _states)
-            {
-                <MudSelectItem Value="@item" >@item</MudSelectItem>
-            }
-            }
-        </MudSelect>
-
-
-        <MudSelect @bind-Value="_value"
-                       Variant="Variant.Text"
-                       >
-        @foreach (var state in _states)
-                {
-                    <MudSelectItem Value="state">@state</MudSelectItem>
-                }
-            </MudSelect>
+        </select>
     </div>
 </section>
 
 @code {
+    [Inject]
+    NavigationManager NavigationManager { get; set; } = default!;
+
     [Parameter, EditorRequired]
     public required HttpClient Http { get; set; }
 
@@ -42,12 +25,14 @@
     public required HeroImageService HeroImageService { get; set; }
 
     private string _value;
+    private int SongValue { get; set; } = 0;
 
     private List<SheetMusic>? musicalSheets;
     private HeroImage? hero;
 
     public string SelectedSheetMusicString { get; set; } = "test";
     public SheetMusic? SelectedSheetMusic { get; set; }
+    public int? SelectedSheetMusicId { get; set; }
     public List<SheetMusic> SheetMusics { get; set; } = new List<SheetMusic>();
 
     private readonly string[] _states =
@@ -77,9 +62,45 @@
         };
     }
 
-    protected void OpenSheetMusic(string args)
+    protected void OpenSheetMusic(ChangeEventArgs e, int songValue)
     {
-        Console.WriteLine("opensheetmusic");
-        _value = args.ToString();
+        Console.WriteLine($"{songValue}");
+
+        // NavigationManager.NavigateTo($"https://www.google.com/{songValue}");
     }
 }
+
+
+
+
+@* rando mudselect code
+        @* <MudSelect @bind-Value="SelectedSheetMusicString" Label="Select sheet music" T="string" Placeholder="Please Select" AdornmentIcon="@Icons.Material.Filled.LibraryMusic" AdornmentColor="Color.Primary">
+        <MudSelect @bind-Value="SelectedSheetMusicString" T="string" Variant="Variant.Text" ValueChanged="OpenSheetMusic">
+            @if (musicalSheets is not null)
+            {
+                @* @foreach (var item in musicalSheets)
+                {
+                    <MudSelectItem Value="@item.Title" T="string">@item.Title</MudSelectItem>
+                }
+                @* <MudSelectItem Value="@("One")">One</MudSelectItem>
+                <MudSelectItem Value="@("Two")">Two</MudSelectItem>
+                <MudSelectItem Value="@("Three")">Three</MudSelectItem>
+                <MudSelectItem Value="@("Four")">Four</MudSelectItem>
+            }
+            @foreach (var item in _states)
+            {
+                <MudSelectItem Value="@item" >@item</MudSelectItem>
+            }
+            }
+        </MudSelect>
+
+
+        <MudSelect @bind-Value="_value"
+                       Variant="Variant.Text"
+                       >
+        @foreach (var state in _states)
+                {
+                    <MudSelectItem Value="state">@state</MudSelectItem>
+                }
+            </MudSelect>
+            *@
