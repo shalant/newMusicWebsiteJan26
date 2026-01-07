@@ -1,16 +1,24 @@
 <section class="light" id="education">
-    <h2>Portfolio</h2>
+    <h2>Education</h2>
     <h4>Selected Value: @SelectedSheetMusic?.Title  </h4>
     <h4>Song Value: @SongValue </h4>
-    <div>
-        @* <select class="form-control" @onchange="@((args)=>OpenSheetMusic(args, SongValue))"> *@
-        <select class="form-control"">
-            <option value="-1">Select an song!</option>
-            @foreach (var item in SheetMusics)
-            {
-                <option value="@item.Id" @onclick="()=>SongValue=item.Id">@item.Title</option>
-            }
-        </select>
+    <div style="width: 33%;align-items:center;">
+        @if (musicalSheets is null)
+        {
+            <p><em>Loading...</em></p>
+        }
+        else
+        {
+            <select @onchange="OnChange">
+                <option value="">Select an option</option>
+                @foreach (var option in musicalSheets)
+                {
+                    <option value="@option.Id">@option.Title</option>
+                }
+            </select>
+        
+            <p>Selected ID: @selectedId</p>
+        }
     </div>
 </section>
 
@@ -24,7 +32,6 @@
     [Parameter, EditorRequired]
     public required HeroImageService HeroImageService { get; set; }
 
-    private string _value;
     private int SongValue { get; set; } = 0;
 
     private List<SheetMusic>? musicalSheets;
@@ -35,19 +42,18 @@
     public int? SelectedSheetMusicId { get; set; }
     public List<SheetMusic> SheetMusics { get; set; } = new List<SheetMusic>();
 
-    private readonly string[] _states =
+    private int selectedId;
+    private void OnChange(ChangeEventArgs e)
     {
-        "Alabama", "Alaska", "Arizona", "Arkansas", "California",
-        "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
-        "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
-        "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts",
-        "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana",
-        "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
-        "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma",
-        "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
-        "Tennessee", "Texas", "Utah", "Vermont", "Virginia",
-        "Washington", "West Virginia", "Wisconsin", "Wyoming"
-    };
+        if (musicalSheets is not null)
+        {
+            // Get the selected option ID
+            selectedId = int.Parse(e.Value.ToString());
+            Console.WriteLine($"Selected ID: {selectedId}");
+            var hyperlink = musicalSheets.FirstOrDefault(f => f.Id == selectedId)?.URL;
+            NavigationManager.NavigateTo($"https://{hyperlink}");
+        }
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -62,12 +68,7 @@
         };
     }
 
-    protected void OpenSheetMusic(ChangeEventArgs e, int songValue)
-    {
-        Console.WriteLine($"{songValue}");
-
-        // NavigationManager.NavigateTo($"https://www.google.com/{songValue}");
-    }
+    
 }
 
 
@@ -103,4 +104,44 @@
                     <MudSelectItem Value="state">@state</MudSelectItem>
                 }
             </MudSelect>
+
+
+
+            @* <select class="form-control" @onchange="@((args)=>OpenSheetMusic(args, SelectedSheetMusic))">         <select class="form-control">
+            <option value="-1">Select an song!</option>
+            @foreach (var item in SheetMusics)
+            {
+                @* <option value="@item.Id" @onclick="()=>SongValue=item.Id">@item.Title</option>
+                <option value="@item.Id" @onclick="() => SongValue = item.Id">
+                    @* <option value="@item.Id" > *@
+@* <a href="@item.URL" @onclick="@((args) => OpenSheetMusic(args, item))">@item.Title</a>
+                    @* <a href="@item.URL">@item.Title</a>
+                    @item.Title
+                </option>
+            }
+        </select>
+
+
+        protected void OpenSheetMusic(MouseEventArgs e, SheetMusic selectedSong)
+    {
+
+        Console.WriteLine($"{selectedSong}");
+        SelectedSheetMusic = musicalSheets.FirstOrDefault(f => f.Id == selectedSong.Id);
+        NavigationManager.NavigateTo($"{selectedSong.URL}");
+
+    }
+
+    private readonly string[] _states =
+{
+        "Alabama", "Alaska", "Arizona", "Arkansas", "California",
+        "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
+        "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
+        "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts",
+        "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana",
+        "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
+        "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma",
+        "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
+        "Tennessee", "Texas", "Utah", "Vermont", "Virginia",
+        "Washington", "West Virginia", "Wisconsin", "Wyoming"
+    };
             *@
