@@ -1,7 +1,5 @@
 <section class="light" id="education">
     <h2>Education</h2>
-    <h4>Selected Value: @SelectedSheetMusic?.Title  </h4>
-    <h4>Song Value: @SongValue </h4>
     <div style="width: 33%;align-items:center;">
         @if (musicalSheets is null)
         {
@@ -51,7 +49,7 @@
             selectedId = int.Parse(e.Value.ToString());
             Console.WriteLine($"Selected ID: {selectedId}");
             var hyperlink = musicalSheets.FirstOrDefault(f => f.Id == selectedId)?.URL;
-            NavigationManager.NavigateTo($"https://{hyperlink}");
+            NavigationManager.NavigateTo($"/sheetmusic/{hyperlink}");
         }
     }
 
