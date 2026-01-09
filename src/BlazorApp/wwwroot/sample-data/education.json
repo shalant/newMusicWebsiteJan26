@@ -1,0 +1,135 @@
+{
+  "name": "Doug Rosenberg",
+  "contact": {
+    "phone": "(773) 627-4279",
+    "email": "doug.rosenberg@gmail.com"
+  },
+  "instruments": [ "Saxophone", "Flute", "Clarinet" ],
+  "teachingExperience": {
+    "privateInstructorAndClinician": {
+      "locations": [
+        "Evanston Middle Schools",
+        "Sears School",
+        "Glenview",
+        "Glencoe",
+        "Winnetka",
+        "Chicago Academy for the Arts",
+        "Oswego High School",
+        "Plank Middle School"
+      ],
+      "focusAreas": [
+        "Saxophone",
+        "Clarinet",
+        "Flute",
+        "Jazz Improvisation",
+        "Music Theory"
+      ]
+    },
+    "guestArtistInstitutions": [
+      "Princeton University",
+      "University of Michigan",
+      "Cornell University",
+      "Carnegie Mellon University",
+      "University of Pittsburgh",
+      "Lewis University",
+      "SUNY Fredonia",
+      "University of Minnesota",
+      "University of Nebraska",
+      "Haverford College",
+      "Elgin Community College",
+      "Francis Parker School",
+      "New Trier High School",
+      "Kennedy High School"
+    ],
+    "newTrierHighSchool": {
+      "roles": [
+        "Freshman Jazz Ensemble Assistant (2005–2008)",
+        "Jazz Improvisation Instructor (2003–2008)",
+        "Saxophone Instructor (2007–2011)"
+      ]
+    },
+    "lakeForestCountryDaySchool": {
+      "role": "Band Director (Maternity Leave)",
+      "year": 2012
+    },
+    "affiliations": [
+      "International Association of Jazz Educators (since 2005)",
+      "Selmer Saxophones Endorsement"
+    ]
+  },
+  "performanceExperience": {
+    "chicagoVenues": [
+      "Millennium Park",
+      "Green Mill",
+      "Hothouse",
+      "Symphony Center",
+      "Jazz Showcase",
+      "Taste of Chicago"
+    ],
+    "nationalInternationalVenues": [
+      "Joe’s Pub",
+      "St. Louis Art Museum",
+      "Knitting Factory",
+      "Chris’ Jazz Café",
+      "Blues Alley",
+      "Makor",
+      "Satalla",
+      "Firefly Club",
+      "Cedar Cultural Center",
+      "Johnny D’s",
+      "Canadian Guitar Festival",
+      "Alchemia",
+      "Centrum Kultury Dwor Artusa",
+      "Krannert Center",
+      "Dazzle"
+    ],
+    "artistsPerformedWith": [
+      "Sam Barsh",
+      "Brendan Bayliss",
+      "Bobby Broom",
+      "Maggie Brown",
+      "Maurice Brown",
+      "Oscar Brown Jr.",
+      "Phil Cohran",
+      "Ernest Dawkins",
+      "Michael Franti",
+      "George Freeman",
+      "Robert Glasper",
+      "Fareed Haque",
+      "Nikki Glaspie",
+      "Jen Hartswick",
+      "Keyon Harrold",
+      "Marquis Hill",
+      "Robert “Baabe” Irving III",
+      "Goran Ivanovic",
+      "Karsh Kale",
+      "Mark Kelley",
+      "Rakalam Bob Moses",
+      "Kris Myers",
+      "Jeff Parker",
+      "Danilo Pérez",
+      "Joe Russo",
+      "Kendrick Scott",
+      "Sherry Scott",
+      "John Sinclair",
+      "Walter Smith",
+      "Oscar Stagnaro",
+      "Luciana Souza",
+      "Matt Ulery",
+      "Corey Wilkes",
+      "David Young"
+    ]
+  },
+  "education": [
+    {
+      "institution": "New England Conservatory",
+      "degree": "Bachelor of Music, Jazz Performance",
+      "years": "1997–2002"
+    },
+    {
+      "institution": "University (Chemistry Program)",
+      "degree": "BS in Chemistry",
+      "years": "1997–2002"
+    }
+  ]
+}
