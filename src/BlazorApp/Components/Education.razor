@@ -1,6 +1,7 @@
 <section class="light" id="education">
     <h2>Education</h2>
-    <div style="width: 33%;align-items:center;">
+    <div style="background-color: white; width: 50%; padding: 4rem; margin: 3rem auto; text-align: center;">
+        @* <div style="width: 33%;align-items:center;"> *@
         @if (musicalSheets is null)
         {
             <p><em>Loading...</em></p>
@@ -14,8 +15,6 @@
                     <option value="@option.Id">@option.Title</option>
                 }
             </select>
-        
-            <p>Selected ID: @selectedId</p>
         }
     </div>
 </section>
@@ -66,7 +65,7 @@
         };
     }
 
-    
+
 }
 
 

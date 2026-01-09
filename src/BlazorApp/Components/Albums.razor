@@ -1,0 +1,50 @@
+<section class="light" id="albums">
+    <h2>Albums</h2>
+    <div class="portfolio-container">
+        @if (albums is null)
+        {
+            <p><em>Loading...</em></p>
+        }
+        else
+        {
+            <div class="portfolio-hero">
+                @if (hero is not null)
+                {
+                    <img src="@(hero.Src)" style="height: 90%; width: 100%; object-fit: cover;"
+                         alt="@(hero.Alt)" />
+                }
+            </div>
+            <div class="container">
+                @foreach (var album in albums)
+                {
+                    <div class="custom-card" key="@album.Title">
+                        @* <img src=$"url('https:/{project.AlbumCoverUrl}'") /> *@
+                        <img src=@album.AlbumCoverUrl alt="Album Cover" width="111" height="111" /> 
+
+                        <a href="@album.Url" target="_blank" rel="noopener noreferrer">
+                            <h3 style="flex-basis: 40px;">@album.Title</h3>
+                        </a>
+                        <p class="small">@album.Description</p>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</section>
+
+@code {
+    [Parameter, EditorRequired]
+    public required HttpClient Http { get; set; }
+
+    [Parameter, EditorRequired]
+    public required HeroImageService HeroImageService { get; set; }
+
+    private List<Album>? albums;
+    private HeroImage? hero;
+
+    protected override async Task OnInitializedAsync()
+    {
+        albums = await Http.GetFromJsonAsync<List<Album>>("sample-data/albums.json");
+        hero = await HeroImageService.GetHeroAsync(img => img.Name is "portfolio");
+    }
+}
