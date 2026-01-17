@@ -5,24 +5,77 @@
     }
     <h2>About Myself</h2>
     <div style="background-color: white; width: 50%; padding: 4rem; margin: 3rem auto; text-align: center;">
-    @if (aboutMe is null)
-    {
-        <p><em>Loading...</em></p>
-    }
-    else
-    {
-        <p class="large">@aboutMe.Description</p>
-        <hr />
-        <ul style="text-align: left; columns: 2; font-size: 1.25rem; margin: 2rem 3rem; gap: 3rem;">
-        @foreach (var skill in aboutMe.Skills)
+        @if (aboutMe is null)
         {
-            <li key="@skill">@skill</li>
+            <p><em>Loading...</em></p>
         }
-        </ul>
-        <hr />
-        <p style="padding: 1rem 3rem 0;">@aboutMe.DetailOrQuote</p>
-    }
+        else
+        {
+            <p class="large">@aboutMe.Description</p>
+            <hr />
+            <ul style="text-align: left; columns: 2; font-size: 1.25rem; margin: 2rem 3rem; gap: 3rem;">
+                @foreach (var skill in aboutMe.Skills)
+                {
+                    <li key="@skill">@skill</li>
+                }
+            </ul>
+            <hr />
+            <p style="padding: 1rem 3rem 0;">@aboutMe.DetailOrQuote</p>
+        }
     </div>
+    <section>
+        <h2>Performance Experience</h2>
+        <div class="row">
+            <div class="col-md-6">
+
+
+                <h3>Chicago Venues</h3>
+                <div class="taglist">
+                    <span>Millennium Park</span>
+                    <span>Green Mill</span>
+                    <span>Hothouse</span>
+                    <span>Symphony Center</span>
+                    <span>Jazz Showcase</span>
+                    <span>Taste of Chicago</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <h3>National & International Venues</h3>
+                <div class="taglist">
+                    <span>Joe’s Pub</span>
+                    <span>St. Louis Art Museum</span>
+                    <span>Knitting Factory</span>
+                    <span>Chris’ Jazz Café</span>
+                    <span>Blues Alley</span>
+                    <span>Makor</span>
+                    <span>Satalla</span>
+                    <span>Firefly Club</span>
+                    <span>Cedar Cultural Center</span>
+                    <span>Johnny D’s</span>
+                    <span>Canadian Guitar Festival</span>
+                    <span>Alchemia</span>
+                    <span>Krannert Center</span>
+                    <span>Dazzle</span>
+                </div>
+            </div>
+        </div>
+        <h3>Artists Performed With</h3>
+        <div class="taglist">
+            <span>Sam Barsh</span><span>Brendan Bayliss</span><span>Bobby Broom</span>
+            <span>Maggie Brown</span><span>Maurice Brown</span><span>Oscar Brown Jr.</span>
+            <span>Phil Cohran</span><span>Ernest Dawkins</span><span>Michael Franti</span>
+            <span>George Freeman</span><span>Robert Glasper</span><span>Fareed Haque</span>
+            <span>Nikki Glaspie</span><span>Jen Hartswick</span><span>Keyon Harrold</span>
+            <span>Marquis Hill</span><span>Robert “Baabe” Irving III</span>
+            <span>Goran Ivanovic</span><span>Karsh Kale</span><span>Mark Kelley</span>
+            <span>Rakalam Bob Moses</span><span>Kris Myers</span><span>Jeff Parker</span>
+            <span>Danilo Pérez</span><span>Joe Russo</span><span>Kendrick Scott</span>
+            <span>Sherry Scott</span><span>John Sinclair</span><span>Walter Smith</span>
+            <span>Oscar Stagnaro</span><span>Luciana Souza</span><span>Matt Ulery</span>
+            <span>Corey Wilkes</span><span>David Young</span>
+        </div>
+    </section>
 </section>
 
 @code {

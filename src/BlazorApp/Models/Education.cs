@@ -4,9 +4,9 @@ namespace BlazorApp.Models
     {
         public List<string> Schools { get; set; }
         public List<string> Universities { get; set; }
-        public List<string> Schools { get; set; }
-        public List<string> Schools { get; set; }
-        public List<string> Schools { get; set; }
+        //public List<string> Schools { get; set; }
+        //public List<string> Schools { get; set; }
+        //public List<string> Schools { get; set; }
     }
 
 
