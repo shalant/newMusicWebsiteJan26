@@ -6,6 +6,7 @@
   },
   {
     "name": "about",
+    //"src": "images/motion-background.jpg",
     "src": "images/artDecoBackground1.png",
     "alt": "gray abstract background"
   },

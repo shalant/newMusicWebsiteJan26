@@ -2,7 +2,7 @@
   {
     "id": 4,
     "title": "Adagio and Allegro by Handel",
-    "url": "AdagioAndAllegroByHandel.pdf"
+    "url": "AdagioandAllegrobyHandel.pdf"
   },
   {
     "id": 7,
@@ -12,37 +12,37 @@
   {
     "id": 10,
     "title": "Alegretto by Arensky",
-    "url": "AlegrettoByArensky.pdf"
+    "url": "AlegrettobyArensky.pdf"
   },
   {
     "id": 13,
     "title": "Arioso by Bach",
-    "url": "AriosoByBach.pdf"
+    "url": "AriosoBach.pdf"
   },
   {
     "id": 16,
     "title": "Arioso Sinfonia by Bach",
-    "url": "AriosoSinfoniaByBach.pdf"
+    "url": "AriosoSinfoniaBach.pdf"
   },
   {
     "id": 19,
     "title": "Prelude by Bach, page 2",
-    "url": "PreludeByBachPage2.pdf"
+    "url": "BachPreludepage2.pdf"
   },
   {
     "id": 22,
     "title": "Prelude by Bach",
-    "url": "PreludeByBach.pdf"
+    "url": "BachPrelude.pdf"
   },
   {
     "id": 25,
     "title": "Billie's Bounce in Bb",
-    "url": "BilliesBounceInBb.pdf"
+    "url": "BilliesBounceBb.pdf"
   },
   {
     "id": 28,
     "title": "Chanson de Printemps, page 2",
-    "url": "ChansonDePrintempsPage2.pdf"
+    "url": "ChansonDePrintempsPage2.png"
   },
   {
     "id": 31,
@@ -57,18 +57,14 @@
   {
     "id": 37,
     "title": "Corn Bread Lee Morgan",
-    "url": "CornBreadLeeMorgan.pdf"
+    "url": "CornBreadLeeMorganEb.pdf"
   },
   {
     "id": 40,
     "title": "Diverse Charlie Parker",
     "url": "DiverseCharlieParker.pdf"
   },
-  {
-    "id": 43,
-    "title": "Adagio and Allegro by Handel",
-    "url": "AdagioAndAllegroByHandel.pdf"
-  },
+  
   {
     "id": 46,
     "title": "Fantasy Piece Schumann",
@@ -102,7 +98,7 @@
   {
     "id": 64,
     "title": "G blue melodies",
-    "url": "GBlueMelodies.pdf"
+    "url": "GBlueMelodies.jpg"
   },
   {
     "id": 67,

@@ -22,15 +22,17 @@ section {
   position: relative;
 }
 
-section.dark {
-  min-height: 100vh;
-  color: white;
-  background: rgba(0, 0, 0, 0.25);
-}
+    section.dark {
+        min-height: 100vh;
+        /*color: white;*/
+        color: rgba(12, 158, 178,0.7);
+        background: rgba(0, 0, 0, 0.25);
+    }
 
 section.light {
   color: black;
-  background: rgba(255, 255, 255, 0.35);
+  /*background: rgba(255, 255, 255, 0.35);*/
+  background: src(/images/artDecoBackground1.png);
   padding: 8rem 0;
 }
 
@@ -239,14 +241,22 @@ img.social-icon {
 
 /* 1. Transparent Navbar */
 .transparent-nav {
-    background-color: transparent !important;
+    /*background-color: transparent !important;*/
+    background-color: rgba(78, 86, 149, 0.3) !important;
+    /*background-color: #4e567e;*/
+
     padding-top: 1rem;
     z-index: 10;
+    backdrop-filter: blur(10px);
 }
 
     .transparent-nav a {
-        color: #e0e0e0 !important;
+        color: #e0e0e0 ;
+        transition: all 0.4s ease-in-out;
     }
+        .transparent-nav a:hover {
+            color: rgba(12, 158, 178,0.7);
+        }
 
     .nav-link {
         color: #e0e0e0 !important;
@@ -305,6 +315,14 @@ img.social-icon {
         text-align: center;
         color: white;
     }
+
+.custom-hero {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
     .artist-name {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
