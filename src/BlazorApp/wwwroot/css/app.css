@@ -29,7 +29,7 @@ section {
     section.dark {
         min-height: 100vh;
         /*color: white;*/
-        color: rgba(12, 158, 178,0.7);
+        /*color: rgba(12, 158, 178,0.7);*/
         background: rgba(0, 0, 0, 0.25);
     }
 
@@ -375,6 +375,26 @@ img.social-icon {
         }
     }
 
+.custom-hero h1 {
+    background: linear-gradient(108deg, rgba(180,210,235,1), rgba(220,235,245,1), rgba(12, 158, 178,0.7));
+    background-clip: text;
+    background-size: 200% 100%; /* Make the background wider than the text */
+
+    color: transparent;
+    /* Apply the animation */
+    animation: hero__animation 10s linear infinite;
+}
+
+.custom-hero h2 {
+    background: linear-gradient(208deg, rgba(180,210,235,1), rgba(220,235,245,1), rgba(12, 158, 178,0.7));
+    background-clip: text;
+    background-size: 200% 100%; /* Make the background wider than the text */
+
+    color: transparent;
+    /* Apply the animation */
+    animation: hero__animation 10s linear infinite;
+}
+
 .custom-card {
     padding: 10px;
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
@@ -393,6 +413,21 @@ img.social-icon {
     margin: 3rem auto;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.albums__glass-pane {
+    background-color: rgba(250,250,250,0.7);
+    backdrop-filter: blur(5px);
+    width: 90%;
+    padding: 2rem;
+    margin: 3rem auto;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.albums__glass-pane img {
+    width: 200px;
+    height: 200px;
 }
 
 .custom-mottled__header {
@@ -438,5 +473,14 @@ img.social-icon {
 
     100% {
         background-position: 200% 0; /* End position, moves across the wider background */
+    }
+}
+@keyframes hero__animation {
+    0% {
+        background-position: 70% 10%; /* Start position */
+    }
+
+    100% {
+        background-position: 90% 90%; /* End position, moves across the wider background */
     }
 }

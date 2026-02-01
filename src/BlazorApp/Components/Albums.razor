@@ -1,35 +1,62 @@
 <section class="light" id="albums">
-    <h2>Albums</h2>
-    <div class="portfolio-container">
-        @if (albums is null)
-        {
-            <p><em>Loading...</em></p>
-        }
-        else
-        {
-            @* <div class="portfolio-hero">
-                @if (hero is not null)
-                {
-                    <img src="@(hero.Src)" style="height: 90%; width: 100%; object-fit: cover;"
-                         alt="@(hero.Alt)" />
-                }
-            </div> *@
-            <div class="container">
-                @foreach (var album in albums)
-                {
-                    <div class="custom-card" key="@album.Title">
-                        @* <img src=$"url('https:/{project.AlbumCoverUrl}'") /> *@
-                        <img src=@album.AlbumCoverUrl alt="Album Cover" width="111" height="111" /> 
-
-                        <a href="@album.Url" target="_blank" rel="noopener noreferrer">
-                            <h3 style="flex-basis: 40px;">@album.Title</h3>
-                        </a>
-                        <p class="small">@album.Description</p>
-                    </div>
-                }
+    @if (hero is not null)
+    {
+        <img class="background" src="@(hero.Src)" alt="@(hero.Alt)" />
+    }
+    <h2 class="custom-mottled__header">
+        Albums
+    </h2>
+    @if (albums is null)
+    {
+        <p>BLAH</p>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <div class="albums__glass-pane">
+                    <img src=@albums[0].AlbumCoverUrl alt="Album Cover" width="111" height="111" />
+                    <a href="@albums[0].Url" target="_blank" rel="noopener noreferrer">
+                        <h3 style="flex-basis: 40px;">@albums[0].Title</h3>
+                    </a>
+                    <p class="small">@albums[0].Description</p>
+                </div>
             </div>
-        }
-    </div>
+            <div class="col-md-6">
+                <div class="albums__glass-pane">
+                    <img src=@albums[1].AlbumCoverUrl alt="Album Cover" width="111" height="111" />
+
+                    <a href="@albums[1].Url" target="_blank" rel="noopener noreferrer">
+                        <h3 style="flex-basis: 40px;">@albums[1].Title</h3>
+                    </a>
+                    <p class="small">@albums[1].Description</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="albums__glass-pane">
+                    <img src=@albums[2].AlbumCoverUrl alt="Album Cover" width="111" height="111" />
+
+                    <a href="@albums[2].Url" target="_blank" rel="noopener noreferrer">
+                        <h3 style="flex-basis: 40px;">@albums[2].Title</h3>
+                    </a>
+                    <p class="small">@albums[2].Description</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="albums__glass-pane">
+                    <img src=@albums[3].AlbumCoverUrl alt="Album Cover" width="111" height="111" />
+
+                    <a href="@albums[3].Url" target="_blank" rel="noopener noreferrer">
+                        <h3 style="flex-basis: 40px;">@albums[3].Title</h3>
+                    </a>
+                    <p class="small">@albums[3].Description</p>
+                </div>
+            </div>
+        </div>
+    }
+    
 </section>
 
 @code {
@@ -45,6 +72,6 @@
     protected override async Task OnInitializedAsync()
     {
         albums = await Http.GetFromJsonAsync<List<Album>>("sample-data/albums.json");
-        hero = await HeroImageService.GetHeroAsync(img => img.Name is "portfolio");
+        hero = await HeroImageService.GetHeroAsync(img => img.Name is "albums");
     }
 }

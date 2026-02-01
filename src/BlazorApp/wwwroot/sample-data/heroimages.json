@@ -7,7 +7,17 @@
   {
     "name": "about",
     "src": "images/artDecoBackground1.png",
-    "alt": "gray abstract background"
+    "alt": "blue abstract background"
+  },
+  {
+    "name": "albums",
+    "src": "images/artDecoBackground1.png",
+    "alt": "blue abstract background"
+  },
+  {
+    "name": "education",
+    "src": "images/artDecoBackground1.png",
+    "alt": "blue abstract background"
   },
   {
     "name": "portfolio",

@@ -1,69 +1,92 @@
 <section class="light" id="education">
-    <h2>Education</h2>
+    @if (hero is not null)
+    {
+        <img class="background" src="@(hero.Src)" alt="@(hero.Alt)" />
+    }
+    <h2 class="custom-mottled__header">Education</h2>
+    @if (musicalSheets is null)
+    {
+        <p>BLAH</p>
+    }
 
-    <h3 class="my-2">Teaching Experience</h3>
 
     <div class="row mt-2">
         <div class="col-md-6">
+            <div class="custom-glass-pane">
+                <h3 class="my-2">Teaching Experience</h3>
 
-            <p>
-                <strong>Private Instructor & Clinician</strong><br>
-                Chicago-area schools including Evanston middle schools, Sears School, Glenview, Glencoe, Winnetka, Chicago Academy for the Arts, Oswego HS, and Plank MS.
-            </p>
+                <p>
+                    <strong>Private Instructor & Clinician</strong><br>
+                    Chicago-area schools including Evanston middle schools, Sears School, Glenview, Glencoe, Winnetka, Chicago Academy for the Arts, Oswego HS, and Plank MS.
+                </p>
 
-            <ul>
-                <li>Private instruction in saxophone, clarinet, flute, jazz improvisation, and music theory</li>
-                <li>Customized lesson plans for students from beginner to advanced</li>
-                <li>Preparation for auditions, recitals, jazz ensemble placements, and honor bands</li>
-            </ul>
+                <ul>
+                    <li>Private instruction in saxophone, clarinet, flute, jazz improvisation, and music theory</li>
+                    <li>Customized lesson plans for students from beginner to advanced</li>
+                    <li>Preparation for auditions, recitals, jazz ensemble placements, and honor bands</li>
+                </ul>
+            </div>
         </div>
 
         <div class="col-md-6">
+            <div class="custom-glass-pane">
 
-            <p><strong>Guest Artist / Visiting Instructor</strong></p>
-            <ul>
-                <li>Princeton University</li>
-                <li>University of Michigan</li>
-                <li>Cornell University</li>
-                <li>Carnegie Mellon University</li>
-                <li>University of Pittsburgh</li>
-                <li>Lewis University</li>
-                <li>SUNY Fredonia</li>
-                <li>University of Minnesota</li>
-                <li>University of Nebraska</li>
-                <li>Haverford College</li>
-                <li>Elgin Community College</li>
-                <li>Francis Parker School</li>
-                <li>New Trier High School</li>
-                <li>Kennedy High School</li>
-            </ul>
+                <p><strong>Guest Artist / Visiting Instructor</strong></p>
+                <ul>
+                    <li>Princeton University</li>
+                    <li>University of Michigan</li>
+                    <li>Cornell University</li>
+                    <li>Carnegie Mellon University</li>
+                    <li>University of Pittsburgh</li>
+                    <li>Lewis University</li>
+                    <li>SUNY Fredonia</li>
+                    <li>University of Minnesota</li>
+                    <li>University of Nebraska</li>
+                    <li>Haverford College</li>
+                    <li>Elgin Community College</li>
+                    <li>Francis Parker School</li>
+                    <li>New Trier High School</li>
+                    <li>Kennedy High School</li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <p><strong>New Trier High School</strong></p>
-    <ul>
-        <li>Freshman Jazz Ensemble Assistant (2005–2008)</li>
-        <li>Jazz Improvisation Instructor (2003–2008)</li>
-        <li>Saxophone Instructor (2007–2011)</li>
-    </ul>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="custom-glass-pane">
+                <p><strong>New Trier High School</strong></p>
+                <ul>
+                    <li>Freshman Jazz Ensemble Assistant (2005–2008)</li>
+                    <li>Jazz Improvisation Instructor (2003–2008)</li>
+                    <li>Saxophone Instructor (2007–2011)</li>
+                </ul>
 
-    <p><strong>Lake Forest Country Day School</strong> — Band Director (Fall 2012)</p>
+                <p><strong>Lake Forest Country Day School</strong> — Band Director (Fall 2012)</p>
 
-    <p><strong>Professional Affiliations</strong></p>
-    <ul>
-        <li>Member, International Association of Jazz Educators (since 2005)</li>
-        <li>Endorsed by Selmer Saxophones</li>
-    </ul>
+                <p><strong>Professional Affiliations</strong></p>
+                <ul>
+                    <li>Member, International Association of Jazz Educators (since 2005)</li>
+                    <li>Endorsed by Selmer Saxophones</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="custom-glass-pane">
+                <h4>Education</h4>
+                <ul>
+                    <li><strong>New England Conservatory</strong> — Bachelor of Music, Jazz Performance (1997–2002)</li>
+                    <li><strong>BS in Chemistry</strong> (1997–2002)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </section>
 
 
 
 <section>
-    <h4>Education</h4>
-    <ul>
-        <li><strong>New England Conservatory</strong> — Bachelor of Music, Jazz Performance (1997–2002)</li>
-        <li><strong>BS in Chemistry</strong> (1997–2002)</li>
-    </ul>
+    
 </section>
 
 <section>
@@ -122,7 +145,7 @@
     protected override async Task OnInitializedAsync()
     {
         musicalSheets = await Http.GetFromJsonAsync<List<SheetMusic>>("sample-data/sheetmusic.json");
-        hero = await HeroImageService.GetHeroAsync(img => img.Name is "portfolio");
+        hero = await HeroImageService.GetHeroAsync(img => img.Name is "education");
 
         SheetMusics = new List<SheetMusic>
         {
@@ -131,8 +154,6 @@
             new SheetMusic { Id = 3, Title = "Clair de Lune", URL = "Claude Debussy" }
         };
     }
-
-
 }
 
 

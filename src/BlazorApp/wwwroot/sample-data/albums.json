@@ -1,41 +1,15 @@
 [
   {
     "title": "Better Than TV",
-    "albumcoverurl": "",
+    "albumcoverurl": "https://aentcdn2.azureedge.net/graphics/items/sdimages/c/500/7/7/7/7/2367777.jpg",
     "description": "2014 debut from the Jazz musician. Doug Rosenberg is a member of the new generation of jazz musicians composing and improvising music for the next century. The Chicago Tribune hails his 'fearlessness of spirit and a robustness of tone that seem likely to win him a devoted following in coming years.' Rosenberg's work on saxophone has an instantly recognizable sound and personal melodic language. He is best known for his work with Eastern Blok and Goran Ivanovic. Doug Rosenberg has also collaborated with great musicians like Sam Barsh, Maurice Brown, Kelan Phil Cohran, Robert Glasper, Robert Baabe Irving III, Rakalam Bob Moses, and Kendrick Scott.",
-    "url": "hhttps://m.media-amazon.com/images/I/61axTtdVH5L._SX522_.jpg",
-    "reviews": [
-      {
-        "author": "Chicago Tribune",
-        "content": "fearlessness of spirit and a robustness of tone that seem likely to win him a devoted following in coming years."
-      }
-    ]
+    "url": "hhttps://m.media-amazon.com/images/I/61axTtdVH5L._SX522_.jpg"
   },
   {
     "title": "Goran Ivanovic Group",
-    "albumcoverurl": "",
+    "albumcoverurl": "https://m.media-amazon.com/images/I/91RRL35Aa2L._SX522_.jpg",
     "description": "The Goran Ivanovic Group delivers a captivating fusion of traditional Balkan music and acoustic jazz with classical compositional integrity and a harmonic language that is both accessible to the mainstream jazz audience while bringing in substantial portions of the zesty, odd-metered rhythms and the vivid melodic embellishments of Eastern European folk music. Mixing both traditional and jazz instrumentation, adapting both styles to one another so that the conversation between genres is two-sided, their music is imbued with great energy and direction, revealing that the conversation going on is not only between styles, genres and cultures but between the instrumentalists and the audience and most importantly, between the heart and the mind. --CD Baby - Tamara Turner",
-    "url": "https://m.media-amazon.com/images/I/51jcYvvdD+L._SX300_SY300_QL70_FMwebp_.jpg",
-    "reviews": [
-      {
-        "author": "Amazon - Emily Covington",
-        "header": "Highly Recommend",
-        "rating": 5,
-        "content": "TThis album is great for anyone to enjoy. It has a lot of thoughtful and inspiring melodies and helps me to relax."
-      },
-      {
-        "author": "Amazon - Ellen Falbowski",
-        "header": "Wonderful Music",
-        "rating": 5,
-        "content": "I heard the Goran Ivanovic Group perform in Connecticut in September 2006, and it was one of the highlights of my year. Listen to some of the selections on this page, then buy the album and REALLY listen."
-      },
-      {
-        "author": "Amazon- Somebody of no consequence",
-        "header": "The best of Balkan jazz",
-        "rating": 5,
-        "content": "I'll admit, it took me too long to come around to this particular album. All things considered, it shouldn't. Once upon a time, a landmark album hit the acoustic guitar world-- Vlakto Stefanovski & Miroslav Tadic's Krushevo. It knocked the socks off of a lot of people with the fiery playing, Balkan/Macedonian melodies and unique blending of styles that came from Stefanovski, who was mainly a fusion guitarist famous in some circles from Leb i So, and Tadic, who can play classical, nylon string jazz, or whatever other weirdness he wants. (He teaches at Cal Arts.) After Krushevo, I went searching for Macedonian guitar music, which led to Goran Ivanovic's collaborations with Fareed Haque, and those are just amazing. Deeper into jazz than the Stefanovski/Tadic collaborations, and differently satisfying. When I first listened to The Goran Ivanovic Group, though, something about it didn't work for me. The horn. Balkan folk music is often based around horns, but I was looking for the guitar, like with Krushevo. Horns? Sure. Love 'em. But, it just didn't work for me. So, I put it aside. It took a while for me to appreciate this album and get the more nuanced blending of jazz arrangements with Balkan stylings. Upon long reflection, and later listening, I really get it. Yes, the horn is important. That's not to say that the Ivanovic/Haque albums aren't still revelatory. They are. However, the horn really is key here. Douglas Rosenberg's saxophone has a softer tone than I generally like with my horns, and that was sort of what put me off this album originally, but coming back to it now, I hear how it connects with folk melodies. And that, along with Ivanovic's guitar, makes for an album that blends jazz improvisations with something that really is more like traditional Balkan folk in a way that I can appreciate, after long consideration. This won't be the Ivanovic album for everyone. It isn't the one that showcases his picking skills most clearly, but that's the point. If you just want to hear flashy guitar work, he does that with Haque, or with Andreas Kapsalis. This album, though, really does reward close listening. It helps to listen to some horn-based Balkan music, though, to appreciate the roots."
-      }
-    ]
+    "url": "https://m.media-amazon.com/images/I/51jcYvvdD+L._SX300_SY300_QL70_FMwebp_.jpg"
   },
   {
     "title": "Underwater",
@@ -47,15 +21,8 @@
   {
     "title": "Folk Tales",
     "albumcoverurl": "https://m.media-amazon.com/images/I/71oonD4d3qL._SL1000_.jpg",
-    "reviews": [
-      {
-        "author": "Amazon - George Ceffalio",
-        "header": "WOW!",
-        "rating": 5,
-        "content": "This music will bowl you over. If you are into instrumental music, pick this up. The flamenco guitar work along with phenomenal back up is pure pleasure for the ears."
-      }
-    ],
-      "description":"Eastern Blok s sophomore release, Folk Tales, features compositions that juxtapose a somber and serious sound with a lively and elusive beat. The group features classical guitar virtuoso Goran Ivanovic, who teamed up with Doug Rosenberg on saxophone and flute, Matthew Ulery on bass, and Michael Caskey, a five-time Detroit Music Award and Downbeat Magazine Award winner, on drums.",
-      "url" : "https://www.amazon.com/Folk-Tales-Eastern-Blok/dp/B000UE61NG"
+
+    "description": "Eastern Blok s sophomore release, Folk Tales, features compositions that juxtapose a somber and serious sound with a lively and elusive beat. The group features classical guitar virtuoso Goran Ivanovic, who teamed up with Doug Rosenberg on saxophone and flute, Matthew Ulery on bass, and Michael Caskey, a five-time Detroit Music Award and Downbeat Magazine Award winner, on drums.",
+    "url": "https://www.amazon.com/Folk-Tales-Eastern-Blok/dp/B000UE61NG"
   }
 ]
