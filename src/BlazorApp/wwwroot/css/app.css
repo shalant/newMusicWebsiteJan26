@@ -243,33 +243,35 @@ img.social-icon {
 
 
 .transparent-nav {
-    background-color: rgba(42, 42, 42, 0.4) !important;
+    background-color: var(--nav-bg) !important;
     padding-top: 1rem;
     z-index: 10;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-bottom: 2px solid var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
     .transparent-nav a {
-        color: var(--text-primary);
-        transition: all 0.4s ease-in-out;
+        color: var(--nav-text);
+        transition: all 0.3s ease-in-out;
+        font-weight: 500;
     }
         .transparent-nav a:hover {
             color: var(--accent-color);
         }
 
     .nav-link {
-        color: var(--text-primary) !important;
-        font-weight: 500;
+        color: var(--nav-text) !important;
+        font-weight: 600;
         letter-spacing: 1px;
         font-size: 0.9rem;
         margin-left: 1rem;
         text-transform: uppercase;
+        transition: color 0.3s ease;
     }
 
         .nav-link:hover {
             color: var(--accent-color) !important;
-            text-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
     /* 2. Hero Wrapper & Image */
     .hero-wrapper {
@@ -399,27 +401,29 @@ img.social-icon {
 }
 
 .custom-glass-pane {
-    background-color: rgba(37, 37, 37, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--surface-color);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-color);
     width: 65%;
     padding: 4rem;
     margin: 3rem auto;
     text-align: center;
     border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    color: var(--text-primary);
 }
 
 .albums__glass-pane {
-    background-color: rgba(37, 37, 37, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--surface-color);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-color);
     width: 90%;
     padding: 2rem;
     margin: 3rem auto;
     text-align: center;
     border-radius: 8px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    color: var(--text-primary);
 }
 
 .albums__glass-pane img {
