@@ -8,10 +8,11 @@
 }
 
 .sheet-music-selector {
-    background-color: rgba(250, 250, 250, 0.9);
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
     padding: 2rem 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     max-height: 600px;
     overflow-y: auto;
 }
@@ -20,7 +21,7 @@
     margin-top: 0;
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .sheet-music-list {
@@ -31,10 +32,10 @@
 
 .sheet-music-item {
     padding: 0.75rem 1rem;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
-    background-color: white;
-    color: #333;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -53,10 +54,11 @@
 }
 
 .sheet-music-display {
-    background-color: rgba(250, 250, 250, 0.9);
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     min-height: 600px;
 }
 
@@ -72,13 +74,13 @@
     align-items: center;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .pdf-controls h4 {
     margin: 0;
     font-size: 1.25rem;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .pdf-link {
@@ -99,8 +101,9 @@
     flex: 1;
     width: 100%;
     min-height: 600px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
+    background-color: var(--bg-primary);
 }
 
 .pdf-viewer-empty {
@@ -108,7 +111,7 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    color: #999;
+    color: var(--text-secondary);
     font-size: 1.1rem;
 }
 

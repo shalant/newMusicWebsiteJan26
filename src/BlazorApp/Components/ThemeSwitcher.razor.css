@@ -1,0 +1,122 @@
+.theme-switcher {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.theme-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    background-color: var(--surface-color);
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.theme-menu {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    min-width: 280px;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.theme-menu-header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.theme-menu-header h4 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.theme-list {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.theme-option {
+    padding: 1rem;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.theme-option:last-child {
+    border-bottom: none;
+}
+
+.theme-option:hover {
+    background-color: var(--hover-color);
+}
+
+.theme-option.active {
+    background-color: var(--accent-color);
+}
+
+.theme-option.active .theme-name {
+    color: white;
+}
+
+.theme-option.active .theme-description {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.theme-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.theme-description {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+    .theme-switcher {
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    .theme-toggle {
+        width: 44px;
+        height: 44px;
+        font-size: 1.25rem;
+    }
+}

@@ -3,6 +3,7 @@
 */
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@200;400;600;800&display=swap");
+@import url("css/themes.css");
 
 html,
 body {
@@ -11,6 +12,8 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Montserrat", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 html {
@@ -28,12 +31,12 @@ section {
 
     section.dark {
     min-height: 100vh;
-    background: rgba(0, 0, 0, 0.25);
+    background: var(--bg-secondary);
 }
 
 section.light {
-    color: black;
-    background: src(/images/artDecoBackground1.png);
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
     padding: 8rem 0;
 }
 
@@ -124,11 +127,11 @@ li::marker {
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--text-primary);
 }
 
 a:hover {
-  color: #4e567e;
+  color: var(--accent-color);
 }
 
 .portfolio-container {
@@ -240,22 +243,23 @@ img.social-icon {
 
 
 .transparent-nav {
-    background-color: rgba(78, 86, 149, 0.3) !important;
+    background-color: rgba(42, 42, 42, 0.4) !important;
     padding-top: 1rem;
     z-index: 10;
     backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
     .transparent-nav a {
-        color: #e0e0e0 ;
+        color: var(--text-primary);
         transition: all 0.4s ease-in-out;
     }
         .transparent-nav a:hover {
-            color: rgba(255, 215, 150, 0.9);
+            color: var(--accent-color);
         }
 
     .nav-link {
-        color: #e0e0e0 !important;
+        color: var(--text-primary) !important;
         font-weight: 500;
         letter-spacing: 1px;
         font-size: 0.9rem;
@@ -264,8 +268,8 @@ img.social-icon {
     }
 
         .nav-link:hover {
-            color: #ffffff !important;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            color: var(--accent-color) !important;
+            text-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
     /* 2. Hero Wrapper & Image */
     .hero-wrapper {
@@ -288,8 +292,7 @@ img.social-icon {
         filter: grayscale(40%) contrast(1.1);
         z-index: 0;
     }
-    /* 3. The Overlay - Warm Semi-transparent Tint */
-    /* Creates a warm, elegant overlay that unifies the hero with the rest of the site */
+    /* 3. The Overlay - Theme-specific tint */
     .hero-overlay {
         position: absolute;
         top: 0;
@@ -297,7 +300,7 @@ img.social-icon {
         width: 100%;
         height: 100%;
         z-index: 1;
-        background: radial-gradient(circle at center, rgba(101, 67, 33, 0.35) 0%, rgba(60, 40, 20, 0.7) 90%);
+        background: var(--hero-overlay);
     }
     /* 4. Content Styling */
     .hero-content {
@@ -340,8 +343,8 @@ img.social-icon {
     }
     /* 5. Custom 'Ghost' Button */
     .custom-cta-btn {
-        background-color: rgba(210, 170, 120, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        background-color: var(--accent-color);
+        border: 1px solid var(--accent-light);
         color: white;
         padding: 12px 32px;
         font-size: 0.9rem;
@@ -349,12 +352,14 @@ img.social-icon {
         letter-spacing: 1px;
         cursor: pointer;
         transition: all 0.3s ease;
-        border-radius: 2px;
+        border-radius: 4px;
+        opacity: 0.8;
     }
 
         .custom-cta-btn:hover {
-            background-color: rgba(230, 190, 140, 0.8);
-            border-color: rgba(255, 255, 255, 0.9);
+            background-color: var(--accent-light);
+            border-color: white;
+            opacity: 1;
         }
     /* Mobile Responsiveness */
     @media (max-width: 600px) {
@@ -368,7 +373,7 @@ img.social-icon {
     }
 
 .custom-hero h1 {
-    background: linear-gradient(108deg, rgba(255, 215, 150, 1), rgba(255, 235, 205, 1), rgba(210, 170, 120, 0.9));
+    background: linear-gradient(108deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
     background-clip: text;
     background-size: 200% 100%;
     color: transparent;
@@ -376,7 +381,7 @@ img.social-icon {
 }
 
 .custom-hero h2 {
-    background: linear-gradient(208deg, rgba(255, 215, 150, 1), rgba(255, 235, 205, 1), rgba(210, 170, 120, 0.9));
+    background: linear-gradient(208deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
     background-clip: text;
     background-size: 200% 100%;
     color: transparent;
@@ -394,23 +399,27 @@ img.social-icon {
 }
 
 .custom-glass-pane {
-    background-color: rgba(250,250,250,0.7);
-    backdrop-filter: blur(5px);
+    background-color: rgba(37, 37, 37, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     width: 65%;
     padding: 4rem;
     margin: 3rem auto;
     text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .albums__glass-pane {
-    background-color: rgba(250,250,250,0.7);
-    backdrop-filter: blur(5px);
+    background-color: rgba(37, 37, 37, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     width: 90%;
     padding: 2rem;
     margin: 3rem auto;
     text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .albums__glass-pane img {
@@ -419,7 +428,7 @@ img.social-icon {
 }
 
 .custom-mottled__header {
-    background: linear-gradient(to right, rgba(210, 170, 120, 1), rgba(230, 190, 140, 1), rgba(250, 210, 160, 1));
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
     background-clip: text;
     background-size: 200% 100%;
     color: transparent;

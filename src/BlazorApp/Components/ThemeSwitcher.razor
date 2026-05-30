@@ -1,0 +1,53 @@
+<div class="theme-switcher">
+    <button class="theme-toggle" @onclick="ToggleMenu" title="Change theme">
+        <span class="theme-icon">🎨</span>
+    </button>
+
+    @if (showMenu)
+    {
+        <div class="theme-menu">
+            <div class="theme-menu-header">
+                <h4>Choose Theme</h4>
+            </div>
+            <div class="theme-list">
+                @foreach (var theme in ThemeService.AvailableThemes)
+                {
+                    <button class="theme-option @(currentTheme == theme.Id ? "active" : "")"
+                            @onclick="() => SelectTheme(theme.Id)">
+                        <div class="theme-name">@theme.Name</div>
+                        <div class="theme-description">@theme.Description</div>
+                    </button>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Inject]
+    public required ThemeService ThemeService { get; set; }
+
+    [Inject]
+    public required IJSRuntime JS { get; set; }
+
+    private bool showMenu;
+    private string currentTheme = "dark";
+
+    protected override async Task OnInitializedAsync()
+    {
+        currentTheme = await JS.InvokeAsync<string>("window.initializeTheme");
+    }
+
+    private void ToggleMenu()
+    {
+        showMenu = !showMenu;
+    }
+
+    private async Task SelectTheme(string themeId)
+    {
+        currentTheme = themeId;
+        await JS.InvokeVoidAsync("window.applyTheme", themeId);
+        showMenu = false;
+        StateHasChanged();
+    }
+}

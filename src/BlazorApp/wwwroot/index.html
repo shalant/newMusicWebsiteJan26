@@ -27,6 +27,13 @@
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="BlazorApp.styles.css" rel="stylesheet" />
+    <script type="module">
+        import { initializeTheme, applyTheme, getStoredTheme } from './js/theme.js';
+        window.initializeTheme = initializeTheme;
+        window.applyTheme = applyTheme;
+        window.getStoredTheme = getStoredTheme;
+        initializeTheme();
+    </script>
 </head>
 
 <body>

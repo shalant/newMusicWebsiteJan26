@@ -1,0 +1,125 @@
+/* CSS Variables for Theming */
+:root {
+    /* Light backgrounds for light mode - will be overridden by themes */
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --surface-color: #242424;
+    --text-primary: #e8e8e8;
+    --text-secondary: #a8a8a8;
+    --accent-color: #d4a574;
+    --accent-light: #e6b896;
+    --border-color: #404040;
+    --hover-color: #363636;
+}
+
+/* Dark Modern Theme (Default) */
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --surface-color: #242424;
+    --text-primary: #e8e8e8;
+    --text-secondary: #a8a8a8;
+    --accent-color: #d4a574;
+    --accent-light: #e6b896;
+    --border-color: #404040;
+    --hover-color: #363636;
+    --hero-overlay: radial-gradient(circle at center, rgba(80, 50, 20, 0.5) 0%, rgba(40, 25, 10, 0.8) 90%);
+    --gradient-start: #d4a574;
+    --gradient-mid: #e6b896;
+    --gradient-end: #c49560;
+}
+
+/* Midnight Theme - Pure black with neon */
+[data-theme="midnight"] {
+    --bg-primary: #000000;
+    --bg-secondary: #0a0a0a;
+    --surface-color: #111111;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --accent-color: #00ff88;
+    --accent-light: #00ff99;
+    --border-color: #222222;
+    --hover-color: #1a1a1a;
+    --hero-overlay: radial-gradient(circle at center, rgba(0, 30, 15, 0.6) 0%, rgba(0, 10, 5, 0.85) 90%);
+    --gradient-start: #00ff88;
+    --gradient-mid: #00ff99;
+    --gradient-end: #00dd77;
+}
+
+/* Warm Retro Theme */
+[data-theme="warm"] {
+    --bg-primary: #2a1a0f;
+    --bg-secondary: #3d2817;
+    --surface-color: #4a3426;
+    --text-primary: #f5e6d3;
+    --text-secondary: #d4a574;
+    --accent-color: #f4a460;
+    --accent-light: #f5b880;
+    --border-color: #5a4936;
+    --hover-color: #5a4428;
+    --hero-overlay: radial-gradient(circle at center, rgba(100, 60, 20, 0.5) 0%, rgba(50, 30, 10, 0.8) 90%);
+    --gradient-start: #f4a460;
+    --gradient-mid: #f5b880;
+    --gradient-end: #e89450;
+}
+
+/* Minimal Theme - Clean grayscale */
+[data-theme="minimal"] {
+    --bg-primary: #fafafa;
+    --bg-secondary: #f0f0f0;
+    --surface-color: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --accent-color: #333333;
+    --accent-light: #555555;
+    --border-color: #e0e0e0;
+    --hover-color: #f5f5f5;
+    --hero-overlay: radial-gradient(circle at center, rgba(100, 100, 100, 0.3) 0%, rgba(60, 60, 60, 0.6) 90%);
+    --gradient-start: #333333;
+    --gradient-mid: #555555;
+    --gradient-end: #222222;
+}
+
+/* Ocean Theme - Deep blues */
+[data-theme="ocean"] {
+    --bg-primary: #0a1628;
+    --bg-secondary: #132a52;
+    --surface-color: #1a3a66;
+    --text-primary: #e0f0ff;
+    --text-secondary: #8eb3d4;
+    --accent-color: #4db8ff;
+    --accent-light: #66c2ff;
+    --border-color: #2a4a7a;
+    --hover-color: #2a4470;
+    --hero-overlay: radial-gradient(circle at center, rgba(10, 50, 100, 0.5) 0%, rgba(5, 25, 50, 0.8) 90%);
+    --gradient-start: #4db8ff;
+    --gradient-mid: #66c2ff;
+    --gradient-end: #3aabff;
+}
+
+/* Forest Theme - Earth tones */
+[data-theme="forest"] {
+    --bg-primary: #1a2a1a;
+    --bg-secondary: #263d26;
+    --surface-color: #2f4a2f;
+    --text-primary: #d4e8d4;
+    --text-secondary: #8ab88a;
+    --accent-color: #7ccc7c;
+    --accent-light: #99dd99;
+    --border-color: #3f5a3f;
+    --hover-color: #3f523f;
+    --hero-overlay: radial-gradient(circle at center, rgba(40, 70, 40, 0.5) 0%, rgba(20, 35, 20, 0.8) 90%);
+    --gradient-start: #7ccc7c;
+    --gradient-mid: #99dd99;
+    --gradient-end: #66bb66;
+}
+
+/* Apply theme variables to elements */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+html, body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

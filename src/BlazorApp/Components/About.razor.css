@@ -1,0 +1,13 @@
+.skills-list {
+    text-align: left;
+    columns: 2;
+    font-size: 1.25rem;
+    margin: 2rem 3rem;
+    gap: 3rem;
+    color: var(--text-primary);
+}
+
+.detail-quote {
+    padding: 1rem 3rem 0;
+    color: var(--text-primary);
+}
