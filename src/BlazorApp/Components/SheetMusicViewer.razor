@@ -25,11 +25,11 @@
             <div class="pdf-viewer">
                 <div class="pdf-controls">
                     <h4>@selectedMusic.Title</h4>
-                    <a href="/sheetmusic/@selectedMusic.Url" target="_blank" rel="noopener noreferrer" class="pdf-link">
+                    <a href="/sheetmusic/@selectedMusic.URL" target="_blank" rel="noopener noreferrer" class="pdf-link">
                         Open PDF in New Tab
                     </a>
                 </div>
-                <iframe src="/sheetmusic/@selectedMusic.Url" type="application/pdf" class="pdf-frame"></iframe>
+                <iframe src="/sheetmusic/@selectedMusic.URL" type="application/pdf" class="pdf-frame"></iframe>
             </div>
         }
         else if (sheetMusic is not null && sheetMusic.Count > 0)
