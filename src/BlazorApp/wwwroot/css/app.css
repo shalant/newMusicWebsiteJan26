@@ -251,7 +251,7 @@ img.social-icon {
         transition: all 0.4s ease-in-out;
     }
         .transparent-nav a:hover {
-            color: rgba(12, 158, 178,0.7);
+            color: rgba(255, 215, 150, 0.9);
         }
 
     .nav-link {
@@ -288,8 +288,8 @@ img.social-icon {
         filter: grayscale(40%) contrast(1.1);
         z-index: 0;
     }
-    /* 3. The Purple Fog Overlay */
-    /* This creates the dark purple tint over the image */
+    /* 3. The Overlay - Warm Semi-transparent Tint */
+    /* Creates a warm, elegant overlay that unifies the hero with the rest of the site */
     .hero-overlay {
         position: absolute;
         top: 0;
@@ -297,7 +297,7 @@ img.social-icon {
         width: 100%;
         height: 100%;
         z-index: 1;
-        background: radial-gradient(circle at center, rgba(46, 26, 71, 0.4) 0%, rgba(18, 10, 30, 0.95) 90%);
+        background: radial-gradient(circle at center, rgba(101, 67, 33, 0.35) 0%, rgba(60, 40, 20, 0.7) 90%);
     }
     /* 4. Content Styling */
     .hero-content {
@@ -340,8 +340,8 @@ img.social-icon {
     }
     /* 5. Custom 'Ghost' Button */
     .custom-cta-btn {
-        background-color: rgba(73, 56, 107, 0.5); /* Semi-transparent purple */
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        background-color: rgba(210, 170, 120, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.4);
         color: white;
         padding: 12px 32px;
         font-size: 0.9rem;
@@ -353,8 +353,8 @@ img.social-icon {
     }
 
         .custom-cta-btn:hover {
-            background-color: rgba(99, 76, 145, 0.7);
-            border-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(230, 190, 140, 0.8);
+            border-color: rgba(255, 255, 255, 0.9);
         }
     /* Mobile Responsiveness */
     @media (max-width: 600px) {
@@ -368,22 +368,18 @@ img.social-icon {
     }
 
 .custom-hero h1 {
-    background: linear-gradient(108deg, rgba(180,210,235,1), rgba(220,235,245,1), rgba(12, 158, 178,0.7));
+    background: linear-gradient(108deg, rgba(255, 215, 150, 1), rgba(255, 235, 205, 1), rgba(210, 170, 120, 0.9));
     background-clip: text;
-    background-size: 200% 100%; /* Make the background wider than the text */
-
+    background-size: 200% 100%;
     color: transparent;
-    /* Apply the animation */
     animation: hero__animation 10s linear infinite;
 }
 
 .custom-hero h2 {
-    background: linear-gradient(208deg, rgba(180,210,235,1), rgba(220,235,245,1), rgba(12, 158, 178,0.7));
+    background: linear-gradient(208deg, rgba(255, 215, 150, 1), rgba(255, 235, 205, 1), rgba(210, 170, 120, 0.9));
     background-clip: text;
-    background-size: 200% 100%; /* Make the background wider than the text */
-
+    background-size: 200% 100%;
     color: transparent;
-    /* Apply the animation */
     animation: hero__animation 10s linear infinite;
 }
 
@@ -423,12 +419,10 @@ img.social-icon {
 }
 
 .custom-mottled__header {
-    background: linear-gradient(to right, rgba(180,210,235,1), rgba(220,235,245,1));
+    background: linear-gradient(to right, rgba(210, 170, 120, 1), rgba(230, 190, 140, 1), rgba(250, 210, 160, 1));
     background-clip: text;
-    background-size: 200% 100%; /* Make the background wider than the text */
-
+    background-size: 200% 100%;
     color: transparent;
-    /* Apply the animation */
     animation: blue-mottled__animation 10s linear infinite;
 }
 

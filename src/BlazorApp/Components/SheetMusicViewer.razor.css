@@ -1,0 +1,134 @@
+.sheet-music-viewer {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.sheet-music-selector {
+    background-color: rgba(250, 250, 250, 0.9);
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.sheet-music-selector h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.sheet-music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sheet-music-item {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.sheet-music-item:hover {
+    background-color: #f5f5f5;
+    border-color: #d2aa78;
+}
+
+.sheet-music-item.active {
+    background-color: #d2aa78;
+    color: white;
+    border-color: #d2aa78;
+}
+
+.sheet-music-display {
+    background-color: rgba(250, 250, 250, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 600px;
+}
+
+.pdf-viewer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pdf-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.pdf-controls h4 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.pdf-link {
+    padding: 0.5rem 1rem;
+    background-color: #d2aa78;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.pdf-link:hover {
+    background-color: #b8935f;
+}
+
+.pdf-frame {
+    flex: 1;
+    width: 100%;
+    min-height: 600px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.pdf-viewer-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #999;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .sheet-music-viewer {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .sheet-music-selector {
+        max-height: 300px;
+    }
+
+    .pdf-frame {
+        min-height: 400px;
+    }
+
+    .pdf-controls {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+}

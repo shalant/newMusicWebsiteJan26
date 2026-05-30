@@ -3,12 +3,7 @@
     {
         <img class="background" src="@(hero.Src)" alt="@(hero.Alt)" />
     }
-    <h2 class="custom-mottled__header">Education</h2>
-    @if (musicalSheets is null)
-    {
-        <p>BLAH</p>
-    }
-
+    <h2 class="custom-mottled__header">Education & Experience</h2>
 
     <div class="row mt-2">
         <div class="col-md-6">
@@ -83,80 +78,25 @@
     </div>
 </section>
 
-
-
-<section>
-    
-</section>
-
-<section>
-    <div style="background-color: white; width: 50%; padding: 4rem; margin: 3rem auto; text-align: center;">
-        @* <div style="width: 33%;align-items:center;"> *@
-        @if (musicalSheets is null)
-        {
-            <p><em>Loading...</em></p>
-        }
-        else
-        {
-            <select @onchange="OnChange">
-                <option value="">Peruse sheet music</option>
-                @foreach (var option in musicalSheets)
-                {
-                    <option value="@option.Id">@option.Title</option>
-                }
-            </select>
-        }
-    </div>
+<section class="light" id="sheet-music">
+    <h2 class="custom-mottled__header">Sheet Music Library</h2>
+    <SheetMusicViewer Http="Http" />
 </section>
 
 @code {
-    [Inject]
-    NavigationManager NavigationManager { get; set; } = default!;
-
     [Parameter, EditorRequired]
     public required HttpClient Http { get; set; }
 
     [Parameter, EditorRequired]
     public required HeroImageService HeroImageService { get; set; }
 
-    private int SongValue { get; set; } = 0;
-
-    private List<SheetMusic>? musicalSheets;
     private HeroImage? hero;
-
-    public string SelectedSheetMusicString { get; set; } = "test";
-    public SheetMusic? SelectedSheetMusic { get; set; }
-    public int? SelectedSheetMusicId { get; set; }
-    public List<SheetMusic> SheetMusics { get; set; } = new List<SheetMusic>();
-
-    private int selectedId;
-    private void OnChange(ChangeEventArgs e)
-    {
-        if (musicalSheets is not null)
-        {
-            // Get the selected option ID
-            selectedId = int.Parse(e.Value.ToString());
-            Console.WriteLine($"Selected ID: {selectedId}");
-            var hyperlink = musicalSheets.FirstOrDefault(f => f.Id == selectedId)?.URL;
-            NavigationManager.NavigateTo($"/sheetmusic/{hyperlink}");
-        }
-    }
 
     protected override async Task OnInitializedAsync()
     {
-        musicalSheets = await Http.GetFromJsonAsync<List<SheetMusic>>("sample-data/sheetmusic.json");
         hero = await HeroImageService.GetHeroAsync(img => img.Name is "education");
-
-        SheetMusics = new List<SheetMusic>
-        {
-            new SheetMusic { Id = 1, Title = "Fur Elise", URL = "Ludwig van Beethoven" },
-            new SheetMusic { Id = 2, Title = "Moonlight Sonata", URL = "Ludwig van Beethoven" },
-            new SheetMusic { Id = 3, Title = "Clair de Lune", URL = "Claude Debussy" }
-        };
     }
 }
-
-
 
 
 @* rando mudselect code

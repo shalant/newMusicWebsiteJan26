@@ -1,0 +1,62 @@
+<div class="sheet-music-viewer">
+    <div class="sheet-music-selector">
+        <h3>Sheet Music Library</h3>
+        @if (sheetMusic is null || sheetMusic.Count == 0)
+        {
+            <p>Loading sheet music...</p>
+        }
+        else
+        {
+            <div class="sheet-music-list">
+                @foreach (var piece in sheetMusic)
+                {
+                    <button class="sheet-music-item @(selectedId == piece.Id ? "active" : "")" 
+                            @onclick="() => SelectSheetMusic(piece)">
+                        @piece.Title
+                    </button>
+                }
+            </div>
+        }
+    </div>
+
+    <div class="sheet-music-display">
+        @if (selectedMusic is not null)
+        {
+            <div class="pdf-viewer">
+                <div class="pdf-controls">
+                    <h4>@selectedMusic.Title</h4>
+                    <a href="/sheetmusic/@selectedMusic.Url" target="_blank" rel="noopener noreferrer" class="pdf-link">
+                        Open PDF in New Tab
+                    </a>
+                </div>
+                <iframe src="/sheetmusic/@selectedMusic.Url" type="application/pdf" class="pdf-frame"></iframe>
+            </div>
+        }
+        else if (sheetMusic is not null && sheetMusic.Count > 0)
+        {
+            <div class="pdf-viewer-empty">
+                <p>Select a piece from the list to view</p>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public required HttpClient Http { get; set; }
+
+    private List<SheetMusic>? sheetMusic;
+    private SheetMusic? selectedMusic;
+    private int selectedId;
+
+    protected override async Task OnInitializedAsync()
+    {
+        sheetMusic = await Http.GetFromJsonAsync<List<SheetMusic>>("sample-data/sheetmusic.json");
+    }
+
+    private void SelectSheetMusic(SheetMusic piece)
+    {
+        selectedMusic = piece;
+        selectedId = piece.Id;
+    }
+}
