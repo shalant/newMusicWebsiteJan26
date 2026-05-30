@@ -27,17 +27,14 @@ section {
 }
 
     section.dark {
-        min-height: 100vh;
-        /*color: white;*/
-        /*color: rgba(12, 158, 178,0.7);*/
-        background: rgba(0, 0, 0, 0.25);
-    }
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.25);
+}
 
 section.light {
-  color: black;
-  /*background: rgba(255, 255, 255, 0.35);*/
-  background: src(/images/artDecoBackground1.png);
-  padding: 8rem 0;
+    color: black;
+    background: src(/images/artDecoBackground1.png);
+    padding: 8rem 0;
 }
 
 section img.background {
@@ -54,7 +51,6 @@ section img.background {
 
 h1 {
     font-weight: 300;
-    /*font-family: "Cormorant Garamond", serif;*/
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 7rem;
     margin: 0;
@@ -243,12 +239,8 @@ img.social-icon {
     }
 
 
-/* 1. Transparent Navbar */
 .transparent-nav {
-    /*background-color: transparent !important;*/
     background-color: rgba(78, 86, 149, 0.3) !important;
-    /*background-color: #4e567e;*/
-
     padding-top: 1rem;
     z-index: 10;
     backdrop-filter: blur(10px);
@@ -477,10 +469,44 @@ img.social-icon {
 }
 @keyframes hero__animation {
     0% {
-        background-position: 70% 10%; /* Start position */
+        background-position: 70% 10%;
     }
 
     100% {
-        background-position: 90% 90%; /* End position, moves across the wider background */
+        background-position: 90% 90%;
     }
+}
+
+.album__title {
+    flex-basis: 40px;
+}
+
+.scroll-anchor {
+    position: absolute;
+    bottom: 8rem;
+    left: 50%;
+}
+
+.scroll-anchor__img {
+    height: 3rem;
+    width: 3rem;
+}
+
+#contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.contact__loading,
+.contact__icons {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+.contact__footer {
+    margin-top: 0;
+    color: white;
 }

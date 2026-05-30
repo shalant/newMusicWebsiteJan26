@@ -3,8 +3,7 @@
     {
         <img class="background hero-image hero-overlay" src="@(hero.Src)" alt="@(hero.Alt)" />
     }
-    @* <div style="position: absolute; top: 30%; left: 2rem;"> *@
-    <div class="custom-hero" >
+    <div class="custom-hero">
         @if (property is null)
         {
             <p><em>Loading...</em></p>
@@ -15,9 +14,9 @@
             <h2>@property.Title</h2>
         }
     </div>
-    <div style="position: absolute; bottom: 8rem; left: 50%;">
+    <div class="scroll-anchor">
         <a href="#about" target="_top">
-            <img src="images/down-arrow.svg" style="height: 3rem; width: 3rem;" alt="scroll down" />
+            <img class="scroll-anchor__img" src="images/down-arrow.svg" alt="scroll down" />
         </a>
     </div>
 </section>
