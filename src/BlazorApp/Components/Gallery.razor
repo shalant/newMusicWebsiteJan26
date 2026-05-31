@@ -122,7 +122,15 @@
 
     protected override async Task OnInitializedAsync()
     {
-        photos = await Http.GetFromJsonAsync<List<GalleryPhoto>>("sample-data/gallery.json");
+        try
+        {
+            photos = await Http.GetFromJsonAsync<List<GalleryPhoto>>("sample-data/gallery.json");
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"[Gallery] Load failed: {ex.Message}");
+            photos = new List<GalleryPhoto>();
+        }
     }
 
     private async Task OpenLightbox(int idx)

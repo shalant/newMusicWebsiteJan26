@@ -1,0 +1,23 @@
+@inject NavigationManager Nav
+
+<div class="section-error">
+    <div class="section-error__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="1.5"
+             stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+    </div>
+    <p class="section-error__text">
+        The <strong>@Name</strong> section couldn't load.
+    </p>
+    <button class="custom-cta-btn" @onclick="HardReload">Refresh page</button>
+</div>
+
+@code {
+    [Parameter] public string Name { get; set; } = "this";
+
+    private void HardReload() => Nav.NavigateTo(Nav.Uri, forceLoad: true);
+}

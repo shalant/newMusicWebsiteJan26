@@ -619,58 +619,206 @@ img.social-icon:hover {
 
 /* ── Error UI / Loading ── */
 
+/* ── Blazor fatal error banner (shown on unrecoverable crash) ── */
 #blazor-error-ui {
-    background: #2a1a0f;
-    color: #f0e8d8;
-    bottom: 0;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.4);
-    display: none;
-    left: 0;
-    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
     position: fixed;
-    width: 100%;
-    z-index: 1000;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    background: linear-gradient(135deg, #2a1a0f, #1a0805);
+    color: #f0e8d8;
+    padding: 0.9rem 1.5rem;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid rgba(212, 165, 116, 0.35);
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.5);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
 }
-
 #blazor-error-ui .dismiss {
     cursor: pointer;
-    position: absolute;
-    right: 0.75rem;
-    top: 0.5rem;
+    opacity: 0.6;
+    font-size: 1.1rem;
+    line-height: 1;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
+}
+#blazor-error-ui .dismiss:hover { opacity: 1; }
+
+/* ── Splash / Loading Screen ── */
+.splash {
+    position: fixed;
+    inset: 0;
+    background: #181212;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9000;
+}
+.splash__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
 }
 
-.loading-progress {
-    position: relative;
+/* Equalizer bars */
+.splash__eq {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 64px;
+}
+.splash__bar {
     display: block;
-    width: 8rem;
-    height: 8rem;
-    margin: 20vh auto 1rem auto;
+    width: 5px;
+    border-radius: 3px 3px 1px 1px;
+    background: linear-gradient(to top, #c49560, #e6c49a);
+    transform-origin: bottom;
+    animation: splash-bar 0.9s ease-in-out infinite alternate;
+}
+.splash__bar:nth-child(1) { height: 18px; animation-duration: 0.78s; animation-delay: 0.00s; }
+.splash__bar:nth-child(2) { height: 34px; animation-duration: 0.92s; animation-delay: 0.11s; }
+.splash__bar:nth-child(3) { height: 52px; animation-duration: 0.68s; animation-delay: 0.05s; }
+.splash__bar:nth-child(4) { height: 64px; animation-duration: 1.04s; animation-delay: 0.19s; }
+.splash__bar:nth-child(5) { height: 56px; animation-duration: 0.82s; animation-delay: 0.24s; }
+.splash__bar:nth-child(6) { height: 64px; animation-duration: 0.74s; animation-delay: 0.08s; }
+.splash__bar:nth-child(7) { height: 48px; animation-duration: 0.97s; animation-delay: 0.14s; }
+.splash__bar:nth-child(8) { height: 30px; animation-duration: 0.86s; animation-delay: 0.30s; }
+.splash__bar:nth-child(9) { height: 16px; animation-duration: 0.76s; animation-delay: 0.06s; }
+@keyframes splash-bar {
+    from { transform: scaleY(0.12); }
+    to   { transform: scaleY(1); }
 }
 
-.loading-progress circle {
-    fill: none;
-    stroke: var(--border-color);
-    stroke-width: 0.6rem;
-    transform-origin: 50% 50%;
-    transform: rotate(-90deg);
+/* Name + role */
+.splash__name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.6rem;
+    font-weight: 300;
+    color: #f0e8d8;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0;
+    animation: splash-rise 0.9s ease both;
+}
+.splash__role {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: rgba(212, 165, 116, 0.65);
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    margin: 0;
+    animation: splash-rise 0.9s ease 0.15s both;
+}
+@keyframes splash-rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-.loading-progress circle:last-child {
-    stroke: var(--accent-color);
-    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-    transition: stroke-dasharray 0.05s ease-in-out;
+/* Progress track — Blazor sets --blazor-load-percentage on .loading-progress */
+.splash__track {
+    width: 180px;
+    height: 2px;
+    background: rgba(212, 165, 116, 0.14);
+    border-radius: 1px;
+    overflow: hidden;
+}
+.splash__fill {
+    height: 100%;
+    width: var(--blazor-load-percentage, 0%);
+    background: linear-gradient(to right, #d4a574, #e6c49a);
+    border-radius: 1px;
+    transition: width 0.15s ease;
 }
 
-.loading-progress-text {
-    position: absolute;
-    text-align: center;
-    font-weight: bold;
-    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
-    color: var(--text-primary);
+/* Percentage text */
+.splash__pct {
+    margin: 0;
+    min-height: 1.1em;
 }
-
-.loading-progress-text:after {
+.splash__pct::after {
     content: var(--blazor-load-percentage-text, "Loading");
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(212, 165, 116, 0.38);
+}
+
+/* ── Section error fallback ── */
+.section-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 22vh;
+    gap: 1.1rem;
+    padding: 5rem 2rem;
+    color: var(--text-secondary);
+}
+.section-error__icon {
+    color: var(--accent-color);
+    opacity: 0.55;
+}
+.section-error__text {
+    font-size: 0.95rem;
+    text-align: center;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ── Full-app crash screen (ErrorBoundary in MainLayout) ── */
+.app-crash {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background: #181212;
+    color: #f0e8d8;
+    padding: 3rem;
+    text-align: center;
+}
+.app-crash__eq {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 32px;
+    opacity: 0.35;
+}
+.app-crash__eq span {
+    display: block;
+    width: 4px;
+    border-radius: 2px;
+    background: #d4a574;
+}
+.app-crash__eq span:nth-child(1) { height: 10px; }
+.app-crash__eq span:nth-child(2) { height: 22px; }
+.app-crash__eq span:nth-child(3) { height: 32px; }
+.app-crash__eq span:nth-child(4) { height: 22px; }
+.app-crash__eq span:nth-child(5) { height: 10px; }
+.app-crash__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    font-size: 2.2rem;
+    letter-spacing: 0.06em;
+    margin: 0;
+    color: #f0e8d8;
+}
+.app-crash__msg {
+    font-size: 0.9rem;
+    color: rgba(240, 232, 216, 0.5);
+    max-width: 480px;
+    margin: 0;
+    font-family: monospace;
 }
 
 /* ══════════════════════════════════════════════════════════

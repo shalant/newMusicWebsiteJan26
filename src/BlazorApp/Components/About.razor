@@ -112,7 +112,14 @@
 
     protected override async Task OnInitializedAsync()
     {
-        aboutMe = await Http.GetFromJsonAsync<AboutMe>("sample-data/aboutme.json");
-        hero = await HeroImageService.GetHeroAsync(img => img.Name is "about");
+        try
+        {
+            aboutMe = await Http.GetFromJsonAsync<AboutMe>("sample-data/aboutme.json");
+            hero = await HeroImageService.GetHeroAsync(img => img.Name is "about");
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"[About] Load failed: {ex.Message}");
+        }
     }
 }

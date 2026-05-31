@@ -64,7 +64,15 @@
 
     protected override async Task OnInitializedAsync()
     {
-        sheetMusic = await Http.GetFromJsonAsync<List<SheetMusic>>("sample-data/sheetmusic.json");
+        try
+        {
+            sheetMusic = await Http.GetFromJsonAsync<List<SheetMusic>>("sample-data/sheetmusic.json");
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"[SheetMusicViewer] Load failed: {ex.Message}");
+            sheetMusic = new List<SheetMusic>();
+        }
     }
 
     private void SelectSheetMusic(SheetMusic piece, int idx)

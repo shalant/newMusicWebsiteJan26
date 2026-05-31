@@ -68,7 +68,14 @@
 
     protected override async Task OnInitializedAsync()
     {
-        albums = await Http.GetFromJsonAsync<List<Album>>("sample-data/albums.json");
-        hero = await HeroImageService.GetHeroAsync(img => img.Name is "albums");
+        try
+        {
+            albums = await Http.GetFromJsonAsync<List<Album>>("sample-data/albums.json");
+            hero = await HeroImageService.GetHeroAsync(img => img.Name is "albums");
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"[Albums] Load failed: {ex.Message}");
+        }
     }
 }

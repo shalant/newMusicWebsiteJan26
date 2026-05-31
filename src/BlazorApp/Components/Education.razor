@@ -93,7 +93,14 @@
 
     protected override async Task OnInitializedAsync()
     {
-        hero = await HeroImageService.GetHeroAsync(img => img.Name is "education");
+        try
+        {
+            hero = await HeroImageService.GetHeroAsync(img => img.Name is "education");
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"[Education] Load failed: {ex.Message}");
+        }
     }
 }
 

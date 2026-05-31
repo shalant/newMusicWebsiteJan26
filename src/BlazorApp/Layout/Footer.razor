@@ -86,7 +86,14 @@
 
     protected override async Task OnInitializedAsync()
     {
-        property = await Http.GetFromJsonAsync<SiteProperties>("sample-data/siteproperties.json");
-        icons = await Http.GetFromJsonAsync<SocialIcons>("sample-data/socialicons.json");
+        try
+        {
+            property = await Http.GetFromJsonAsync<SiteProperties>("sample-data/siteproperties.json");
+            icons = await Http.GetFromJsonAsync<SocialIcons>("sample-data/socialicons.json");
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"[Footer] Load failed: {ex.Message}");
+        }
     }
 }
