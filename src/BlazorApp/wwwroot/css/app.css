@@ -50,7 +50,7 @@ section.dark::after {
 section.light {
     color: var(--text-primary);
     background: linear-gradient(160deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-    padding: 6rem 0 8rem;
+    padding: 6rem max(1.5rem, 5vw) 8rem;
 }
 
 /* Generic background images (about, albums sections) */
@@ -386,13 +386,19 @@ a:hover {
         0 4px 24px rgba(0, 0, 0, 0.25),
         0 0 0 1px var(--glow-color) inset;
     color: var(--text-primary);
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Glass panes inside Bootstrap columns take full column width */
+[class*="col-"] .custom-glass-pane {
+    width: 100%;
 }
 
 .custom-glass-pane:hover {
+    transform: translateY(-3px);
     box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.35),
-        0 0 0 1px var(--border-color) inset;
+        0 12px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px var(--accent-color) inset;
 }
 
 .albums__glass-pane {
@@ -665,4 +671,231 @@ img.social-icon:hover {
 
 .loading-progress-text:after {
     content: var(--blazor-load-percentage-text, "Loading");
+}
+
+/* ══════════════════════════════════════════════════════════
+   UI Upgrades
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Scroll Reveal ── */
+body.js-enabled .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+body.js-enabled .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Taglist Stagger ── */
+body.js-enabled .taglist span {
+    opacity: 0;
+    transform: translateY(6px) scale(0.95);
+    transition: opacity 0.28s ease, transform 0.28s ease,
+                border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+body.js-enabled .taglist.stagger-visible span {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+body.js-enabled .taglist.stagger-visible span:nth-child(1)  { transition-delay: 0.03s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(2)  { transition-delay: 0.06s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(3)  { transition-delay: 0.09s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(4)  { transition-delay: 0.12s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(5)  { transition-delay: 0.15s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(6)  { transition-delay: 0.18s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(7)  { transition-delay: 0.21s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(8)  { transition-delay: 0.24s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(9)  { transition-delay: 0.27s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(10) { transition-delay: 0.30s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(11) { transition-delay: 0.33s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(12) { transition-delay: 0.36s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(13) { transition-delay: 0.39s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(14) { transition-delay: 0.42s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(15) { transition-delay: 0.45s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(16) { transition-delay: 0.48s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(17) { transition-delay: 0.51s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(18) { transition-delay: 0.54s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(19) { transition-delay: 0.57s; }
+body.js-enabled .taglist.stagger-visible span:nth-child(20) { transition-delay: 0.60s; }
+
+/* ── Section heading underline accent ── */
+section.light h2::after,
+.custom-mottled__header::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 2px;
+    background: var(--accent-color);
+    margin: 0.5rem auto 0;
+    opacity: 0.5;
+    border-radius: 1px;
+}
+
+/* ── Album cover wrapper & hover overlay ── */
+.album-cover-wrapper {
+    position: relative;
+    display: block;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+.album-cover-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    display: block;
+    border-radius: 4px;
+    margin: 0;
+}
+.albums__glass-pane:hover .album-cover-wrapper img {
+    transform: scale(1.06);
+}
+.album-cover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.48);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 4px;
+}
+.albums__glass-pane:hover .album-cover-overlay {
+    opacity: 1;
+}
+.album-link-icon {
+    width: 2.2rem;
+    height: 2.2rem;
+    stroke: var(--accent-color);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ── Portfolio responsive grid ── */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    flex: 1;
+    padding: 0 1rem 1rem;
+    align-content: start;
+}
+
+/* ── Footer enhancements ── */
+.footer__tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    letter-spacing: 0.14em;
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 0;
+}
+.footer__divider {
+    width: 48px;
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 0;
+    opacity: 0.7;
+}
+.footer__copyright {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    opacity: 0.55;
+    text-align: center;
+    margin: 0;
+}
+
+/* ── Scroll progress bar ── */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(to right, var(--accent-color), var(--accent-light));
+    z-index: 9999;
+    pointer-events: none;
+    border-radius: 0 1px 1px 0;
+    transition: width 0.08s linear;
+}
+
+/* ── Back to top button ── */
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    color: var(--accent-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    z-index: 500;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+#back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+#back-to-top:hover {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+    box-shadow: 0 4px 22px rgba(0, 0, 0, 0.45);
+    border-color: var(--accent-color);
+}
+
+/* ── Portfolio box hover lift ── */
+.container .box {
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+.container .box:hover,
+.portfolio-grid .box:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Sheet music search input ── */
+.sheet-music-search {
+    width: 100%;
+    padding: 0.55rem 0.9rem;
+    margin-bottom: 1rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+.sheet-music-search::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+.sheet-music-search:focus {
+    border-color: var(--accent-color);
 }

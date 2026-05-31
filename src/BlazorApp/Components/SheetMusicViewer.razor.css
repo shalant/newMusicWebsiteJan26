@@ -43,14 +43,15 @@
 }
 
 .sheet-music-item:hover {
-    background-color: #f5f5f5;
-    border-color: #d2aa78;
+    background-color: var(--hover-color);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 .sheet-music-item.active {
-    background-color: #d2aa78;
-    color: white;
-    border-color: #d2aa78;
+    background-color: var(--accent-color);
+    color: var(--bg-primary);
+    border-color: var(--accent-color);
 }
 
 .sheet-music-display {
@@ -85,16 +86,17 @@
 
 .pdf-link {
     padding: 0.5rem 1rem;
-    background-color: #d2aa78;
-    color: white;
+    background-color: var(--accent-color);
+    color: var(--bg-primary);
     border-radius: 4px;
     text-decoration: none;
     font-size: 0.9rem;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
 }
 
 .pdf-link:hover {
-    background-color: #b8935f;
+    opacity: 0.85;
+    color: var(--bg-primary);
 }
 
 .pdf-frame {

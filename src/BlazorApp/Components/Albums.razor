@@ -15,23 +15,37 @@
         @for (int i = 0; i < albums.Count; i += 2)
         {
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 reveal">
                     <div class="albums__glass-pane">
-                        <img src="@albums[i].AlbumCoverUrl" alt="Album Cover" width="111" height="111" />
-                        <a href="@albums[i].Url" target="_blank" rel="noopener noreferrer">
-                            <h3 class="album__title">@albums[i].Title</h3>
+                        <a href="@albums[i].Url" target="_blank" rel="noopener noreferrer" class="album-cover-wrapper">
+                            <img src="@albums[i].AlbumCoverUrl" alt="@albums[i].Title album cover" />
+                            <div class="album-cover-overlay">
+                                <svg class="album-link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                            </div>
                         </a>
+                        <h3 class="album__title">@albums[i].Title</h3>
                         <p class="small">@albums[i].Description</p>
                     </div>
                 </div>
                 @if (i + 1 < albums.Count)
                 {
-                    <div class="col-md-6">
+                    <div class="col-md-6 reveal">
                         <div class="albums__glass-pane">
-                            <img src="@albums[i + 1].AlbumCoverUrl" alt="Album Cover" width="111" height="111" />
-                            <a href="@albums[i + 1].Url" target="_blank" rel="noopener noreferrer">
-                                <h3 class="album__title">@albums[i + 1].Title</h3>
+                            <a href="@albums[i + 1].Url" target="_blank" rel="noopener noreferrer" class="album-cover-wrapper">
+                                <img src="@albums[i + 1].AlbumCoverUrl" alt="@albums[i + 1].Title album cover" />
+                                <div class="album-cover-overlay">
+                                    <svg class="album-link-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                        <polyline points="15 3 21 3 21 9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </div>
                             </a>
+                            <h3 class="album__title">@albums[i + 1].Title</h3>
                             <p class="small">@albums[i + 1].Description</p>
                         </div>
                     </div>

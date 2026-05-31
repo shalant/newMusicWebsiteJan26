@@ -46,3 +46,10 @@
 #header a:hover::after {
     width: 100%;
 }
+
+#header a.active {
+    color: var(--accent-color);
+}
+#header a.active::after {
+    width: 100%;
+}

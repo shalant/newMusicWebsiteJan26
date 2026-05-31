@@ -7,13 +7,19 @@
         }
         else
         {
+            <input class="sheet-music-search" type="text" placeholder="Search pieces..."
+                   @bind-value="searchQuery" @bind-value:event="oninput" />
             <div class="sheet-music-list">
-                @foreach (var piece in sheetMusic)
+                @foreach (var (piece, idx) in FilteredMusic.Select((p, i) => (p, i)))
                 {
-                    <button class="sheet-music-item @(selectedId == piece.Id ? "active" : "")" 
-                            @onclick="() => SelectSheetMusic(piece)">
+                    <button class="sheet-music-item @(selectedIdx == idx ? "active" : "")"
+                            @onclick="() => SelectSheetMusic(piece, idx)">
                         @piece.Title
                     </button>
+                }
+                @if (!FilteredMusic.Any())
+                {
+                    <p style="color: var(--text-secondary); font-size: 0.85rem; padding: 0.5rem 0;">No results.</p>
                 }
             </div>
         }
@@ -26,7 +32,7 @@
                 <div class="pdf-controls">
                     <h4>@selectedMusic.Title</h4>
                     <a href="/sheetmusic/@selectedMusic.URL" target="_blank" rel="noopener noreferrer" class="pdf-link">
-                        Open PDF in New Tab
+                        Open in New Tab
                     </a>
                 </div>
                 <iframe src="/sheetmusic/@selectedMusic.URL" type="application/pdf" class="pdf-frame"></iframe>
@@ -47,16 +53,23 @@
 
     private List<SheetMusic>? sheetMusic;
     private SheetMusic? selectedMusic;
-    private int selectedId;
+    private int selectedIdx = -1;
+    private string searchQuery = string.Empty;
+
+    private IEnumerable<SheetMusic> FilteredMusic =>
+        sheetMusic?.Where(s =>
+            string.IsNullOrWhiteSpace(searchQuery) ||
+            s.Title.Contains(searchQuery, StringComparison.OrdinalIgnoreCase))
+        ?? Enumerable.Empty<SheetMusic>();
 
     protected override async Task OnInitializedAsync()
     {
         sheetMusic = await Http.GetFromJsonAsync<List<SheetMusic>>("sample-data/sheetmusic.json");
     }
 
-    private void SelectSheetMusic(SheetMusic piece)
+    private void SelectSheetMusic(SheetMusic piece, int idx)
     {
         selectedMusic = piece;
-        selectedId = piece.Id;
+        selectedIdx = idx;
     }
 }
