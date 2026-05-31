@@ -4,76 +4,91 @@
         <img class="background" src="@(hero.Src)" alt="@(hero.Alt)" />
     }
     <h2>About Myself</h2>
-    @* <div style="background-color: white; width: 50%; padding: 4rem; margin: 3rem auto; text-align: center;"> *@
-    @* <div > *@
-    @* <div class="custom-glass-pane" style="background-color: rgba(250,250,250,0.7); width: 65%; padding: 4rem; margin: 3rem auto; text-align: center;box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;"> *@
-    <div class=”custom-glass-pane reveal”>
-
+    <div class="custom-glass-pane reveal">
         @if (aboutMe is null)
         {
             <p><em>Loading...</em></p>
         }
         else
         {
-            <p class=”large”>@aboutMe.Description</p>
+            <p class="large">@aboutMe.Description</p>
             <hr />
-            <ul class=”skills-list”>
+            <ul class="skills-list">
                 @foreach (var skill in aboutMe.Skills)
                 {
-                    <li key=”@skill”>@skill</li>
+                    <li key="@skill">@skill</li>
                 }
             </ul>
-            <hr />
-            <p class=”detail-quote”>@aboutMe.DetailOrQuote</p>
         }
     </div>
+
     <section>
-        <h2 class=”custom-mottled__header reveal”>Performance Experience</h2>
-        <div class=”row”>
-            <div class=”col-md-6 reveal”>
-                <div class=”custom-glass-pane”>
-                    <h3>Chicago Venues</h3>
-                    <div class=”taglist”>
-                        <span>Millennium Park</span>
-                        <span>Green Mill</span>
-                        <span>Hothouse</span>
-                        <span>Symphony Center</span>
-                        <span>Jazz Showcase</span>
-                        <span>Taste of Chicago</span>
-                    </div>
-                </div>
+        <h2 class="custom-mottled__header reveal">Performance Experience</h2>
+
+        <!-- Animated stat counters -->
+        <div class="perf-stats reveal">
+            <div class="perf-stat">
+                <span class="perf-stat__number" data-count="6">6</span>
+                <span class="perf-stat__label">Chicago Venues</span>
             </div>
-            <div class=”col-md-6 reveal”>
-                <div class=”custom-glass-pane”>
-                    <h3>National & International Venues</h3>
-                    <div class=”taglist”>
-                        <span>Joe’s Pub</span>
-                        <span>St. Louis Art Museum</span>
-                        <span>Knitting Factory</span>
-                        <span>Chris’ Jazz Café</span>
-                        <span>Blues Alley</span>
-                        <span>Makor</span>
-                        <span>Satalla</span>
-                        <span>Firefly Club</span>
-                        <span>Cedar Cultural Center</span>
-                        <span>Johnny D’s</span>
-                        <span>Canadian Guitar Festival</span>
-                        <span>Alchemia</span>
-                        <span>Krannert Center</span>
-                        <span>Dazzle</span>
-                    </div>
-                </div>
+            <div class="perf-stat">
+                <span class="perf-stat__number" data-count="14">14</span>
+                <span class="perf-stat__label">National &amp; International</span>
+            </div>
+            <div class="perf-stat">
+                <span class="perf-stat__number" data-count="34">34</span>
+                <span class="perf-stat__label">Artists Performed With</span>
             </div>
         </div>
-        <div class=”custom-glass-pane reveal”>
+
+        <!-- Venues - hip list layout -->
+        <div class="perf-venues-grid reveal">
+            <div class="perf-venue-group">
+                <div class="perf-venue-group__header">
+                    <span class="perf-venue-group__label">Chicago</span>
+                </div>
+                <ul class="perf-venue-list">
+                    <li>Millennium Park</li>
+                    <li>Green Mill</li>
+                    <li>Hothouse</li>
+                    <li>Symphony Center</li>
+                    <li>Jazz Showcase</li>
+                    <li>Taste of Chicago</li>
+                </ul>
+            </div>
+            <div class="perf-venue-group">
+                <div class="perf-venue-group__header">
+                    <span class="perf-venue-group__label">National &amp; International</span>
+                </div>
+                <ul class="perf-venue-list perf-venue-list--two-col">
+                    <li>Joe's Pub</li>
+                    <li>St. Louis Art Museum</li>
+                    <li>Knitting Factory</li>
+                    <li>Chris' Jazz Café</li>
+                    <li>Blues Alley</li>
+                    <li>Makor</li>
+                    <li>Satalla</li>
+                    <li>Firefly Club</li>
+                    <li>Cedar Cultural Center</li>
+                    <li>Johnny D's</li>
+                    <li>Canadian Guitar Festival</li>
+                    <li>Alchemia</li>
+                    <li>Krannert Center</li>
+                    <li>Dazzle</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Artists - styled chip grid with full-contrast borders -->
+        <div class="custom-glass-pane reveal">
             <h3>Artists Performed With</h3>
-            <div class=”taglist”>
+            <div class="perf-artists-grid">
                 <span>Sam Barsh</span><span>Brendan Bayliss</span><span>Bobby Broom</span>
                 <span>Maggie Brown</span><span>Maurice Brown</span><span>Oscar Brown Jr.</span>
                 <span>Phil Cohran</span><span>Ernest Dawkins</span><span>Michael Franti</span>
                 <span>George Freeman</span><span>Robert Glasper</span><span>Fareed Haque</span>
                 <span>Nikki Glaspie</span><span>Jen Hartswick</span><span>Keyon Harrold</span>
-                <span>Marquis Hill</span><span>Robert “Baabe” Irving III</span>
+                <span>Marquis Hill</span><span>Robert "Baabe" Irving III</span>
                 <span>Goran Ivanovic</span><span>Karsh Kale</span><span>Mark Kelley</span>
                 <span>Rakalam Bob Moses</span><span>Kris Myers</span><span>Jeff Parker</span>
                 <span>Danilo Pérez</span><span>Joe Russo</span><span>Kendrick Scott</span>
@@ -99,6 +114,5 @@
     {
         aboutMe = await Http.GetFromJsonAsync<AboutMe>("sample-data/aboutme.json");
         hero = await HeroImageService.GetHeroAsync(img => img.Name is "about");
-
     }
 }

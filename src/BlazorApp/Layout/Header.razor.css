@@ -53,3 +53,37 @@
 #header a.active::after {
     width: 100%;
 }
+
+/* Thin vertical separator before dev-site link */
+.nav-sep {
+    display: inline-block;
+    width: 1px;
+    height: 0.9rem;
+    background: var(--border-color);
+    vertical-align: middle;
+    opacity: 0.7;
+    margin: 0 0.2rem;
+}
+
+/* Dev-site pill button */
+.nav-dev-link {
+    font-size: 0.7rem !important;
+    padding: 0.28rem 0.75rem !important;
+    border: 1px solid var(--accent-color) !important;
+    border-radius: 100px !important;
+    color: var(--accent-color) !important;
+    letter-spacing: 1.5px !important;
+    transition: background-color 0.22s ease, color 0.22s ease !important;
+    white-space: nowrap;
+}
+.nav-dev-link::after {
+    display: none !important;
+}
+.nav-dev-link:hover {
+    background-color: var(--accent-color) !important;
+    color: var(--bg-primary) !important;
+}
+.nav-dev-arrow {
+    font-size: 0.9em;
+    margin-left: 1px;
+}

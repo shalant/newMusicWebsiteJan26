@@ -57,6 +57,27 @@
         }, { passive: true });
     }
 
+    // ── Animated number counters ──
+    const counterObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            const el = e.target;
+            const target = parseInt(el.dataset.count, 10);
+            if (isNaN(target)) return;
+            const duration = 1000;
+            const startTime = performance.now();
+            const tick = (now) => {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.floor(eased * target);
+                if (progress < 1) requestAnimationFrame(tick);
+                else el.textContent = target;
+            };
+            requestAnimationFrame(tick);
+            counterObs.unobserve(el);
+        });
+    }, { threshold: 0.6 });
+
     // ── Observe new elements (called at init and after each Blazor DOM mutation) ──
     function observeElements() {
         document.querySelectorAll('.reveal:not([data-rv])').forEach(el => {
@@ -66,6 +87,10 @@
         document.querySelectorAll('.taglist:not([data-sg])').forEach(el => {
             el.setAttribute('data-sg', '1');
             staggerObs.observe(el);
+        });
+        document.querySelectorAll('[data-count]:not([data-cv])').forEach(el => {
+            el.setAttribute('data-cv', '1');
+            counterObs.observe(el);
         });
         tryInitScrollSpy();
         tryInitParallax();
