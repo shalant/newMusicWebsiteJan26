@@ -2,18 +2,18 @@
 * CSS file to hold styles that apply across the application
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Montserrat:wght@200;400;600;800&display=swap");
-@import url("css/themes.css");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;400;600;800&display=swap");
+@import url("themes.css");
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  font-family: "Montserrat", sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
 }
 
 html {
@@ -21,489 +21,538 @@ html {
 }
 
 div#main {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
+
+/* ── Sections ── */
 
 section {
-  position: relative;
+    position: relative;
 }
 
-    section.dark {
+section.dark {
     min-height: 100vh;
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
+    overflow: hidden;
+}
+
+/* Cinematic gradient overlay sits above the hero image, below content */
+section.dark::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--hero-overlay);
+    z-index: 1;
+    pointer-events: none;
 }
 
 section.light {
     color: var(--text-primary);
-    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
-    padding: 8rem 0;
+    background: linear-gradient(160deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    padding: 6rem 0 8rem;
 }
 
+/* Generic background images (about, albums sections) */
 section img.background {
-  width: 100vmax;
-  height: 150%;
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  pointer-events: none;
-  object-fit: cover;
+    width: 100vmax;
+    height: 150%;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    pointer-events: none;
+    object-fit: cover;
+    opacity: 0.08;
 }
+
+/* Hero image — visible above the section background */
+section img.background.hero-image {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    transform: none;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 0;
+    opacity: 1;
+    filter: brightness(0.88) saturate(1.1);
+}
+
+/* ── Typography ── */
 
 h1 {
     font-weight: 300;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 7rem;
     margin: 0;
+    letter-spacing: 0.05em;
 }
 
 @media screen and (max-width: 300px) {
-  h1 {
-    font-weight: 300;
-    font-size: 3rem;
-    margin: 0;
-  }
+    h1 { font-size: 3rem; }
 }
 
 @media screen and (min-width: 301px) and (max-width: 360px) {
-  h1 {
-    font-weight: 300;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 4rem;
-    margin: 0;
-  }
+    h1 { font-size: 4rem; }
 }
 
 @media screen and (min-width: 361px) and (max-width: 420px) {
-  h1 {
-    font-weight: 300;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 5rem;
-    margin: 0;
-  }
+    h1 { font-size: 5rem; }
 }
 
 h2 {
-  font-weight: 400;
-  font-size: 2rem;
-  margin: 0;
-  text-align: center;
+    font-weight: 400;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    margin: 0 0 2rem;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: var(--text-primary);
 }
 
 h3 {
-  font-weight: 400;
-  font-size: 1.25rem;
-  margin: 0;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent-color);
 }
 
 p {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 0;
-  font-weight: 300;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 0;
+    font-weight: 300;
+    color: var(--text-primary);
 }
 
 p.large {
-  font-size: 24px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-style: italic;
 }
 
 p.small {
-  font-size: 15px;
+    font-size: 14px;
+    color: var(--text-secondary);
 }
 
 hr {
-  margin: 2.5rem;
+    margin: 2rem auto;
+    width: 60%;
+    border: none;
+    border-top: 1px solid var(--border-color);
 }
 
 li {
-  line-height: 1.7;
+    line-height: 1.7;
+    color: var(--text-primary);
 }
 
 li::marker {
-  color: #4e567e;
+    color: var(--accent-color);
 }
 
 a {
-  text-decoration: none;
-  color: var(--text-primary);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: color 0.25s ease;
 }
 
 a:hover {
-  color: var(--accent-color);
+    color: var(--accent-color);
 }
 
-.portfolio-container {
-  display: flex;
-  flex-direction: row;
-  padding-top: 3rem;
-}
-
-@media screen and (max-width: 420px) {
-  .portfolio-container {
-    flex-direction: column;
-  }
-}
-
-.portfolio-hero {
-  max-width: 40%;
-  align-self: center;
-}
-
-@media screen and (max-width: 420px) {
-  .portfolio-hero {
-    max-width: 100%;
-    align-self: center;
-  }
-}
-
-.container {
-  margin: 20px auto;
-  display: grid;
-  grid-template-columns: 330px 300px;
-  grid-gap: 20px;
-}
-
-@media screen and (max-width: 420px) {
-  .container {
-    margin: 20px auto;
-    display: inline;
-    grid-template-columns: 330px 300px;
-    grid-gap: 20px;
-  }
-}
-
-.container .box {
-  border-radius: 10px;
-  padding: 24px 16px;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  border: 1px solid rgb(204, 204, 204);
-  text-align: center;
-}
-
-img.social-icon {
-  width: 30px;
-  height: 30px;
-}
-
-#blazor-error-ui {
-    background: lightyellow;
-    bottom: 0;
-    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
-    display: none;
-    left: 0;
-    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-}
-
-    #blazor-error-ui .dismiss {
-        cursor: pointer;
-        position: absolute;
-        right: 0.75rem;
-        top: 0.5rem;
-    }
-
-.loading-progress {
-    position: relative;
-    display: block;
-    width: 8rem;
-    height: 8rem;
-    margin: 20vh auto 1rem auto;
-}
-
-    .loading-progress circle {
-        fill: none;
-        stroke: #e0e0e0;
-        stroke-width: 0.6rem;
-        transform-origin: 50% 50%;
-        transform: rotate(-90deg);
-    }
-
-        .loading-progress circle:last-child {
-            stroke: #1b6ec2;
-            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-            transition: stroke-dasharray 0.05s ease-in-out;
-        }
-
-.loading-progress-text {
-    position: absolute;
-    text-align: center;
-    font-weight: bold;
-    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
-}
-
-    .loading-progress-text:after {
-        content: var(--blazor-load-percentage-text, "Loading");
-    }
-
+/* ── Navigation ── */
 
 .transparent-nav {
     background-color: var(--nav-bg) !important;
-    padding-top: 1rem;
-    z-index: 10;
-    backdrop-filter: blur(5px);
-    border-bottom: 2px solid var(--accent-color);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.1rem 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
 }
 
-    .transparent-nav a {
-        color: var(--nav-text);
-        transition: all 0.3s ease-in-out;
-        font-weight: 500;
-    }
-        .transparent-nav a:hover {
-            color: var(--accent-color);
-        }
+.transparent-nav a {
+    color: var(--nav-text) !important;
+    transition: color 0.25s ease;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+}
 
-    .nav-link {
-        color: var(--nav-text) !important;
-        font-weight: 600;
-        letter-spacing: 1px;
-        font-size: 0.9rem;
-        margin-left: 1rem;
-        text-transform: uppercase;
-        transition: color 0.3s ease;
-    }
+.transparent-nav a:hover {
+    color: var(--accent-color) !important;
+}
 
-        .nav-link:hover {
-            color: var(--accent-color) !important;
-        }
-    /* 2. Hero Wrapper & Image */
-    .hero-wrapper {
-        position: relative;
-        height: 100vh;
-        width: 100%;
-        overflow: hidden;
-        background-color: #0d0414; /* Fallback color */
-    }
+.nav-link {
+    color: var(--nav-text) !important;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    font-size: 0.78rem;
+    margin-left: 1.25rem;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+    position: relative;
+}
 
-    .hero-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        /* Grayscale + Contrast to match the moody photo style if using a generic image */
-        filter: grayscale(40%) contrast(1.1);
-        z-index: 0;
-    }
-    /* 3. The Overlay - Theme-specific tint */
-    .hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        background: var(--hero-overlay);
-    }
-    /* 4. Content Styling */
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: white;
-    }
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* ── Hero Section ── */
+
+.hero-wrapper {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--bg-primary);
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.88) saturate(1.1);
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--hero-overlay);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
 
 .custom-hero {
+    position: relative;
+    z-index: 2;
     margin-top: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
 }
 
-    .artist-name {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-size: 3.5rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        line-height: 1.2;
-        margin-bottom: 0.5rem;
-    }
+.artist-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+}
 
-    .artist-role {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-size: 1.25rem;
-        font-weight: 300;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        opacity: 0.9;
-    }
-    /* 5. Custom 'Ghost' Button */
-    .custom-cta-btn {
-        background-color: var(--accent-color);
-        border: 1px solid var(--accent-light);
-        color: white;
-        padding: 12px 32px;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border-radius: 4px;
-        opacity: 0.8;
-    }
+.artist-role {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    opacity: 0.85;
+}
 
-        .custom-cta-btn:hover {
-            background-color: var(--accent-light);
-            border-color: white;
-            opacity: 1;
-        }
-    /* Mobile Responsiveness */
-    @media (max-width: 600px) {
-        .artist-name {
-            font-size: 2.5rem;
-        }
+.custom-cta-btn {
+    margin-top: 1.5rem;
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 12px 36px;
+    font-size: 0.78rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
 
-        .artist-role {
-            font-size: 1rem;
-        }
-    }
+.custom-cta-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-primary);
+}
 
+@media (max-width: 600px) {
+    .artist-name { font-size: 2.6rem; }
+    .artist-role { font-size: 0.9rem; }
+}
+
+/* Animated gradient text for hero headings */
 .custom-hero h1 {
     background: linear-gradient(108deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
     background-clip: text;
+    -webkit-background-clip: text;
     background-size: 200% 100%;
     color: transparent;
     animation: hero__animation 10s linear infinite;
+    text-shadow: none;
 }
 
 .custom-hero h2 {
     background: linear-gradient(208deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
     background-clip: text;
+    -webkit-background-clip: text;
     background-size: 200% 100%;
     color: transparent;
     animation: hero__animation 10s linear infinite;
+    text-shadow: none;
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 0.28em;
+    margin-bottom: 0;
 }
 
-.custom-card {
-    padding: 10px;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-    transition: box-shadow 0.4s ease-in-out;
+/* Scroll anchor above the ::after overlay */
+.scroll-anchor {
+    position: absolute;
+    bottom: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
 }
 
-.custom-card:hover {
-    box-shadow: rgba(17, 17, 26, 0.15) 0px 4px 16px, rgba(17, 17, 26, 0.15) 0px 8px 24px, rgba(17, 17, 26, 0.15) 0px 16px 56px;
+.scroll-anchor__img {
+    height: 2.5rem;
+    width: 2.5rem;
+    opacity: 0.6;
+    filter: invert(1);
+    transition: opacity 0.3s ease;
+    animation: bounce 2s ease-in-out infinite;
 }
+
+.scroll-anchor__img:hover {
+    opacity: 1;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+
+/* ── Glass Panes (Cards) ── */
 
 .custom-glass-pane {
     background-color: var(--surface-color);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--border-color);
     width: 65%;
-    padding: 4rem;
-    margin: 3rem auto;
+    padding: 3.5rem;
+    margin: 2rem auto;
     text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.25),
+        0 0 0 1px var(--glow-color) inset;
     color: var(--text-primary);
+    transition: box-shadow 0.3s ease;
+}
+
+.custom-glass-pane:hover {
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.35),
+        0 0 0 1px var(--border-color) inset;
 }
 
 .albums__glass-pane {
     background-color: var(--surface-color);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--border-color);
     width: 90%;
-    padding: 2rem;
-    margin: 3rem auto;
+    padding: 2.5rem;
+    margin: 1.5rem auto;
     text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.25),
+        0 0 0 1px var(--glow-color) inset;
     color: var(--text-primary);
+    transition: box-shadow 0.3s ease;
+}
+
+.albums__glass-pane:hover {
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.35),
+        0 0 0 1px var(--border-color) inset;
 }
 
 .albums__glass-pane img {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
+
+/* ── Section Headers ── */
 
 .custom-mottled__header {
     background: linear-gradient(to right, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
     background-clip: text;
+    -webkit-background-clip: text;
     background-size: 200% 100%;
     color: transparent;
     animation: blue-mottled__animation 10s linear infinite;
-}
-
-@keyframes blue-mottled__animation {
-    0% {
-        background-position: 0 0; /* Start position */
-    }
-
-    100% {
-        background-position: 200% 0; /* End position, moves across the wider background */
-    }
-}
-
-.rainbow-text-animated {
-    /* Inherit the base styles from above, then add animation styles */
-    font-size: 5rem;
-    font-weight: bold;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
     text-align: center;
-    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red); /* Add the first color at the end for seamless looping */
-    background-size: 200% 100%; /* Make the background wider than the text */
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    /* Apply the animation */
-    animation: rainbow_animation 3s linear infinite; /* Adjust duration (3s) as needed for speed */
+    margin: 2rem 0 1rem;
 }
 
-/* Define the animation keyframes */
-@keyframes rainbow_animation {
-    0% {
-        background-position: 0 0; /* Start position */
+/* ── Taglist (Venue / Artist chips) ── */
+
+.taglist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.taglist span {
+    display: inline-block;
+    padding: 0.3rem 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: 0.04em;
+    background-color: var(--hover-color);
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.taglist span:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background-color: var(--hover-color);
+}
+
+/* ── Cards / Misc ── */
+
+.custom-card {
+    padding: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+.custom-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 16px 48px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 3rem;
+}
+
+@media screen and (max-width: 420px) {
+    .portfolio-container { flex-direction: column; }
+}
+
+.portfolio-hero {
+    max-width: 40%;
+    align-self: center;
+}
+
+@media screen and (max-width: 420px) {
+    .portfolio-hero { max-width: 100%; }
+}
+
+.container {
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 330px 300px;
+    grid-gap: 20px;
+}
+
+@media screen and (max-width: 420px) {
+    .container {
+        margin: 20px auto;
+        display: inline;
     }
-
-    100% {
-        background-position: 200% 0; /* End position, moves across the wider background */
-    }
-}
-@keyframes hero__animation {
-    0% {
-        background-position: 70% 10%;
-    }
-
-    100% {
-        background-position: 90% 90%;
-    }
 }
 
-.album__title {
-    flex-basis: 40px;
+.container .box {
+    border-radius: 6px;
+    padding: 24px 16px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    background-color: var(--surface-color);
 }
 
-.scroll-anchor {
-    position: absolute;
-    bottom: 8rem;
-    left: 50%;
+img.social-icon {
+    width: 30px;
+    height: 30px;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+    filter: invert(0.8);
 }
 
-.scroll-anchor__img {
-    height: 3rem;
-    width: 3rem;
+img.social-icon:hover {
+    opacity: 1;
 }
+
+/* ── Contact ── */
 
 #contact {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 200px;
+    min-height: 180px;
+    gap: 1rem;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
 }
 
 .contact__loading,
@@ -515,5 +564,105 @@ img.social-icon {
 
 .contact__footer {
     margin-top: 0;
-    color: white;
+    color: var(--text-secondary);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* ── Animations ── */
+
+@keyframes blue-mottled__animation {
+    0%   { background-position: 0 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes hero__animation {
+    0%   { background-position: 70% 10%; }
+    100% { background-position: 90% 90%; }
+}
+
+.rainbow-text-animated {
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 3s linear infinite;
+}
+
+@keyframes rainbow_animation {
+    0%   { background-position: 0 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* ── Album title ── */
+
+.album__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--accent-light);
+    margin: 0.5rem 0;
+    flex-basis: auto;
+}
+
+/* ── Error UI / Loading ── */
+
+#blazor-error-ui {
+    background: #2a1a0f;
+    color: #f0e8d8;
+    bottom: 0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.4);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+.loading-progress {
+    position: relative;
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    margin: 20vh auto 1rem auto;
+}
+
+.loading-progress circle {
+    fill: none;
+    stroke: var(--border-color);
+    stroke-width: 0.6rem;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+}
+
+.loading-progress circle:last-child {
+    stroke: var(--accent-color);
+    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+    transition: stroke-dasharray 0.05s ease-in-out;
+}
+
+.loading-progress-text {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+    color: var(--text-primary);
+}
+
+.loading-progress-text:after {
+    content: var(--blazor-load-percentage-text, "Loading");
 }

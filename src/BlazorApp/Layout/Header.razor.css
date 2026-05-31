@@ -1,11 +1,48 @@
 #header {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  background: rgba(255,255,255,0.75);
-  padding: 1rem;
-  top: 0;
-  width: 100%;
-  z-index: 10;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1.1rem 2rem;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+}
+
+#header a {
+    color: var(--nav-text);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.25s ease;
+    padding-bottom: 2px;
+}
+
+#header a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-color);
+    transition: width 0.28s ease;
+}
+
+#header a:hover {
+    color: var(--accent-color);
+}
+
+#header a:hover::after {
+    width: 100%;
 }
