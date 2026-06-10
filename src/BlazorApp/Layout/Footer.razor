@@ -1,65 +1,83 @@
-<div id="contact" style="background-color: @PrimaryColor;">
+<footer id="contact">
     @if (property is null)
     {
-        <div class="contact__loading">
-            <p><em>Loading...</em></p>
-        </div>
+        <p class="footer-loading"><em>Loading…</em></p>
     }
-    else if (icons is not null)
+    else
     {
-        <div class="contact__icons">
-            @if (string.IsNullOrWhiteSpace(property.Email) is false)
+        <div class="footer-brand">
+            <p class="footer-name">@property.Name</p>
+            @if (!string.IsNullOrWhiteSpace(property.Title))
             {
-                <a href="mailto:@(property.Email)">
-                    <img src="@icons.Email" alt="email" class="social-icon" />
-                </a>
-            }
-            @if (string.IsNullOrWhiteSpace(property.DevDotTo) is false)
-            {
-                <a href="https://dev.to/@(property.DevDotTo)" target="_blank" rel="noopener noreferrer">
-                    <img src="@icons.DevDotTo" alt="Dev.to" class="social-icon" />
-                </a>
-            }
-            @if (string.IsNullOrWhiteSpace(property.GitHub) is false)
-            {
-                <a href="https://github.com/@(property.GitHub)" target="_blank" rel="noopener noreferrer">
-                    <img src="@icons.GitHub" alt="GitHub" class="social-icon" />
-                </a>
-            }
-            @if (string.IsNullOrWhiteSpace(property.Instagram) is false)
-            {
-                <a href="https://instagram.com/@(property.Instagram)" target="_blank" rel="noopener noreferrer">
-                    <img src="@icons.Instagram" alt="Instagram" class="social-icon" />
-                </a>
-            }
-            @if (string.IsNullOrWhiteSpace(property.LinkedIn) is false)
-            {
-                <a href="https://linkedin.com/in/@(property.LinkedIn)" target="_blank" rel="noopener noreferrer">
-                    <img src="@icons.LinkedIn" alt="LinkedIn" class="social-icon" />
-                </a>
-            }
-            @if (string.IsNullOrWhiteSpace(property.Medium) is false)
-            {
-                <a href="https://medium.com/@@(property.Medium)" target="_blank" rel="noopener noreferrer">
-                    <img src="@icons.Medium" alt="Medium" class="social-icon" />
-                </a>
-            }
-            @if (string.IsNullOrWhiteSpace(property.Twitter) is false)
-            {
-                <a href="https://twitter.com/@(property.Twitter)" target="_blank" rel="noopener noreferrer">
-                    <img src="@icons.Twitter" alt="Twitter" class="social-icon" />
-                </a>
-            }
-            @if (string.IsNullOrWhiteSpace(property.YouTube) is false)
-            {
-                <a href="https://youtube.com/@(property.YouTube)" target="_blank" rel="noopener noreferrer">
-                    <img src="@icons.YouTube" alt="YouTube" class="social-icon" />
-                </a>
+                <p class="footer-tagline">@property.Title</p>
             }
         </div>
-        <p class="small contact__footer">Created by @property.Name</p>
+
+        <div class="footer-rule"></div>
+
+        @if (icons is not null)
+        {
+            <nav class="footer-social" aria-label="Social links">
+                @if (!string.IsNullOrWhiteSpace(property.Email))
+                {
+                    <a href="mailto:@(property.Email)" class="footer-icon-link" aria-label="Email">
+                        <img src="@icons.Email" alt="Email" class="social-icon" />
+                    </a>
+                }
+                @if (!string.IsNullOrWhiteSpace(property.GitHub))
+                {
+                    <a href="https://github.com/@(property.GitHub)" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="GitHub">
+                        <img src="@icons.GitHub" alt="GitHub" class="social-icon" />
+                    </a>
+                }
+                @if (!string.IsNullOrWhiteSpace(property.Instagram))
+                {
+                    <a href="https://instagram.com/@(property.Instagram)" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Instagram">
+                        <img src="@icons.Instagram" alt="Instagram" class="social-icon" />
+                    </a>
+                }
+                @if (!string.IsNullOrWhiteSpace(property.LinkedIn))
+                {
+                    <a href="https://linkedin.com/in/@(property.LinkedIn)" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="LinkedIn">
+                        <img src="@icons.LinkedIn" alt="LinkedIn" class="social-icon" />
+                    </a>
+                }
+                @if (!string.IsNullOrWhiteSpace(property.Twitter))
+                {
+                    <a href="https://twitter.com/@(property.Twitter)" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Twitter / X">
+                        <img src="@icons.Twitter" alt="Twitter" class="social-icon" />
+                    </a>
+                }
+                @if (!string.IsNullOrWhiteSpace(property.YouTube))
+                {
+                    <a href="https://youtube.com/@(property.YouTube)" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="YouTube">
+                        <img src="@icons.YouTube" alt="YouTube" class="social-icon" />
+                    </a>
+                }
+                @if (!string.IsNullOrWhiteSpace(property.Medium))
+                {
+                    <a href="https://medium.com/@@(property.Medium)" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Medium">
+                        <img src="@icons.Medium" alt="Medium" class="social-icon" />
+                    </a>
+                }
+                @if (!string.IsNullOrWhiteSpace(property.DevDotTo))
+                {
+                    <a href="https://dev.to/@(property.DevDotTo)" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Dev.to">
+                        <img src="@icons.DevDotTo" alt="Dev.to" class="social-icon" />
+                    </a>
+                }
+            </nav>
+        }
+
+        <div class="footer-meta">
+            @if (!string.IsNullOrWhiteSpace(property.Email))
+            {
+                <a href="mailto:@(property.Email)" class="footer-email">@property.Email</a>
+            }
+            <p class="footer-credit">© 2026 @property.Name</p>
+        </div>
     }
-</div>
+</footer>
 
 @code {
     [Parameter, EditorRequired]

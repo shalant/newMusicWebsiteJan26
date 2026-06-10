@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logo Prototypes — Batch 6 — Doug Rosenberg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #03080f; font-family: 'Josefin Sans', sans-serif; padding: 3rem 2rem 5rem; color: #88b8d8; }
+    nav { text-align: center; margin-bottom: 2rem; display: flex; justify-content: center; gap: 2rem; }
+    nav a { color: #4db8ff; font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; opacity: 0.55; }
+    nav a:hover { opacity: 1; }
+    h1 { text-align: center; font-size: 0.75rem; font-weight: 200; letter-spacing: 6px; text-transform: uppercase; color: #4db8ff; opacity: 0.6; margin-bottom: 3.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2.5rem; max-width: 1100px; margin: 0 auto; }
+    .card { background: #060f1e; border: 1px solid rgba(77,184,255,0.12); border-radius: 6px; padding: 3.5rem 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .card-label { font-size: 0.6rem; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; color: #4db8ff; opacity: 0.45; }
+    svg text { font-family: 'Josefin Sans', sans-serif; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="preview4.html">← Batch 4</a>
+    <a href="preview7.html">Batch 7 →</a>
+  </nav>
+  <h1>Logo Prototypes · Batch 6 · #15 Variations</h1>
+  <div class="grid">
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- 21  F E R M A T A                           -->
+    <!--     oversized fermata arc + dot above       -->
+    <!--     like the name is the held note          -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 130" width="360" height="130">
+
+        <!-- fermata arc — large semicircle above the name -->
+        <path d="M 120,68 A 60,52 0 0 1 240,68"
+              fill="none" stroke="#4db8ff" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/>
+        <!-- fermata dot -->
+        <circle cx="180" cy="36" r="4.5" fill="#4db8ff" opacity="0.85"/>
+
+        <!-- thin baseline rule -->
+        <line x1="60" y1="96" x2="300" y2="96" stroke="#4db8ff" stroke-width="0.7" opacity="0.3"/>
+
+        <!-- name -->
+        <text x="180" y="84" font-size="26" font-weight="200" letter-spacing="9"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+      </svg>
+      <span class="card-label">21 — Fermata</span>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- 22  F I N A L   B A R L I N E S             -->
+    <!--     opening thin barline left               -->
+    <!--     final barline (thin+thick) right        -->
+    <!--     the name as the entire measure          -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 90" width="380" height="90">
+
+        <!-- opening single barline -->
+        <line x1="22" y1="20" x2="22" y2="70" stroke="#4db8ff" stroke-width="1.2" opacity="0.55"/>
+
+        <!-- final barline: thin left, thick right -->
+        <line x1="352" y1="20" x2="352" y2="70" stroke="#4db8ff" stroke-width="1.2" opacity="0.55"/>
+        <line x1="361" y1="20" x2="361" y2="70" stroke="#4db8ff" stroke-width="4"   opacity="0.7"/>
+
+        <!-- name centered in the measure -->
+        <text x="190" y="52" font-size="26" font-weight="200" letter-spacing="9"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+      </svg>
+      <span class="card-label">22 — Final barlines</span>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- 23  P H R A S E   S L U R S                 -->
+    <!--     smooth bezier arc above + below         -->
+    <!--     the name enclosed in a phrase marking   -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 110" width="380" height="110">
+
+        <!-- upper slur arc — curves up over the name -->
+        <path d="M 40,58 C 100,20 280,20 340,58"
+              fill="none" stroke="#4db8ff" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+
+        <!-- lower slur arc — mirror, curves down under -->
+        <path d="M 40,58 C 100,96 280,96 340,58"
+              fill="none" stroke="#4db8ff" stroke-width="1.4" stroke-linecap="round" opacity="0.3"/>
+
+        <!-- name -->
+        <text x="190" y="66" font-size="26" font-weight="200" letter-spacing="9"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+      </svg>
+      <span class="card-label">23 — Phrase slurs</span>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- 24  T I M E   S I G N A T U R E             -->
+    <!--     4/4 stacked on the left                 -->
+    <!--     thin barline separator                  -->
+    <!--     name fills the measure to the right     -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+
+        <!-- time signature 4/4 — left side -->
+        <text x="38" y="48" font-size="32" font-weight="300" letter-spacing="0"
+              text-anchor="middle" fill="#4db8ff" opacity="0.75">4</text>
+        <text x="38" y="80" font-size="32" font-weight="300" letter-spacing="0"
+              text-anchor="middle" fill="#4db8ff" opacity="0.75">4</text>
+
+        <!-- barline separator -->
+        <line x1="68" y1="18" x2="68" y2="82" stroke="#4db8ff" stroke-width="1" opacity="0.35"/>
+
+        <!-- name — right of the time signature -->
+        <text x="238" y="60" font-size="26" font-weight="200" letter-spacing="9"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+      </svg>
+      <span class="card-label">24 — Time signature</span>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- 25  S T A F F   B R E A K                   -->
+    <!--     top two + bottom two staff lines        -->
+    <!--     at each edge, the name breaks through   -->
+    <!--     the middle as if interrupting the staff -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 100" width="380" height="100">
+
+        <!-- left staff fragment — 4 lines, partial width -->
+        <line x1="14" y1="28" x2="64" y2="28" stroke="#4db8ff" stroke-width="0.7" opacity="0.35"/>
+        <line x1="14" y1="40" x2="64" y2="40" stroke="#4db8ff" stroke-width="0.7" opacity="0.35"/>
+        <line x1="14" y1="62" x2="64" y2="62" stroke="#4db8ff" stroke-width="0.7" opacity="0.35"/>
+        <line x1="14" y1="74" x2="64" y2="74" stroke="#4db8ff" stroke-width="0.7" opacity="0.35"/>
+
+        <!-- right staff fragment — mirrored -->
+        <line x1="316" y1="28" x2="366" y2="28" stroke="#4db8ff" stroke-width="0.7" opacity="0.35"/>
+        <line x1="316" y1="40" x2="366" y2="40" stroke="#4db8ff" stroke-width="0.7" opacity="0.35"/>
+        <line x1="316" y1="62" x2="366" y2="62" stroke="#4db8ff" stroke-width="0.7" opacity="0.35"/>
+        <line x1="316" y1="74" x2="366" y2="74" stroke="#4db8ff" stroke-width="0.7" opacity="0.35"/>
+
+        <!-- left barline -->
+        <line x1="14" y1="26" x2="14" y2="76" stroke="#4db8ff" stroke-width="1.1" opacity="0.4"/>
+        <!-- right barline -->
+        <line x1="366" y1="26" x2="366" y2="76" stroke="#4db8ff" stroke-width="1.1" opacity="0.4"/>
+
+        <!-- name — breaks through the middle gap -->
+        <text x="190" y="58" font-size="26" font-weight="200" letter-spacing="9"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+      </svg>
+      <span class="card-label">25 — Staff break</span>
+    </div>
+
+
+  </div>
+</body>
+</html>

@@ -4,7 +4,7 @@ export function applyTheme(themeId) {
 }
 
 export function getStoredTheme() {
-    return localStorage.getItem('theme') || 'dark';
+    return localStorage.getItem('theme') || 'ocean';
 }
 
 export function initializeTheme() {
@@ -12,3 +12,4 @@ export function initializeTheme() {
     applyTheme(theme);
     return theme;
 }
+

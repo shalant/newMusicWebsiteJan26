@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logo Prototypes — Doug Rosenberg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #03080f;
+      font-family: 'Josefin Sans', sans-serif;
+      padding: 3rem 2rem 5rem;
+      color: #88b8d8;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 200;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #4db8ff;
+      opacity: 0.6;
+      margin-bottom: 3.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #060f1e;
+      border: 1px solid rgba(77,184,255,0.15);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .card-label {
+      font-size: 0.62rem;
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #4db8ff;
+      opacity: 0.5;
+    }
+
+    svg text { font-family: 'Josefin Sans', sans-serif; }
+  </style>
+</head>
+<body>
+  <nav style="text-align:center;margin-bottom:2rem">
+    <a href="preview2.html" style="color:#4db8ff;font-size:0.65rem;letter-spacing:4px;text-transform:uppercase;text-decoration:none;opacity:0.55">Batch 2 →</a>
+  </nav>
+  <h1>Logo Prototypes · Batch 1</h1>
+
+  <div class="grid">
+
+    <!-- 01 DR Monogram -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="220" height="220">
+        <!-- Art deco corner brackets -->
+        <polyline points="14,50 14,14 50,14"   fill="none" stroke="#4db8ff" stroke-width="1.5"/>
+        <polyline points="170,14 206,14 206,50" fill="none" stroke="#4db8ff" stroke-width="1.5"/>
+        <polyline points="14,170 14,206 50,206" fill="none" stroke="#4db8ff" stroke-width="1.5"/>
+        <polyline points="206,170 206,206 170,206" fill="none" stroke="#4db8ff" stroke-width="1.5"/>
+        <!-- Inner hairline frame -->
+        <rect x="30" y="30" width="160" height="160" fill="none" stroke="#4db8ff" stroke-width="0.4" opacity="0.25"/>
+        <!-- D -->
+        <text x="110" y="108" font-size="82" font-weight="300" letter-spacing="4" text-anchor="middle" fill="#d8eeff">D</text>
+        <!-- Divider -->
+        <line x1="66" y1="118" x2="154" y2="118" stroke="#4db8ff" stroke-width="1.2"/>
+        <!-- R -->
+        <text x="110" y="180" font-size="82" font-weight="300" letter-spacing="4" text-anchor="middle" fill="#d8eeff">R</text>
+      </svg>
+      <span class="card-label">01 — DR Monogram</span>
+    </div>
+
+    <!-- 02 Stacked Logotype -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 170" width="420" height="170">
+        <!-- DOUG ultra thin -->
+        <text x="210" y="68" font-size="56" font-weight="100" letter-spacing="22" text-anchor="middle" fill="#d8eeff">DOUG</text>
+        <!-- Rule with end dots -->
+        <line x1="50" y1="88" x2="370" y2="88" stroke="#4db8ff" stroke-width="0.9"/>
+        <circle cx="50"  cy="88" r="2.5" fill="#4db8ff"/>
+        <circle cx="370" cy="88" r="2.5" fill="#4db8ff"/>
+        <!-- ROSENBERG -->
+        <text x="210" y="132" font-size="32" font-weight="300" letter-spacing="9" text-anchor="middle" fill="#d8eeff">ROSENBERG</text>
+        <!-- Tagline -->
+        <text x="210" y="158" font-size="10" font-weight="200" letter-spacing="5" text-anchor="middle" fill="#4db8ff" opacity="0.65">SAXOPHONE  ·  JAZZ</text>
+      </svg>
+      <span class="card-label">02 — Stacked Logotype</span>
+    </div>
+
+    <!-- 03 Vinyl Record -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+        <!-- Record body -->
+        <circle cx="150" cy="150" r="136" fill="#09091a" stroke="#d8eeff" stroke-width="1.5"/>
+        <!-- Groove rings -->
+        <circle cx="150" cy="150" r="124" fill="none" stroke="#d8eeff" stroke-width="0.5" opacity="0.2"/>
+        <circle cx="150" cy="150" r="111" fill="none" stroke="#d8eeff" stroke-width="0.5" opacity="0.17"/>
+        <circle cx="150" cy="150" r="98"  fill="none" stroke="#d8eeff" stroke-width="0.5" opacity="0.14"/>
+        <circle cx="150" cy="150" r="85"  fill="none" stroke="#d8eeff" stroke-width="0.5" opacity="0.11"/>
+        <circle cx="150" cy="150" r="72"  fill="none" stroke="#d8eeff" stroke-width="0.5" opacity="0.09"/>
+        <!-- Label disc -->
+        <circle cx="150" cy="150" r="55"  fill="#0d1e36" stroke="#4db8ff" stroke-width="1.2"/>
+        <circle cx="150" cy="150" r="48"  fill="none"   stroke="#4db8ff" stroke-width="0.35" opacity="0.4"/>
+        <!-- DR -->
+        <text x="150" y="162" font-size="34" font-weight="300" letter-spacing="6" text-anchor="middle" fill="#4db8ff">DR</text>
+        <!-- Spindle -->
+        <circle cx="150" cy="150" r="4.5" fill="#060f1e" stroke="#4db8ff" stroke-width="1"/>
+      </svg>
+      <span class="card-label">03 — Vinyl Record</span>
+    </div>
+
+    <!-- 04 Piano Keys -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="400" height="160">
+        <!-- Piano keys — 7 white keys, centered. White: 22px wide, 2px gap, 44px tall. Total=166px. Offset=(400-166)/2=117 -->
+        <g transform="translate(117, 12)">
+          <!-- White keys -->
+          <rect x="0"   y="0" width="22" height="44" fill="#d8eeff" rx="1.5"/>
+          <rect x="24"  y="0" width="22" height="44" fill="#d8eeff" rx="1.5"/>
+          <rect x="48"  y="0" width="22" height="44" fill="#d8eeff" rx="1.5"/>
+          <rect x="72"  y="0" width="22" height="44" fill="#d8eeff" rx="1.5"/>
+          <rect x="96"  y="0" width="22" height="44" fill="#d8eeff" rx="1.5"/>
+          <rect x="120" y="0" width="22" height="44" fill="#d8eeff" rx="1.5"/>
+          <rect x="144" y="0" width="22" height="44" fill="#d8eeff" rx="1.5"/>
+          <!-- Black keys (C# D# — F# G# A#) -->
+          <rect x="15"  y="0" width="14" height="28" fill="#060f1e" rx="1"/>
+          <rect x="39"  y="0" width="14" height="28" fill="#060f1e" rx="1"/>
+          <rect x="87"  y="0" width="14" height="28" fill="#060f1e" rx="1"/>
+          <rect x="111" y="0" width="14" height="28" fill="#060f1e" rx="1"/>
+          <rect x="135" y="0" width="14" height="28" fill="#060f1e" rx="1"/>
+        </g>
+        <!-- Accent line below keys -->
+        <line x1="108" y1="62" x2="292" y2="62" stroke="#4db8ff" stroke-width="0.9"/>
+        <!-- ROSENBERG -->
+        <text x="200" y="100" font-size="28" font-weight="300" letter-spacing="8" text-anchor="middle" fill="#d8eeff">ROSENBERG</text>
+        <!-- Rule -->
+        <line x1="80" y1="112" x2="320" y2="112" stroke="#4db8ff" stroke-width="0.5" opacity="0.45"/>
+        <!-- Sub-tagline -->
+        <text x="200" y="135" font-size="10" font-weight="200" letter-spacing="5" text-anchor="middle" fill="#4db8ff" opacity="0.65">DOUG  ·  SAXOPHONE  ·  JAZZ</text>
+      </svg>
+      <span class="card-label">04 — Piano Keys</span>
+    </div>
+
+    <!-- 05 Sunburst Badge -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" width="280" height="280">
+        <!-- Sunburst rays — 24 rays every 15° -->
+        <g stroke="#4db8ff" stroke-width="0.8" opacity="0.22">
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(0,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(15,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(30,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(45,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(60,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(75,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(90,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(105,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(120,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(135,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(150,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(165,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(180,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(195,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(210,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(225,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(240,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(255,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(270,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(285,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(300,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(315,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(330,140,140)"/>
+          <line x1="140" y1="140" x2="140" y2="14" transform="rotate(345,140,140)"/>
+        </g>
+        <!-- Outer rings -->
+        <circle cx="140" cy="140" r="120" fill="none" stroke="#4db8ff" stroke-width="1"   opacity="0.5"/>
+        <circle cx="140" cy="140" r="113" fill="none" stroke="#4db8ff" stroke-width="0.35" opacity="0.28"/>
+        <!-- Inner disc -->
+        <circle cx="140" cy="140" r="86"  fill="#0d1e36"/>
+        <circle cx="140" cy="140" r="86"  fill="none" stroke="#4db8ff" stroke-width="1"   opacity="0.6"/>
+        <circle cx="140" cy="140" r="80"  fill="none" stroke="#4db8ff" stroke-width="0.3" opacity="0.28"/>
+        <!-- DOUG -->
+        <text x="140" y="126" font-size="16" font-weight="200" letter-spacing="9"  text-anchor="middle" fill="#88b8d8" opacity="0.9">DOUG</text>
+        <!-- Rule top -->
+        <line x1="98" y1="135" x2="182" y2="135" stroke="#4db8ff" stroke-width="0.8"/>
+        <!-- ROSENBERG -->
+        <text x="140" y="158" font-size="20" font-weight="300" letter-spacing="4" text-anchor="middle" fill="#d8eeff">ROSENBERG</text>
+        <!-- Rule bottom -->
+        <line x1="98" y1="166" x2="182" y2="166" stroke="#4db8ff" stroke-width="0.8"/>
+        <!-- SAXOPHONE -->
+        <text x="140" y="181" font-size="8.5" font-weight="200" letter-spacing="4" text-anchor="middle" fill="#4db8ff" opacity="0.7">SAXOPHONE</text>
+      </svg>
+      <span class="card-label">05 — Sunburst Badge</span>
+    </div>
+
+  </div>
+</body>
+</html>

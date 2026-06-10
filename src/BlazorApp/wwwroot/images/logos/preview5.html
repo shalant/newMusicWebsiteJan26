@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logo Prototypes — Batch 5 — Doug Rosenberg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #03080f; font-family: 'Josefin Sans', sans-serif; padding: 3rem 2rem 5rem; color: #88b8d8; }
+    nav { text-align: center; margin-bottom: 2rem; display: flex; justify-content: center; gap: 2rem; }
+    nav a { color: #4db8ff; font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; opacity: 0.55; }
+    nav a:hover { opacity: 1; }
+    h1 { text-align: center; font-size: 0.75rem; font-weight: 200; letter-spacing: 6px; text-transform: uppercase; color: #4db8ff; opacity: 0.6; margin-bottom: 3.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2.5rem; max-width: 1100px; margin: 0 auto; }
+    .card { background: #060f1e; border: 1px solid rgba(77,184,255,0.12); border-radius: 6px; padding: 3.5rem 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .card-label { font-size: 0.6rem; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; color: #4db8ff; opacity: 0.45; }
+    svg text { font-family: 'Josefin Sans', sans-serif; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="preview4.html">← Batch 4</a>
+  </nav>
+  <h1>Logo Prototypes · Batch 5 · #10 Variations</h1>
+  <div class="grid">
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- A  N A M E   O N   T H E   S T A F F        -->
+    <!--    text sits directly on the staff lines    -->
+    <!--    like a name written into a score         -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 100" width="380" height="100">
+
+        <!-- 5 staff lines spanning full width -->
+        <line x1="14" y1="28" x2="366" y2="28" stroke="#4db8ff" stroke-width="0.7" opacity="0.28"/>
+        <line x1="14" y1="40" x2="366" y2="40" stroke="#4db8ff" stroke-width="0.7" opacity="0.28"/>
+        <line x1="14" y1="52" x2="366" y2="52" stroke="#4db8ff" stroke-width="0.7" opacity="0.28"/>
+        <line x1="14" y1="64" x2="366" y2="64" stroke="#4db8ff" stroke-width="0.7" opacity="0.28"/>
+        <line x1="14" y1="76" x2="366" y2="76" stroke="#4db8ff" stroke-width="0.7" opacity="0.28"/>
+
+        <!-- opening barline -->
+        <line x1="14" y1="26" x2="14" y2="78" stroke="#4db8ff" stroke-width="1" opacity="0.35"/>
+        <!-- closing double barline -->
+        <line x1="360" y1="26" x2="360" y2="78" stroke="#4db8ff" stroke-width="2"   opacity="0.5"/>
+        <line x1="366" y1="26" x2="366" y2="78" stroke="#4db8ff" stroke-width="0.9" opacity="0.35"/>
+
+        <!-- name centered on the staff -->
+        <text x="190" y="64" font-size="28" font-weight="200" letter-spacing="9"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+      </svg>
+      <span class="card-label">A — Name on the staff</span>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- B  N O T E S   A S   L E T T E R S          -->
+    <!--    beamed notes above, name below           -->
+    <!--    the beam group mirrors the name's width  -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 140" width="380" height="140">
+
+        <!-- 5 staff lines — upper area -->
+        <line x1="60" y1="20" x2="320" y2="20" stroke="#d8eeff" stroke-width="0.7" opacity="0.22"/>
+        <line x1="60" y1="31" x2="320" y2="31" stroke="#d8eeff" stroke-width="0.7" opacity="0.22"/>
+        <line x1="60" y1="42" x2="320" y2="42" stroke="#d8eeff" stroke-width="0.7" opacity="0.22"/>
+        <line x1="60" y1="53" x2="320" y2="53" stroke="#d8eeff" stroke-width="0.7" opacity="0.22"/>
+        <line x1="60" y1="64" x2="320" y2="64" stroke="#d8eeff" stroke-width="0.7" opacity="0.22"/>
+
+        <!-- 5 notes spanning the staff width, varying pitches -->
+        <!-- each: filled ellipse + stem up to beam -->
+        <!-- note heads on different lines for melodic shape -->
+        <ellipse cx="90"  cy="59" rx="9" ry="6.5" transform="rotate(-18,90,59)"  fill="#4db8ff"/>
+        <ellipse cx="145" cy="48" rx="9" ry="6.5" transform="rotate(-18,145,48)" fill="#4db8ff"/>
+        <ellipse cx="190" cy="37" rx="9" ry="6.5" transform="rotate(-18,190,37)" fill="#4db8ff"/>
+        <ellipse cx="240" cy="48" rx="9" ry="6.5" transform="rotate(-18,240,48)" fill="#4db8ff"/>
+        <ellipse cx="290" cy="42" rx="9" ry="6.5" transform="rotate(-18,290,42)" fill="#4db8ff"/>
+
+        <!-- stems -->
+        <line x1="99"  y1="55" x2="99"  y2="10" stroke="#4db8ff" stroke-width="1.6"/>
+        <line x1="154" y1="44" x2="154" y2="10" stroke="#4db8ff" stroke-width="1.6"/>
+        <line x1="199" y1="33" x2="199" y2="10" stroke="#4db8ff" stroke-width="1.6"/>
+        <line x1="249" y1="44" x2="249" y2="10" stroke="#4db8ff" stroke-width="1.6"/>
+        <line x1="299" y1="38" x2="299" y2="10" stroke="#4db8ff" stroke-width="1.6"/>
+
+        <!-- beam across all stems -->
+        <line x1="99" y1="10" x2="299" y2="10" stroke="#4db8ff" stroke-width="4" stroke-linecap="square"/>
+
+        <!-- name -->
+        <text x="190" y="110" font-size="28" font-weight="200" letter-spacing="9"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+        <!-- thin rule between notes and name -->
+        <line x1="60" y1="78" x2="320" y2="78" stroke="#4db8ff" stroke-width="0.6" opacity="0.3"/>
+
+      </svg>
+      <span class="card-label">B — Beamed notes above name</span>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- C  N A M E   B E T W E E N   T W O          -->
+    <!--    S I N G L E   N O T E S                  -->
+    <!--    one note left, name center, one right    -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 82" width="400" height="82">
+
+        <!-- left quarter note (stem up) -->
+        <ellipse cx="24" cy="52" rx="10" ry="7.5" transform="rotate(-18,24,52)" fill="#4db8ff"/>
+        <line x1="33" y1="47" x2="33" y2="14" stroke="#4db8ff" stroke-width="2" stroke-linecap="round"/>
+
+        <!-- right quarter note (stem down, mirrored) -->
+        <ellipse cx="376" cy="30" rx="10" ry="7.5" transform="rotate(-18,376,30)" fill="#4db8ff"/>
+        <line x1="367" y1="35" x2="367" y2="68" stroke="#4db8ff" stroke-width="2" stroke-linecap="round"/>
+
+        <!-- name centered between them -->
+        <text x="200" y="48" font-size="26" font-weight="200" letter-spacing="8"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+      </svg>
+      <span class="card-label">C — Name between two notes</span>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- D  S I N G L E   S T A F F   L I N E       -->
+    <!--    one accent line through the name        -->
+    <!--    like a ledger line in notation          -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" width="400" height="80">
+
+        <!-- single staff line through the name — like a ledger line -->
+        <line x1="14" y1="40" x2="386" y2="40" stroke="#4db8ff" stroke-width="0.9" opacity="0.45"/>
+
+        <!-- name centered, baseline riding the line -->
+        <text x="200" y="36" font-size="28" font-weight="200" letter-spacing="9"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+        <!-- short barlines at each end of the line -->
+        <line x1="14" y1="28" x2="14" y2="52" stroke="#4db8ff" stroke-width="1.2" opacity="0.5"/>
+        <line x1="386" y1="28" x2="386" y2="52" stroke="#4db8ff" stroke-width="1.2" opacity="0.5"/>
+
+      </svg>
+      <span class="card-label">D — Single ledger line</span>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- E  T H R E E   N O T E S ,  N A M E        -->
+    <!--    small trio of notes as a monogram mark  -->
+    <!--    above left — name large to the right    -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+
+        <!-- small trio of notes — top-left mark -->
+        <!-- 3 mini notes on a tiny staff fragment -->
+        <line x1="18" y1="36" x2="74" y2="36" stroke="#4db8ff" stroke-width="0.6" opacity="0.35"/>
+        <line x1="18" y1="44" x2="74" y2="44" stroke="#4db8ff" stroke-width="0.6" opacity="0.35"/>
+        <line x1="18" y1="52" x2="74" y2="52" stroke="#4db8ff" stroke-width="0.6" opacity="0.35"/>
+
+        <!-- note 1 -->
+        <ellipse cx="28" cy="50" rx="7" ry="5" transform="rotate(-18,28,50)" fill="#4db8ff"/>
+        <line x1="34" y1="46" x2="34" y2="22" stroke="#4db8ff" stroke-width="1.5"/>
+
+        <!-- note 2 -->
+        <ellipse cx="46" cy="44" rx="7" ry="5" transform="rotate(-18,46,44)" fill="#4db8ff"/>
+        <line x1="52" y1="40" x2="52" y2="22" stroke="#4db8ff" stroke-width="1.5"/>
+
+        <!-- note 3 -->
+        <ellipse cx="64" cy="38" rx="7" ry="5" transform="rotate(-18,64,38)" fill="#4db8ff"/>
+        <line x1="70" y1="34" x2="70" y2="22" stroke="#4db8ff" stroke-width="1.5"/>
+
+        <!-- beam across 3 stems -->
+        <line x1="34" y1="22" x2="70" y2="22" stroke="#4db8ff" stroke-width="3" stroke-linecap="square"/>
+
+        <!-- thin vertical separator -->
+        <line x1="86" y1="18" x2="86" y2="72" stroke="#4db8ff" stroke-width="0.8" opacity="0.3"/>
+
+        <!-- name — large, to the right -->
+        <text x="240" y="58" font-size="30" font-weight="200" letter-spacing="7"
+              text-anchor="middle" fill="#d8eeff">ROSENBERG</text>
+        <text x="240" y="30" font-size="13" font-weight="100" letter-spacing="12"
+              text-anchor="middle" fill="#d8eeff" opacity="0.7">DOUG</text>
+
+      </svg>
+      <span class="card-label">E — Trio mark + stacked name</span>
+    </div>
+
+
+  </div>
+</body>
+</html>

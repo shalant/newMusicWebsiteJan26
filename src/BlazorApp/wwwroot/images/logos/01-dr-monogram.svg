@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="220" height="220">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400&display=swap');
+  </style>
+
+  <!-- Background -->
+  <rect width="220" height="220" fill="#060f1e"/>
+
+  <!-- Art deco corner brackets — top left -->
+  <polyline points="14,50 14,14 50,14" fill="none" stroke="#4db8ff" stroke-width="1.5"/>
+  <!-- top right -->
+  <polyline points="170,14 206,14 206,50" fill="none" stroke="#4db8ff" stroke-width="1.5"/>
+  <!-- bottom left -->
+  <polyline points="14,170 14,206 50,206" fill="none" stroke="#4db8ff" stroke-width="1.5"/>
+  <!-- bottom right -->
+  <polyline points="206,170 206,206 170,206" fill="none" stroke="#4db8ff" stroke-width="1.5"/>
+
+  <!-- Inner accent frame (hairline) -->
+  <rect x="30" y="30" width="160" height="160" fill="none" stroke="#4db8ff" stroke-width="0.4" opacity="0.3"/>
+
+  <!-- D -->
+  <text
+    x="110" y="108"
+    font-family="'Josefin Sans', sans-serif"
+    font-size="78"
+    font-weight="300"
+    letter-spacing="4"
+    text-anchor="middle"
+    fill="#d8eeff">D</text>
+
+  <!-- Divider -->
+  <line x1="68" y1="118" x2="152" y2="118" stroke="#4db8ff" stroke-width="1.2"/>
+
+  <!-- R -->
+  <text
+    x="110" y="178"
+    font-family="'Josefin Sans', sans-serif"
+    font-size="78"
+    font-weight="300"
+    letter-spacing="4"
+    text-anchor="middle"
+    fill="#d8eeff">R</text>
+</svg>

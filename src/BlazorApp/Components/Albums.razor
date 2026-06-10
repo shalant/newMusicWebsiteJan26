@@ -3,43 +3,35 @@
     {
         <img class="background" src="@(hero.Src)" alt="@(hero.Alt)" />
     }
-    <h2 class="custom-mottled__header">
-        Albums
-    </h2>
+    <h2 class="custom-mottled__header">Albums</h2>
     @if (albums is null || albums.Count == 0)
     {
-        <p>No albums found.</p>
+        <p style="text-align:center">No albums found.</p>
     }
     else
     {
-        @for (int i = 0; i < albums.Count; i += 2)
-        {
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="albums__glass-pane">
-                        <img src="@albums[i].AlbumCoverUrl" alt="Album Cover" width="111" height="111" />
-                        <a href="@albums[i].Url" target="_blank" rel="noopener noreferrer">
-                            <h3 class="album__title">@albums[i].Title</h3>
-                        </a>
-                        <p class="small">@albums[i].Description</p>
-                    </div>
-                </div>
-                @if (i + 1 < albums.Count)
-                {
-                    <div class="col-md-6">
-                        <div class="albums__glass-pane">
-                            <img src="@albums[i + 1].AlbumCoverUrl" alt="Album Cover" width="111" height="111" />
-                            <a href="@albums[i + 1].Url" target="_blank" rel="noopener noreferrer">
-                                <h3 class="album__title">@albums[i + 1].Title</h3>
-                            </a>
-                            <p class="small">@albums[i + 1].Description</p>
+        <div class="albums-grid">
+            @{ int idx = 0; }
+            @foreach (var album in albums)
+            {
+                <div class="album-card reveal @(idx % 3 == 1 ? "reveal-delay-1" : idx % 3 == 2 ? "reveal-delay-2" : "")">
+                    <div class="album-art-wrap">
+                        <img src="@album.AlbumCoverUrl" alt="@album.Title" />
+                        <div class="album-art-overlay">
+                            <a href="@album.Url" target="_blank" rel="noopener noreferrer" class="album-listen-btn">Listen</a>
                         </div>
                     </div>
-                }
-            </div>
-        }
+                    <div class="album-info">
+                        <a href="@album.Url" target="_blank" rel="noopener noreferrer">
+                            <h3 class="album__title">@album.Title</h3>
+                        </a>
+                        <p class="small">@album.Description</p>
+                    </div>
+                </div>
+                idx++;
+            }
+        </div>
     }
-    
 </section>
 
 @code {

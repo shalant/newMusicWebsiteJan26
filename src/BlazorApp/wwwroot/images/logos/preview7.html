@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logo Prototypes — Batch 7 — Doug Rosenberg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #03080f; font-family: 'Josefin Sans', sans-serif; padding: 3rem 2rem 5rem; color: #88b8d8; }
+    nav { text-align: center; margin-bottom: 2rem; display: flex; justify-content: center; gap: 2rem; }
+    nav a { color: #4db8ff; font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; opacity: 0.55; }
+    nav a:hover { opacity: 1; }
+    h1 { text-align: center; font-size: 0.75rem; font-weight: 200; letter-spacing: 6px; text-transform: uppercase; color: #4db8ff; opacity: 0.6; margin-bottom: 3.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2.5rem; max-width: 1100px; margin: 0 auto; }
+    .card { background: #060f1e; border: 1px solid rgba(77,184,255,0.12); border-radius: 6px; padding: 3.5rem 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .card-label { font-size: 0.6rem; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; color: #4db8ff; opacity: 0.45; }
+    svg text { font-family: 'Josefin Sans', sans-serif; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="preview6.html">← Batch 6</a>
+  </nav>
+  <h1>Logo Prototypes · Batch 7 · #15 Variations</h1>
+  <div class="grid">
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- 26  8 V A   B R A C K E T                   -->
+    <!--     ottava bracket spanning above           -->
+    <!--     the name plays an octave higher         -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 110" width="380" height="110">
+
+        <!-- 8va text -->
+        <text x="22" y="26" font-size="13" font-weight="200" letter-spacing="1"
+              fill="#4db8ff" opacity="0.7" font-style="italic">8va</text>
+
+        <!-- dashed bracket line across the top -->
+        <line x1="48" y1="22" x2="354" y2="22"
+              stroke="#4db8ff" stroke-width="1" stroke-dasharray="5,4" opacity="0.45"/>
+
+        <!-- right hook descending -->
+        <line x1="354" y1="22" x2="354" y2="40"
+              stroke="#4db8ff" stroke-width="1" opacity="0.45"/>
+
+        <!-- name -->
+        <text x="190" y="78" font-size="26" font-weight="200" letter-spacing="9"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+      </svg>
+      <span class="card-label">26 — Ottava 8va bracket</span>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- 27  S E G N O   +   C O D A                 -->
+    <!--     𝄋 segno left — navigation from top     -->
+    <!--     ⊕ coda right — route to the end         -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 108" width="380" height="108">
+
+        <!-- Segno 𝄋 — top-left                             -->
+        <!-- diagonal slash -->
+        <line x1="18" y1="50" x2="46" y2="18"
+              stroke="#4db8ff" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+        <!-- S-curve upper half — curves away right from the slash -->
+        <path d="M 32,18 C 50,14 56,22 46,28 C 36,34 30,30 32,24"
+              fill="none" stroke="#4db8ff" stroke-width="1.4" stroke-linecap="round" opacity="0.8"/>
+        <!-- S-curve lower half -->
+        <path d="M 32,44 C 14,48 8,40 18,34 C 28,28 34,32 32,38"
+              fill="none" stroke="#4db8ff" stroke-width="1.4" stroke-linecap="round" opacity="0.8"/>
+        <!-- two segno dots -->
+        <circle cx="14" cy="24" r="2.2" fill="#4db8ff" opacity="0.8"/>
+        <circle cx="50" cy="44" r="2.2" fill="#4db8ff" opacity="0.8"/>
+
+        <!-- Coda ⊕ — bottom-right                          -->
+        <!-- circle -->
+        <circle cx="352" cy="76" r="18"
+                fill="none" stroke="#4db8ff" stroke-width="1.5" opacity="0.8"/>
+        <!-- vertical line through circle -->
+        <line x1="352" y1="52" x2="352" y2="100"
+              stroke="#4db8ff" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+        <!-- horizontal line through circle -->
+        <line x1="328" y1="76" x2="376" y2="76"
+              stroke="#4db8ff" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+
+        <!-- name -->
+        <text x="172" y="60" font-size="26" font-weight="200" letter-spacing="9"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+      </svg>
+      <span class="card-label">27 — Segno &amp; coda</span>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- 28  W H O L E   N O T E  +  R E S T         -->
+    <!--     open whole note top-left on ledger      -->
+    <!--     whole rest hanging bottom-right         -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 108" width="380" height="108">
+
+        <!-- whole note — top-left: open ellipse + ledger line -->
+        <line x1="10" y1="34" x2="50" y2="34"
+              stroke="#4db8ff" stroke-width="0.9" opacity="0.5"/>
+        <ellipse cx="30" cy="34" rx="13" ry="9"
+                 fill="none" stroke="#4db8ff" stroke-width="1.6" opacity="0.85"/>
+        <!-- inner cutout to read as hollow (open notehead) -->
+        <ellipse cx="30" cy="34" rx="7" ry="5"
+                 transform="rotate(-20,30,34)" fill="#060f1e"/>
+
+        <!-- whole rest — bottom-right: thick rect hanging below a line -->
+        <line x1="320" y1="74" x2="370" y2="74"
+              stroke="#4db8ff" stroke-width="0.9" opacity="0.5"/>
+        <rect x="332" y="74" width="26" height="10" rx="1"
+              fill="#4db8ff" opacity="0.85"/>
+
+        <!-- name -->
+        <text x="190" y="60" font-size="26" font-weight="200" letter-spacing="9"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+      </svg>
+      <span class="card-label">28 — Whole note &amp; rest</span>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- 29  T R I L L   L I N E                     -->
+    <!--     "tr" + wavy line spanning the full top  -->
+    <!--     name sits below the ornament            -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 100" width="380" height="100">
+
+        <!-- tr text -->
+        <text x="18" y="30" font-size="17" font-weight="200" letter-spacing="1"
+              fill="#4db8ff" opacity="0.75" font-style="italic">tr</text>
+
+        <!-- wavy trill line — series of small arcs hand-crafted with beziers -->
+        <path d="M 42,26
+                 C 50,16 58,16 66,26
+                 C 74,36 82,36 90,26
+                 C 98,16 106,16 114,26
+                 C 122,36 130,36 138,26
+                 C 146,16 154,16 162,26
+                 C 170,36 178,36 186,26
+                 C 194,16 202,16 210,26
+                 C 218,36 226,36 234,26
+                 C 242,16 250,16 258,26
+                 C 266,36 274,36 282,26
+                 C 290,16 298,16 306,26
+                 C 314,36 322,36 330,26
+                 C 338,16 346,16 354,26"
+              fill="none" stroke="#4db8ff" stroke-width="1.1"
+              stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+
+        <!-- name -->
+        <text x="190" y="76" font-size="26" font-weight="200" letter-spacing="9"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+      </svg>
+      <span class="card-label">29 — Trill line</span>
+    </div>
+
+
+    <!-- ──────────────────────────────────────────── -->
+    <!-- 30  T R E M O L O   S L A S H E S           -->
+    <!--     three diagonal slashes each side        -->
+    <!--     the roll notation used on held notes    -->
+    <!-- ──────────────────────────────────────────── -->
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 108" width="380" height="108">
+
+        <!-- left tremolo — three diagonal slashes, stacked, angled 45° -->
+        <line x1="14" y1="28" x2="36" y2="50" stroke="#4db8ff" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+        <line x1="22" y1="20" x2="44" y2="42" stroke="#4db8ff" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <line x1="30" y1="12" x2="52" y2="34" stroke="#4db8ff" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+
+        <!-- right tremolo — mirrored, bottom-right -->
+        <line x1="344" y1="58" x2="366" y2="80" stroke="#4db8ff" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+        <line x1="336" y1="66" x2="358" y2="88" stroke="#4db8ff" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <line x1="328" y1="74" x2="350" y2="96" stroke="#4db8ff" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+
+        <!-- name -->
+        <text x="190" y="62" font-size="26" font-weight="200" letter-spacing="9"
+              text-anchor="middle" fill="#d8eeff">DOUG ROSENBERG</text>
+
+      </svg>
+      <span class="card-label">30 — Tremolo slashes</span>
+    </div>
+
+
+  </div>
+</body>
+</html>

@@ -1,21 +1,21 @@
 <div class="theme-switcher">
-    <button class="theme-toggle" @onclick="ToggleMenu" title="Change theme">
-        <span class="theme-icon">🎨</span>
+    <button class="theme-toggle" @onclick="ToggleMenu" aria-label="Change color theme" title="Change theme">
+        <span class="theme-toggle-dot" style="background-color: @GetSwatchColor(currentTheme);"></span>
     </button>
 
     @if (showMenu)
     {
-        <div class="theme-menu">
-            <div class="theme-menu-header">
-                <h4>Choose Theme</h4>
-            </div>
-            <div class="theme-list">
+        <div class="theme-menu" role="dialog" aria-label="Theme selector">
+            <p class="theme-menu-label">Theme</p>
+            <div class="swatch-grid">
                 @foreach (var theme in ThemeService.AvailableThemes)
                 {
-                    <button class="theme-option @(currentTheme == theme.Id ? "active" : "")"
+                    <button class="swatch-btn @(currentTheme == theme.Id ? "active" : "")"
+                            title="@theme.Name"
+                            aria-label="@theme.Name theme"
                             @onclick="() => SelectTheme(theme.Id)">
-                        <div class="theme-name">@theme.Name</div>
-                        <div class="theme-description">@theme.Description</div>
+                        <span class="swatch-dot" style="background-color: @GetSwatchColor(theme.Id);"></span>
+                        <span class="swatch-label">@GetShortName(theme.Id)</span>
                     </button>
                 }
             </div>
@@ -31,17 +31,14 @@
     public required IJSRuntime JS { get; set; }
 
     private bool showMenu;
-    private string currentTheme = "dark";
+    private string currentTheme = "ocean";
 
     protected override async Task OnInitializedAsync()
     {
         currentTheme = await JS.InvokeAsync<string>("window.initializeTheme");
     }
 
-    private void ToggleMenu()
-    {
-        showMenu = !showMenu;
-    }
+    private void ToggleMenu() => showMenu = !showMenu;
 
     private async Task SelectTheme(string themeId)
     {
@@ -50,4 +47,26 @@
         showMenu = false;
         StateHasChanged();
     }
+
+    private static string GetSwatchColor(string themeId) => themeId switch
+    {
+        "dark"     => "#d4a574",
+        "midnight" => "#00ff88",
+        "warm"     => "#c4873a",
+        "minimal"  => "#555555",
+        "ocean"    => "#4db8ff",
+        "forest"   => "#7ccc7c",
+        _          => "#888888"
+    };
+
+    private static string GetShortName(string themeId) => themeId switch
+    {
+        "dark"     => "Dark",
+        "midnight" => "Night",
+        "warm"     => "Warm",
+        "minimal"  => "Clean",
+        "ocean"    => "Ocean",
+        "forest"   => "Forest",
+        _          => themeId
+    };
 }

@@ -1,34 +1,86 @@
 #header {
     position: fixed;
     display: flex;
-    justify-content: center;
-    gap: 2.5rem;
+    justify-content: space-between;
+    align-items: center;
     background: var(--nav-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 1.1rem 2rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 1.1rem 3rem;
     top: 0;
     width: 100%;
     z-index: 100;
     border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.22);
     box-sizing: border-box;
+    transition: padding 0.4s ease, box-shadow 0.4s ease;
 }
 
-#header a {
+#header.scrolled {
+    padding-top: 0.72rem;
+    padding-bottom: 0.72rem;
+    box-shadow: 0 4px 36px rgba(0, 0, 0, 0.4);
+}
+
+.nav-brand {
+    text-decoration: none;
+    flex-shrink: 0;
+    line-height: 0;
+    opacity: 0.88;
+    transition: opacity 0.3s ease;
+}
+
+.nav-brand:hover {
+    opacity: 1;
+}
+
+.nav-logo {
+    height: 36px;
+    width: auto;
+    display: block;
+}
+
+/* Tremolo slash colors — accent, fading out */
+.logo-slash {
+    stroke: var(--accent-color);
+    transition: stroke 0.3s ease;
+}
+.logo-slash-1 { opacity: 0.75; }
+.logo-slash-2 { opacity: 0.45; }
+.logo-slash-3 { opacity: 0.22; }
+
+/* Name text color */
+.logo-name {
+    fill: var(--text-primary);
+    transition: fill 0.3s ease;
+}
+
+/* On hover — slashes go full accent, name follows accent */
+.nav-brand:hover .logo-slash-1 { opacity: 1; }
+.nav-brand:hover .logo-slash-2 { opacity: 0.65; }
+.nav-brand:hover .logo-slash-3 { opacity: 0.38; }
+.nav-brand:hover .logo-name    { fill: var(--accent-color); }
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-links a {
     color: var(--nav-text);
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 500;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
     text-decoration: none;
     position: relative;
     transition: color 0.25s ease;
-    padding-bottom: 2px;
+    padding-bottom: 3px;
 }
 
-#header a::after {
+.nav-links a::after {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -39,10 +91,75 @@
     transition: width 0.28s ease;
 }
 
-#header a:hover {
+.nav-links a:hover {
     color: var(--accent-color);
 }
 
-#header a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
     width: 100%;
+}
+
+.nav-links a.active {
+    color: var(--accent-color);
+}
+
+/* External link — subtle accent + ↗ indicator */
+.nav-links a.nav-external {
+    color: var(--accent-color);
+    opacity: 0.72;
+}
+
+.nav-links a.nav-external::before {
+    content: '↗';
+    font-size: 0.6rem;
+    margin-right: 2px;
+    display: inline-block;
+    transition: transform 0.22s ease;
+}
+
+.nav-links a.nav-external:hover {
+    opacity: 1;
+}
+
+.nav-links a.nav-external:hover::before {
+    transform: translate(1px, -1px);
+}
+
+@media (max-width: 768px) {
+    #header {
+        padding: 0.9rem 1.5rem;
+    }
+
+    .nav-links {
+        gap: 1.4rem;
+    }
+
+    .nav-links a {
+        font-size: 0.64rem;
+        letter-spacing: 1.8px;
+    }
+
+    .nav-logo {
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-brand {
+        display: none;
+    }
+
+    #header {
+        justify-content: center;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.6rem;
+        letter-spacing: 1.5px;
+    }
 }

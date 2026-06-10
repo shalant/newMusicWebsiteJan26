@@ -1,22 +1,23 @@
 /* CSS Variables for Theming */
 :root {
-    /* Defaults match the dark theme */
-    --bg-primary: #181212;
-    --bg-secondary: #261c18;
-    --surface-color: #302420;
-    --text-primary: #f0e8d8;
-    --text-secondary: #b0a090;
-    --accent-color: #d4a574;
-    --accent-light: #e6c49a;
-    --border-color: rgba(212, 165, 116, 0.22);
-    --hover-color: rgba(212, 165, 116, 0.1);
-    --nav-bg: rgba(18, 12, 10, 0.96);
-    --nav-text: #f0e8d8;
-    --glow-color: rgba(212, 165, 116, 0.15);
-    --hero-overlay: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(24,18,18,0.72) 100%);
-    --gradient-start: #d4a574;
-    --gradient-mid: #e6b896;
-    --gradient-end: #c49560;
+    /* Defaults match the ocean theme (default theme) */
+    --bg-primary: #060f1e;
+    --bg-secondary: #0d1e36;
+    --surface-color: #0e2040;
+    --text-primary: #d8eeff;
+    --text-secondary: #88b8d8;
+    --accent-color: #4db8ff;
+    --accent-light: #78ccff;
+    --border-color: rgba(77, 184, 255, 0.22);
+    --hover-color: rgba(77, 184, 255, 0.1);
+    --nav-bg: rgba(6, 15, 30, 0.48);
+    --footer-bg: rgba(6, 15, 30, 0.48);
+    --nav-text: #d8eeff;
+    --glow-color: rgba(77, 184, 255, 0.12);
+    --hero-overlay: linear-gradient(to bottom, rgba(6,15,30,0.05) 0%, rgba(6,15,30,0.72) 100%);
+    --gradient-start: #4db8ff;
+    --gradient-mid: #78ccff;
+    --gradient-end: #3aabff;
 }
 
 /* Dark Modern Theme (Default) */
@@ -34,29 +35,31 @@
     --gradient-start: #d4a574;
     --gradient-mid: #e6b896;
     --gradient-end: #c49560;
-    --nav-bg: rgba(18, 12, 10, 0.96);
+    --nav-bg: rgba(18, 12, 10, 0.48);
+    --footer-bg: rgba(18, 12, 10, 0.48);
     --nav-text: #f0e8d8;
     --glow-color: rgba(212, 165, 116, 0.15);
 }
 
-/* Midnight Theme - Pure black with neon */
+/* Midnight Theme - Pure black with neon (Dark Mode 2.0) */
 [data-theme="midnight"] {
-    --bg-primary: #000000;
-    --bg-secondary: #060606;
-    --surface-color: #0d1208;
-    --text-primary: #e0ffe8;
-    --text-secondary: #80c898;
+    --bg-primary: #010101;
+    --bg-secondary: #080808;
+    --surface-color: #0d120a;
+    --text-primary: #dfffea;
+    --text-secondary: #6dbc8a;
     --accent-color: #00ff88;
-    --accent-light: #00ffaa;
-    --border-color: rgba(0, 255, 136, 0.22);
-    --hover-color: rgba(0, 255, 136, 0.08);
-    --hero-overlay: linear-gradient(to bottom, rgba(0,5,2,0.05) 0%, rgba(0,0,0,0.72) 100%);
+    --accent-light: #22ffaa;
+    --border-color: rgba(0, 255, 136, 0.18);
+    --hover-color: rgba(0, 255, 136, 0.07);
+    --hero-overlay: linear-gradient(to bottom, rgba(0,8,3,0.1) 0%, rgba(0,0,0,0.78) 100%);
     --gradient-start: #00ff88;
-    --gradient-mid: #00ffaa;
-    --gradient-end: #00dd77;
-    --nav-bg: rgba(0, 5, 2, 0.97);
+    --gradient-mid: #00ffcc;
+    --gradient-end: #00e577;
+    --nav-bg: rgba(1, 6, 3, 0.48);
+    --footer-bg: rgba(1, 6, 3, 0.48);
     --nav-text: #00ff88;
-    --glow-color: rgba(0, 255, 136, 0.12);
+    --glow-color: rgba(0, 255, 136, 0.18);
 }
 
 /* Warm Retro Theme - Light */
@@ -74,7 +77,8 @@
     --gradient-start: #c4873a;
     --gradient-mid: #d4a062;
     --gradient-end: #b07030;
-    --nav-bg: rgba(250, 245, 236, 0.97);
+    --nav-bg: rgba(250, 245, 236, 0.65);
+    --footer-bg: rgba(250, 245, 236, 0.65);
     --nav-text: #2a1a0f;
     --glow-color: rgba(196, 135, 58, 0.18);
 }
@@ -94,7 +98,8 @@
     --gradient-start: #333333;
     --gradient-mid: #555555;
     --gradient-end: #222222;
-    --nav-bg: rgba(255, 255, 255, 0.98);
+    --nav-bg: rgba(255, 255, 255, 0.65);
+    --footer-bg: rgba(255, 255, 255, 0.65);
     --nav-text: #1a1a1a;
     --glow-color: rgba(0, 0, 0, 0.08);
 }
@@ -114,7 +119,9 @@
     --gradient-start: #4db8ff;
     --gradient-mid: #78ccff;
     --gradient-end: #3aabff;
-    --nav-bg: rgba(6, 15, 30, 0.97);
+    /*--nav-bg: rgba(6, 15, 30, 0.48);*/
+    --nav-bg: rgba(6, 15, 30, 0.1);
+    --footer-bg: rgba(6, 15, 30, 0.48);
     --nav-text: #d8eeff;
     --glow-color: rgba(77, 184, 255, 0.12);
 }
@@ -134,7 +141,8 @@
     --gradient-start: #7ccc7c;
     --gradient-mid: #a0dda0;
     --gradient-end: #66bb66;
-    --nav-bg: rgba(13, 26, 13, 0.97);
+    --nav-bg: rgba(13, 26, 13, 0.72);
+    --footer-bg: rgba(13, 26, 13, 0.72);
     --nav-text: #d8f0d8;
     --glow-color: rgba(124, 204, 124, 0.12);
 }
