@@ -48,8 +48,8 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6">
-            <div class="custom-glass-pane reveal">
+        <div class="col-md-6 reveal">
+            <div class="custom-glass-pane">
                 <p><strong>New Trier High School</strong></p>
                 <ul>
                     <li>Freshman Jazz Ensemble Assistant (2005–2008)</li>
@@ -94,7 +94,14 @@
 
     protected override async Task OnInitializedAsync()
     {
-        hero = await HeroImageService.GetHeroAsync(img => img.Name is "education");
+        try
+        {
+            hero = await HeroImageService.GetHeroAsync(img => img.Name is "education");
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"[Education] Load failed: {ex.Message}");
+        }
     }
 }
 

@@ -1,16 +1,26 @@
 @inherits LayoutComponentBase
 
-<div id="main">
-    @Body
-</div>
+<ErrorBoundary>
+    <ChildContent>
+        <div id="main">
+            @Body
+        </div>
+    </ChildContent>
+    <ErrorContent Context="ex">
+        <div class="app-crash">
+            <div class="app-crash__eq">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <h2 class="app-crash__title">Something went wrong</h2>
+            <p class="app-crash__msg">@ex.Message</p>
+            <button class="custom-cta-btn" onclick="window.location.reload()">Reload page</button>
+        </div>
+    </ErrorContent>
+</ErrorBoundary>
 
 <ThemeSwitcher />
 
 <MudThemeProvider />
 <MudPopoverProvider />
-
-@* Needed for dialogs *@
 <MudDialogProvider @rendermode="RenderMode.InteractiveWebAssembly"/>
-
-@* Needed for snackbars *@
 <MudSnackbarProvider />

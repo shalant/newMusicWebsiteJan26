@@ -2,12 +2,60 @@
 @inject HttpClient Http
 @inject HeroImageService HeroImageService
 
-<PageTitle>Portfolio</PageTitle>
+<PageTitle>Doug Rosenberg</PageTitle>
 
 <Header />
-<Home Http=@Http HeroImageService=@HeroImageService />
-<About Http=@Http HeroImageService=@HeroImageService />
-<Albums Http=@Http HeroImageService=@HeroImageService />
-@* <Portfolio Http=@Http HeroImageService=@HeroImageService /> *@
-<Education Http=@Http HeroImageService=@HeroImageService />
-<Footer Http=@Http PrimaryColor="#4E567E" SecondaryColor="#D2F1E4" />
+
+<ErrorBoundary>
+    <ChildContent>
+        <Home Http=@Http HeroImageService=@HeroImageService />
+    </ChildContent>
+    <ErrorContent>
+        <SectionError Name="home" />
+    </ErrorContent>
+</ErrorBoundary>
+
+<ErrorBoundary>
+    <ChildContent>
+        <About Http=@Http HeroImageService=@HeroImageService />
+    </ChildContent>
+    <ErrorContent>
+        <SectionError Name="about" />
+    </ErrorContent>
+</ErrorBoundary>
+
+<ErrorBoundary>
+    <ChildContent>
+        <Albums Http=@Http HeroImageService=@HeroImageService />
+    </ChildContent>
+    <ErrorContent>
+        <SectionError Name="albums" />
+    </ErrorContent>
+</ErrorBoundary>
+
+<ErrorBoundary>
+    <ChildContent>
+        <Education Http=@Http HeroImageService=@HeroImageService />
+    </ChildContent>
+    <ErrorContent>
+        <SectionError Name="education" />
+    </ErrorContent>
+</ErrorBoundary>
+
+<ErrorBoundary>
+    <ChildContent>
+        <Gallery Http=@Http />
+    </ChildContent>
+    <ErrorContent>
+        <SectionError Name="gallery" />
+    </ErrorContent>
+</ErrorBoundary>
+
+<ErrorBoundary>
+    <ChildContent>
+        <Footer Http=@Http PrimaryColor="#4E567E" SecondaryColor="#D2F1E4" />
+    </ChildContent>
+    <ErrorContent>
+        <SectionError Name="footer" />
+    </ErrorContent>
+</ErrorBoundary>

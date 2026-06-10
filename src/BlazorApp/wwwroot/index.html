@@ -38,13 +38,34 @@
 </head>
 
 <body>
-    <a href="#home" class="skip-link">Skip to content</a>
-    <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
+    <div id="scroll-progress"></div>
+    <button id="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"/>
         </svg>
-        <div class="loading-progress-text"></div>
+    </button>
+    <div id="app">
+        <div class="splash">
+            <div class="splash__inner">
+                <div class="splash__eq">
+                    <span class="splash__bar"></span>
+                    <span class="splash__bar"></span>
+                    <span class="splash__bar"></span>
+                    <span class="splash__bar"></span>
+                    <span class="splash__bar"></span>
+                    <span class="splash__bar"></span>
+                    <span class="splash__bar"></span>
+                    <span class="splash__bar"></span>
+                    <span class="splash__bar"></span>
+                </div>
+                <p class="splash__name">Doug Rosenberg</p>
+                <p class="splash__role">saxophonist · composer · educator</p>
+                <div class="splash__track loading-progress">
+                    <div class="splash__fill"></div>
+                </div>
+                <p class="loading-progress-text splash__pct"></p>
+            </div>
+        </div>
     </div>
 
     <div id="blazor-error-ui">
@@ -56,70 +77,6 @@
     <!--<script src="@Assets[" _content /MudBlazor/MudBlazor.min.js"]"></script>-->
     <script src="_content/MudBlazor/MudBlazor.min.js"></script>
     <script src="_framework/blazor.webassembly.js"></script>
-    <script>
-        (function () {
-            // Shrink nav on scroll
-            window.addEventListener('scroll', function () {
-                var header = document.getElementById('header');
-                if (!header) return;
-                header.classList.toggle('scrolled', window.scrollY > 60);
-            }, { passive: true });
-
-            // Hero parallax — subtle depth effect (Immersive trend)
-            (function () {
-                var heroImg = null;
-                function getHeroImg() {
-                    if (!heroImg) heroImg = document.querySelector('#home .hero-image');
-                    return heroImg;
-                }
-                window.addEventListener('scroll', function () {
-                    var img = getHeroImg();
-                    if (!img) return;
-                    var scrollY = window.pageYOffset;
-                    var sectionH = window.innerHeight;
-                    if (scrollY < sectionH) {
-                        img.style.transform = 'translateY(' + Math.round(scrollY * 0.22) + 'px)';
-                    }
-                }, { passive: true });
-            }());
-
-            // Active nav link highlight based on scroll position
-            window.addEventListener('scroll', function () {
-                var sections = document.querySelectorAll('section[id]');
-                var navLinks = document.querySelectorAll('.nav-links a');
-                if (!navLinks.length) return;
-                var scrollY = window.pageYOffset + 90;
-                sections.forEach(function (section) {
-                    var top = section.offsetTop;
-                    var height = section.clientHeight;
-                    if (scrollY >= top && scrollY < top + height) {
-                        navLinks.forEach(function (link) {
-                            link.classList.toggle('active', link.getAttribute('href') === '#' + section.id);
-                        });
-                    }
-                });
-            }, { passive: true });
-
-            // Scroll reveal — uses IntersectionObserver + MutationObserver
-            // MutationObserver handles Blazor WASM async rendering
-            var revealIO = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        revealIO.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.07, rootMargin: '0px 0px -36px 0px' });
-
-            var mo = new MutationObserver(function () {
-                document.querySelectorAll('.reveal:not(.observed)').forEach(function (el) {
-                    el.classList.add('observed');
-                    revealIO.observe(el);
-                });
-            });
-            mo.observe(document.body, { childList: true, subtree: true });
-        })();
-    </script>
 </body>
 
 </html>

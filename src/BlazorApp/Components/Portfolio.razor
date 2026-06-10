@@ -14,10 +14,10 @@
                     alt="@(hero.Alt)" />
             }
         </div>
-        <div class="container">
+        <div class="portfolio-grid">
             @foreach (var project in projects)
             {
-                <div class="box" key="@project.Title">
+                <div class="box reveal" key="@project.Title">
                     <a href="@project.Url" target="_blank" rel="noopener noreferrer">
                         <h3 style="flex-basis: 40px;">@project.Title</h3>
                     </a>

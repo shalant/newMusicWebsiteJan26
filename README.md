@@ -1,106 +1,135 @@
-# New Music Website
+# Doug Rosenberg — Music Portfolio
 
-A modern, responsive portfolio website built with Blazor WebAssembly showcasing music, albums, education, and portfolio projects.
+A modern, single-page music portfolio built with **Blazor WebAssembly** (.NET 10). Features a photo gallery with lightbox, sheet music library, album showcase, performance history, and a multi-theme UI system.
+
+**Live site:** [shalant.github.io/newMusicWebsiteJan26](https://shalant.github.io/newMusicWebsiteJan26/)
+**Developer site:** [dougrosenbergdev.com](https://dougrosenbergdev.com)
+
+---
+
+## Quick Start
+
+**Prerequisites:** [.NET 10 SDK](https://dotnet.microsoft.com/download)
+
+```bash
+cd src/BlazorApp
+dotnet watch run
+```
+
+Navigate to `https://localhost:5001`.
+
+---
 
 ## Project Structure
 
 ```
 src/BlazorApp/
-├── Components/          # Razor components for page sections
-│   ├── Home.razor       # Hero section with site properties
-│   ├── Albums.razor     # Album showcase
-│   ├── About.razor      # About section
-│   ├── Education.razor  # Education background
-│   └── Portfolio.razor  # Project portfolio
-├── Layout/              # Layout components
-│   ├── MainLayout.razor # Main layout wrapper
-│   ├── Header.razor     # Navigation header
-│   └── Footer.razor     # Contact footer with social links
-├── Models/              # Data models
-│   ├── Album.cs         # Album and Review data
-│   ├── Education.cs     # Education history
-│   ├── Project.cs       # Portfolio project
-│   ├── SiteProperties.cs# Site name, title, email, social handles
-│   ├── SocialIcons.cs   # Social media icon URLs
-│   ├── HeroImage.cs     # Background hero image metadata
-│   └── AboutMe.cs       # About section content
-├── Services/            # Business logic services
-│   └── HeroImageService.cs # Loads and caches hero images
+├── Components/
+│   ├── Home.razor              # Hero section (name + title over background image)
+│   ├── About.razor             # Bio, skills, performance experience
+│   ├── Albums.razor            # Album cards linking to Amazon
+│   ├── Education.razor         # Teaching history + sheet music viewer
+│   ├── Gallery.razor           # Photo gallery with lightbox
+│   ├── Portfolio.razor         # Project cards (currently unused)
+│   ├── SheetMusicViewer.razor  # PDF viewer with search filter
+│   └── ThemeSwitcher.razor     # Theme picker UI
+├── Layout/
+│   ├── Header.razor            # Fixed top nav with scroll-spy + dev site link
+│   ├── Footer.razor            # Social icons + cross-site link
+│   └── MainLayout.razor        # Root layout wrapper
+├── Models/
+│   ├── Album.cs                # Album + Review
+│   ├── AboutMe.cs              # Bio text + skills list
+│   ├── GalleryPhoto.cs         # Gallery image (src, caption, category)
+│   ├── HeroImage.cs            # Background image metadata
+│   ├── SheetMusic.cs           # Sheet music entry (title, url)
+│   ├── SiteProperties.cs       # Name, title, email, social handles
+│   └── SocialIcons.cs          # Social media icon paths
+├── Services/
+│   ├── HeroImageService.cs     # Loads + caches heroimages.json at startup
+│   └── ThemeService.cs         # Persists selected theme to localStorage
+├── Pages/
+│   └── Index.razor             # Root page — assembles all section components
 ├── wwwroot/
-│   ├── css/             # Global styles
-│   ├── images/          # Images and icons
-│   └── sample-data/     # JSON data files
-├── Program.cs           # App entry point and DI setup
-├── App.razor            # Root component
-└── _Imports.razor       # Global imports
+│   ├── css/
+│   │   ├── app.css             # Global styles, animations, utility classes
+│   │   └── themes.css          # 6 CSS variable themes
+│   ├── js/
+│   │   ├── ui.js               # Scroll reveal, parallax, scroll-spy, counters
+│   │   └── theme.js            # Theme apply/persist via localStorage
+│   ├── images/                 # Photos, backgrounds, icons
+│   └── sample-data/            # JSON content files (edit these to update content)
+│       ├── siteproperties.json
+│       ├── aboutme.json
+│       ├── albums.json
+│       ├── gallery.json
+│       ├── heroimages.json
+│       ├── sheetmusic.json
+│       └── socialicons.json
+└── _Imports.razor              # Global @using statements
 ```
 
-## Data Structure
+---
 
-All data is loaded from JSON files in `wwwroot/sample-data/`:
+## Updating Content
 
-- `siteproperties.json` - Site name, title, contact email, social media handles
-- `socialicons.json` - URLs/paths for social media icons
-- `albums.json` - Album titles, covers, descriptions, and reviews
-- `education.json` - Education history and credentials
-- `projects.json` - Portfolio projects
-- `heroimages.json` - Background images for each section
+All site content lives in `wwwroot/sample-data/`. No code changes needed for most updates.
 
-## Architecture
+| File | What it controls |
+|---|---|
+| `siteproperties.json` | Name, subtitle, email, social handles |
+| `aboutme.json` | Bio paragraph, skills list |
+| `albums.json` | Album covers, descriptions, Amazon links |
+| `gallery.json` | Photo gallery — add/remove entries here |
+| `heroimages.json` | Background image per section |
+| `sheetmusic.json` | Sheet music library — title + PDF filename |
+| `socialicons.json` | Paths to social icon images |
 
-### Components
-- **Page Components**: Home, Albums, About, Education, Portfolio are self-contained sections
-- Each component loads its own data via HttpClient
-- Uses MudBlazor for UI components (dialogs, snackbars)
+See [`docs/content-management.md`](docs/content-management.md) for field-by-field details.
 
-### Services
-- **HeroImageService**: Caches hero images at startup and provides filtered access
-  - Loads `heroimages.json` once and shares across components
-  - Use `GetHeroAsync(predicate)` to find specific hero images
+---
 
-### Styling
-- Global styles in `wwwroot/css/app.css`
-- Component-specific styles in `Layout/*.razor.css` files
-- Uses responsive design with CSS Grid and Flexbox
-- Implements glass-morphism effects with `backdrop-filter: blur()`
+## Features
 
-## Key Technologies
+- **6 themes** — Dark, Warm, Midnight, Ocean, Forest, Minimal; persisted in localStorage
+- **Photo gallery** — responsive grid, category filters, full-screen lightbox, keyboard navigation
+- **Sheet music library** — searchable list, inline PDF viewer
+- **Scroll reveal animations** — sections and cards fade/slide in on scroll
+- **Scroll progress bar** — thin gradient line at top of viewport
+- **Back-to-top button** — appears after scrolling, smooth-scrolls home
+- **Scroll-spy nav** — active link highlights as sections come into view
+- **Parallax hero** — hero image moves at 18% of scroll speed
+- **Animated stat counters** — numbers count up when scrolled to
+- **Album lightbox overlay** — hover reveals zoom icon + links to Amazon
+- **Cross-site link** — nav pill + footer card linking to dougrosenbergdev.com
 
-- **Blazor WebAssembly**: C# running in the browser
-- **MudBlazor**: Material Design component library
-- **Bootstrap**: Responsive grid system
-- **CSS Grid & Flexbox**: Modern layout techniques
+---
 
-## Development
+## Docs
 
-### Prerequisites
-- .NET 8.0 SDK
-- Visual Studio or VS Code with C# extension
+- [`docs/content-management.md`](docs/content-management.md) — editing JSON data files
+- [`docs/gallery.md`](docs/gallery.md) — adding photos to the gallery
+- [`docs/sheet-music.md`](docs/sheet-music.md) — adding sheet music PDFs
+- [`docs/themes.md`](docs/themes.md) — theme system and creating new themes
+- [`docs/deployment.md`](docs/deployment.md) — deploying to GitHub Pages
+- [`docs/ui-features.md`](docs/ui-features.md) — UI features and animations reference
 
-### Running Locally
-```bash
-dotnet run --project src/BlazorApp
-```
-Navigate to `https://localhost:5001`
+---
 
-### Building
-```bash
-dotnet publish src/BlazorApp -c Release
-```
+## Tech Stack
 
-## Known Issues & Technical Debt
+| Layer | Technology |
+|---|---|
+| Framework | Blazor WebAssembly (.NET 10) |
+| UI Library | MudBlazor |
+| Grid/Layout | Bootstrap 5 + CSS Grid |
+| Fonts | Cormorant Garamond + Montserrat (Google Fonts) |
+| Animations | CSS transitions + Intersection Observer API (vanilla JS) |
+| Data | Static JSON files (no backend/database) |
 
-1. **Index Out of Bounds**: Albums.razor assumes exactly 4 albums without validation
-2. **No Error Handling**: JSON load failures in components don't display error states
-3. **Inline Styles**: Multiple components use inline CSS instead of CSS classes
-4. **Code Duplication**: Albums display logic is repeated 4 times
-5. **Missing Nullable Annotations**: Models should use C# nullable reference types
+---
 
-## Future Improvements
+## Known Issues
 
-- Add error boundaries and fallback UI
-- Refactor inline styles to CSS classes
-- Convert hardcoded loops to data-driven rendering
-- Add form validation for contact section
-- Implement lazy loading for images
-- Add dark mode support
+- **Deploy**: A sheet music file named `Put+Your+Records+On+Arrangement+-+Electric+Piano,+Trumpet+in+Bb.pdf` contains `+` and `,` characters that break MSBuild asset fingerprinting during `dotnet publish`. Rename the file (and update `sheetmusic.json`) to fix. The dev server is unaffected.
+- **Social handles**: `siteproperties.json` still has placeholder values for Instagram and Twitter — update with real handles.

@@ -1,0 +1,92 @@
+[
+  {
+    "src": "images/formal.jpg",
+    "caption": "Concert Performance",
+    "category": "Performance"
+  },
+  {
+    "src": "images/jazzgallery.jpg",
+    "caption": "Live at the Jazz Gallery",
+    "category": "Performance"
+  },
+  {
+    "src": "images/andys.jpg",
+    "caption": "Andy's Jazz Club — Chicago",
+    "category": "Performance"
+  },
+  {
+    "src": "images/lakebluff.jpg",
+    "caption": "Lake Bluff",
+    "category": "Performance"
+  },
+  {
+    "src": "images/barshpolkadots.jpg",
+    "caption": "With Sam Barsh",
+    "category": "Performance"
+  },
+  {
+    "src": "images/alison.jpg",
+    "caption": "With Alison",
+    "category": "Performance"
+  },
+  {
+    "src": "images/liliya.jpg",
+    "caption": "With Liliya",
+    "category": "Performance"
+  },
+  {
+    "src": "images/makaya.jpg",
+    "caption": "With Makaya",
+    "category": "Performance"
+  },
+  {
+    "src": "images/birdwalker.jpg",
+    "caption": "Bird Walker",
+    "category": "Performance"
+  },
+  {
+    "src": "images/whistlerfatalbert.jpg",
+    "caption": "Whistler Fat Albert",
+    "category": "Performance"
+  },
+  {
+    "src": "images/studio.jpg",
+    "caption": "Recording Session",
+    "category": "Studio"
+  },
+  {
+    "src": "images/artsy.jpg",
+    "caption": "In the Studio",
+    "category": "Studio"
+  },
+  {
+    "src": "images/chopin%20album.jpg",
+    "caption": "Chopin Recording",
+    "category": "Studio"
+  },
+  {
+    "src": "images/sepia.jpg",
+    "caption": "Vintage",
+    "category": "Archive"
+  },
+  {
+    "src": "images/profile.jpg",
+    "caption": "Doug Rosenberg",
+    "category": "Press"
+  },
+  {
+    "src": "images/betterthantv.jpg",
+    "caption": "Better Than TV",
+    "category": "Albums"
+  },
+  {
+    "src": "images/albumcover.jpg",
+    "caption": "Album Cover",
+    "category": "Albums"
+  },
+  {
+    "src": "images/ryangosling.jpg",
+    "caption": "Backstage",
+    "category": "Performance"
+  }
+]

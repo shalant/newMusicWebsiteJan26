@@ -1,253 +1,52 @@
 [
-  {
-    "id": 4,
-    "title": "Adagio and Allegro by Handel",
-    "url": "AdagioandAllegrobyHandel.pdf"
-  },
-  {
-    "id": 7,
-    "title": "Aebersold Track 6",
-    "url": "AebersoldTrack6.pdf"
-  },
-  {
-    "id": 10,
-    "title": "Alegretto by Arensky",
-    "url": "AlegrettobyArensky.pdf"
-  },
-  {
-    "id": 13,
-    "title": "Arioso by Bach",
-    "url": "AriosoBach.pdf"
-  },
-  {
-    "id": 16,
-    "title": "Arioso Sinfonia by Bach",
-    "url": "AriosoSinfoniaBach.pdf"
-  },
-  {
-    "id": 19,
-    "title": "Prelude by Bach, page 2",
-    "url": "BachPreludepage2.pdf"
-  },
-  {
-    "id": 22,
-    "title": "Prelude by Bach",
-    "url": "BachPrelude.pdf"
-  },
-  {
-    "id": 25,
-    "title": "Billie's Bounce in Bb",
-    "url": "BilliesBounceBb.pdf"
-  },
-  {
-    "id": 28,
-    "title": "Chanson de Printemps, page 2",
-    "url": "ChansonDePrintempsPage2.png"
-  },
-  {
-    "id": 31,
-    "title": "Concertino by Guildhaud",
-    "url": "ConcertinoByGuildhaud.pdf"
-  },
-  {
-    "id": 34,
-    "title": "Corn Bread Bb",
-    "url": "CornBreadBb.pdf"
-  },
-  {
-    "id": 37,
-    "title": "Corn Bread Lee Morgan",
-    "url": "CornBreadLeeMorganEb.pdf"
-  },
-  {
-    "id": 40,
-    "title": "Diverse Charlie Parker",
-    "url": "DiverseCharlieParker.pdf"
-  },
-  
-  {
-    "id": 46,
-    "title": "Fantasy Piece Schumann",
-    "url": "FantasyPieceSchumann.pdf"
-  },
-  {
-    "id": 49,
-    "title": "ferling #12 alla furioso",
-    "url": "Ferling12AllaFurioso.pdf"
-  },
-  {
-    "id": 52,
-    "title": "ferling #6 G major",
-    "url": "Ferling6GMajor.pdf"
-  },
-  {
-    "id": 55,
-    "title": "ferling #8",
-    "url": "Ferling8.pdf"
-  },
-  {
-    "id": 58,
-    "title": "ferling #18 in Bb",
-    "url": "Ferling18InBb.pdf"
-  },
-  {
-    "id": 61,
-    "title": "Fur Elise",
-    "url": "FurElise.pdf"
-  },
-  {
-    "id": 64,
-    "title": "G blue melodies",
-    "url": "GBlueMelodies.jpg"
-  },
-  {
-    "id": 67,
-    "title": "G Blues",
-    "url": "GBlues.pdf"
-  },
-  {
-    "id": 70,
-    "title": "Habanera",
-    "url": "Habanera.pdf"
-  },
-  {
-    "id": 73,
-    "title": "Handel Sonate No 1",
-    "url": "HandelSonateNo1.pdf"
-  },
-  {
-    "id": 76,
-    "title": "He's a Pirate",
-    "url": "HesAPirate.pdf"
-  },
-  {
-    "id": 79,
-    "title": "In The Hall of the Mountain King",
-    "url": "InTheHallOfTheMountainKing.pdf"
-  },
-  {
-    "id": 82,
-    "title": "Mis Amores by Cervantes",
-    "url": "MisAmoresByCervantes.pdf"
-  },
-  {
-    "id": 85,
-    "title": "Music Theory Quiz Aebersold",
-    "url": "MusicTheoryQuizAebersold.pdf"
-  },
-  {
-    "id": 88,
-    "title": "New York",
-    "url": "NewYork.pdf"
-  },
-  {
-    "id": 91,
-    "title": "Now's The Time",
-    "url": "NowsTheTime.pdf"
-  },
-  {
-    "id": 94,
-    "title": "O Christmas Tree (cl)",
-    "url": "OChristmasTreeCl.pdf"
-  },
-  {
-    "id": 97,
-    "title": "Put Your Records On",
-    "url": "PutYourRecordsOn.pdf"
-  },
-  {
-    "id": 100,
-    "title": "RAINBOW-ROAD",
-    "url": "RainbowRoad.pdf"
-  },
-  {
-    "id": 103,
-    "title": "Rhapsody in Blue (cl)",
-    "url": "RhapsodyInBlueCl.pdf"
-  },
-  {
-    "id": 106,
-    "title": "Rhapsody page 1",
-    "url": "RhapsodyPage1.pdf"
-  },
-  {
-    "id": 109,
-    "title": "Rigaudon",
-    "url": "Rigaudon.pdf"
-  },
-  {
-    "id": 112,
-    "title": "Rubank Book of Solos Intermediate",
-    "url": "RubankBookOfSolosIntermediate.pdf"
-  },
-  {
-    "id": 115,
-    "title": "Sleigh Ride",
-    "url": "SleighRide.pdf"
-  },
-  {
-    "id": 118,
-    "title": "Spiderman Bb",
-    "url": "SpidermanBb.pdf"
-  },
-  {
-    "id": 121,
-    "title": "Spiderman Cl",
-    "url": "SpidermanCl.pdf"
-  },
-  {
-    "id": 124,
-    "title": "Star Wars",
-    "url": "StarWars.pdf"
-  },
-  {
-    "id": 127,
-    "title": "Super Mario Bb",
-    "url": "SuperMarioBb.pdf"
-  },
-  {
-    "id": 130,
-    "title": "Super Mario Eb",
-    "url": "SuperMarioEb.pdf"
-  },
-  {
-    "id": 133,
-    "title": "Take Me Out to the Ballgame (within the treble staff)",
-    "url": "TakeMeOutToTheBallgameWithinTheTrebleStaff.pdf"
-  },
-  {
-    "id": 136,
-    "title": "Valse Triste by Gliere",
-    "url": "ValseTristeByGliere.pdf"
-  },
-  {
-    "id": 139,
-    "title": "We Wish You a Merry Christmas",
-    "url": "WeWishYouAMerryChristmas.pdf"
-  },
-  {
-    "id": 142,
-    "title": "Wii Theme Bb",
-    "url": "WiiThemeBb.pdf"
-  },
-  {
-    "id": 145,
-    "title": "Wii Theme Eb",
-    "url": "WiiThemeEb.pdf"
-  },
-  {
-    "id": 148,
-    "title": "Yakety Sax",
-    "url": "YaketySax.pdf"
-  },
-  {
-    "id": 151,
-    "title": "You Belong With Me",
-    "url": "YouBelongWithMe.pdf"
-  },
-  {
-    "id": 154,
-    "title": "You've Got a Friend in Me",
-    "url": "YouveGotAFriendInMe.pdf"
-  }
+  { "title": "Adagio and Allegro by Handel",                              "url": "AdagioandAllegrobyHandel.pdf" },
+  { "title": "Aebersold Track 6",                                         "url": "AebersoldTrack6.pdf" },
+  { "title": "Alegretto by Arensky",                                      "url": "AlegrettobyArensky.pdf" },
+  { "title": "Arioso by Bach",                                            "url": "AriosoBach.pdf" },
+  { "title": "Arioso Sinfonia by Bach",                                   "url": "AriosoSinfoniaBach.pdf" },
+  { "title": "Prelude by Bach, page 2",                                   "url": "BachPreludepage2.pdf" },
+  { "title": "Prelude by Bach",                                           "url": "BachPrelude.pdf" },
+  { "title": "Billie's Bounce in Bb",                                     "url": "BilliesBounceBb.pdf" },
+  { "title": "Chanson de Printemps, page 2",                              "url": "ChansonDePrintempsPage2.png" },
+  { "title": "Concertino by Guildhaud",                                   "url": "ConcertinoByGuildhaud.pdf" },
+  { "title": "Corn Bread Bb",                                             "url": "CornBreadBb.pdf" },
+  { "title": "Corn Bread Lee Morgan",                                     "url": "CornBreadLeeMorganEb.pdf" },
+  { "title": "Diverse Charlie Parker",                                    "url": "DiverseCharlieParker.pdf" },
+  { "title": "Fantasy Piece Schumann",                                    "url": "FantasyPieceSchumann.pdf" },
+  { "title": "Ferling #12 alla furioso",                                  "url": "Ferling12AllaFurioso.pdf" },
+  { "title": "Ferling #6 G major",                                        "url": "Ferling6GMajor.pdf" },
+  { "title": "Ferling #8",                                                "url": "Ferling8.pdf" },
+  { "title": "Ferling #18 in Bb",                                         "url": "Ferling18InBb.pdf" },
+  { "title": "Fur Elise",                                                 "url": "FurElise.pdf" },
+  { "title": "G Blue Melodies",                                           "url": "GBlueMelodies.jpg" },
+  { "title": "G Blues",                                                   "url": "GBlues.pdf" },
+  { "title": "Habanera",                                                  "url": "Habanera.pdf" },
+  { "title": "Handel Sonate No 1",                                        "url": "HandelSonateNo1.pdf" },
+  { "title": "He's a Pirate",                                             "url": "HesAPirate.pdf" },
+  { "title": "In The Hall of the Mountain King",                          "url": "InTheHallOfTheMountainKing.pdf" },
+  { "title": "Mis Amores by Cervantes",                                   "url": "MisAmoresByCervantes.pdf" },
+  { "title": "Music Theory Quiz Aebersold",                               "url": "MusicTheoryQuizAebersold.pdf" },
+  { "title": "New York",                                                  "url": "NewYork.pdf" },
+  { "title": "Now's The Time",                                            "url": "NowsTheTime.pdf" },
+  { "title": "O Christmas Tree (cl)",                                     "url": "OChristmasTreeCl.pdf" },
+  { "title": "Put Your Records On",                                       "url": "PutYourRecordsOn.pdf" },
+  { "title": "Rainbow Road",                                              "url": "RainbowRoad.pdf" },
+  { "title": "Rhapsody in Blue (cl)",                                     "url": "RhapsodyInBlueCl.pdf" },
+  { "title": "Rhapsody page 1",                                           "url": "RhapsodyPage1.pdf" },
+  { "title": "Rigaudon",                                                  "url": "Rigaudon.pdf" },
+  { "title": "Rubank Book of Solos Intermediate",                         "url": "RubankBookOfSolosIntermediate.pdf" },
+  { "title": "Sleigh Ride",                                               "url": "SleighRide.pdf" },
+  { "title": "Spiderman Bb",                                              "url": "SpidermanBb.pdf" },
+  { "title": "Spiderman Cl",                                              "url": "SpidermanCl.pdf" },
+  { "title": "Star Wars",                                                 "url": "StarWars.pdf" },
+  { "title": "Super Mario Bb",                                            "url": "SuperMarioBb.pdf" },
+  { "title": "Super Mario Eb",                                            "url": "SuperMarioEb.pdf" },
+  { "title": "Take Me Out to the Ballgame",                               "url": "TakeMeOutToTheBallgameWithinTheTrebleStaff.pdf" },
+  { "title": "Valse Triste by Gliere",                                    "url": "ValseTristeByGliere.pdf" },
+  { "title": "We Wish You a Merry Christmas",                             "url": "WeWishYouAMerryChristmas.pdf" },
+  { "title": "Wii Theme Bb",                                              "url": "WiiThemeBb.pdf" },
+  { "title": "Wii Theme Eb",                                              "url": "WiiThemeEb.pdf" },
+  { "title": "Yakety Sax",                                                "url": "YaketySax.pdf" },
+  { "title": "You Belong With Me",                                        "url": "YouBelongWithMe.pdf" },
+  { "title": "You've Got a Friend in Me",                                 "url": "YouveGotAFriendInMe.pdf" }
 ]
