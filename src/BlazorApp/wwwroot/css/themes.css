@@ -8,6 +8,7 @@
     --text-secondary: #88b8d8;
     --accent-color: #4db8ff;
     --accent-light: #78ccff;
+    --accent-rgb: 77, 184, 255;
     --border-color: rgba(77, 184, 255, 0.22);
     --hover-color: rgba(77, 184, 255, 0.1);
     --nav-bg: rgba(6, 15, 30, 0.48);
@@ -29,6 +30,7 @@
     --text-secondary: #b0a090;
     --accent-color: #d4a574;
     --accent-light: #e6c49a;
+    --accent-rgb: 212, 165, 116;
     --border-color: rgba(212, 165, 116, 0.22);
     --hover-color: rgba(212, 165, 116, 0.1);
     --hero-overlay: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(24,18,18,0.72) 100%);
@@ -50,6 +52,7 @@
     --text-secondary: #6dbc8a;
     --accent-color: #00ff88;
     --accent-light: #22ffaa;
+    --accent-rgb: 0, 255, 136;
     --border-color: rgba(0, 255, 136, 0.18);
     --hover-color: rgba(0, 255, 136, 0.07);
     --hero-overlay: linear-gradient(to bottom, rgba(0,8,3,0.1) 0%, rgba(0,0,0,0.78) 100%);
@@ -71,6 +74,7 @@
     --text-secondary: #6b4423;
     --accent-color: #c4873a;
     --accent-light: #d4a062;
+    --accent-rgb: 196, 135, 58;
     --border-color: rgba(100, 60, 20, 0.18);
     --hover-color: rgba(196, 135, 58, 0.08);
     --hero-overlay: linear-gradient(to bottom, rgba(250,245,236,0.05) 0%, rgba(250,245,236,0.65) 100%);
@@ -92,6 +96,7 @@
     --text-secondary: #555555;
     --accent-color: #222222;
     --accent-light: #444444;
+    --accent-rgb: 34, 34, 34;
     --border-color: rgba(0, 0, 0, 0.12);
     --hover-color: rgba(0, 0, 0, 0.05);
     --hero-overlay: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.48) 100%);
@@ -113,6 +118,7 @@
     --text-secondary: #88b8d8;
     --accent-color: #4db8ff;
     --accent-light: #78ccff;
+    --accent-rgb: 77, 184, 255;
     --border-color: rgba(77, 184, 255, 0.22);
     --hover-color: rgba(77, 184, 255, 0.1);
     --hero-overlay: linear-gradient(to bottom, rgba(6,15,30,0.05) 0%, rgba(6,15,30,0.72) 100%);
@@ -135,6 +141,7 @@
     --text-secondary: #88b888;
     --accent-color: #7ccc7c;
     --accent-light: #a0dda0;
+    --accent-rgb: 124, 204, 124;
     --border-color: rgba(124, 204, 124, 0.22);
     --hover-color: rgba(124, 204, 124, 0.1);
     --hero-overlay: linear-gradient(to bottom, rgba(13,26,13,0.05) 0%, rgba(13,26,13,0.72) 100%);

@@ -50,9 +50,17 @@
         const hero = document.querySelector('section.dark img.hero-image');
         if (!hero) return;
         parallaxActive = true;
+        hero.style.willChange = 'transform';
+        let ticking = false;
         window.addEventListener('scroll', () => {
-            if (window.scrollY < window.innerHeight * 1.2) {
-                hero.style.transform = `translateY(${window.scrollY * 0.18}px)`;
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    if (window.scrollY < window.innerHeight * 1.2) {
+                        hero.style.transform = `translateY(${window.scrollY * 0.18}px)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         }, { passive: true });
     }

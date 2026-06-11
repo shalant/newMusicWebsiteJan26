@@ -313,7 +313,7 @@ a:hover {
 .custom-hero {
     position: relative;
     z-index: 3;
-    margin-top: 10%;
+    margin-top: 16%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -424,21 +424,47 @@ a:hover {
 /* ── Glass Panes (Cards) ── */
 
 .custom-glass-pane {
-    background-color: var(--surface-color);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid var(--border-color);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.07) 0%,
+        var(--surface-color) 100%
+    );
+    backdrop-filter: blur(22px) saturate(1.4);
+    -webkit-backdrop-filter: blur(22px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
     border-left: 2px solid var(--accent-color);
     width: 65%;
     padding: 3.5rem;
     margin: 2rem auto;
     text-align: center;
-    border-radius: 6px;
+    border-radius: 12px;
     box-shadow:
-        0 4px 24px rgba(0, 0, 0, 0.25),
-        0 0 0 1px var(--glow-color) inset;
+        0 8px 32px rgba(0, 0, 0, 0.32),
+        0 1px 0 rgba(255, 255, 255, 0.12) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.18) inset;
     color: var(--text-primary);
-    transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle shimmer highlight across the top of the card */
+.custom-glass-pane::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.22) 30%,
+        var(--accent-color) 50%,
+        rgba(255, 255, 255, 0.22) 70%,
+        transparent 100%
+    );
+    opacity: 0.6;
 }
 
 /* Glass panes inside Bootstrap columns take full column width */
@@ -446,43 +472,85 @@ a:hover {
     width: 100%;
 }
 
+/* Bullets should always be left-aligned inside glass panes */
+.custom-glass-pane ul {
+    text-align: left;
+    list-style-position: outside;
+    padding-left: 1.4rem;
+    margin: 0.75rem 0;
+}
+
+.custom-glass-pane li {
+    text-align: left;
+}
+
 .custom-glass-pane:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
     box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.35),
-        0 0 0 1px var(--border-color) inset;
+        0 20px 48px rgba(0, 0, 0, 0.40),
+        0 0 24px rgba(var(--accent-rgb, 77, 184, 255), 0.12),
+        0 1px 0 rgba(255, 255, 255, 0.16) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.22) inset;
 }
 
 .albums__glass-pane {
-    background-color: var(--surface-color);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid var(--border-color);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.07) 0%,
+        var(--surface-color) 100%
+    );
+    backdrop-filter: blur(22px) saturate(1.4);
+    -webkit-backdrop-filter: blur(22px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
     width: 90%;
     padding: 2.5rem;
     margin: 1.5rem auto;
     text-align: center;
-    border-radius: 6px;
+    border-radius: 12px;
     box-shadow:
-        0 4px 24px rgba(0, 0, 0, 0.25),
-        0 0 0 1px var(--glow-color) inset;
+        0 8px 32px rgba(0, 0, 0, 0.32),
+        0 1px 0 rgba(255, 255, 255, 0.12) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.18) inset;
     color: var(--text-primary);
-    transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.albums__glass-pane::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.22) 30%,
+        var(--accent-color) 50%,
+        rgba(255, 255, 255, 0.22) 70%,
+        transparent 100%
+    );
+    opacity: 0.5;
 }
 
 .albums__glass-pane:hover {
+    transform: translateY(-4px);
     box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.35),
-        0 0 0 1px var(--border-color) inset;
+        0 20px 48px rgba(0, 0, 0, 0.40),
+        0 0 24px rgba(var(--accent-rgb, 77, 184, 255), 0.12),
+        0 1px 0 rgba(255, 255, 255, 0.16) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.22) inset;
 }
 
 .albums__glass-pane img {
     width: 160px;
     height: 160px;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-bottom: 1rem;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 /* ── Section Headers ── */
@@ -702,7 +770,7 @@ img.social-icon:hover {
 .splash {
     position: fixed;
     inset: 0;
-    background: #181212;
+    background: #060f1e;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -726,7 +794,7 @@ img.social-icon:hover {
     display: block;
     width: 5px;
     border-radius: 3px 3px 1px 1px;
-    background: linear-gradient(to top, #c49560, #e6c49a);
+    background: linear-gradient(to top, #4db8ff, #78ccff);
     transform-origin: bottom;
     animation: splash-bar 0.9s ease-in-out infinite alternate;
 }
@@ -746,10 +814,10 @@ img.social-icon:hover {
 
 /* Name + role */
 .splash__name {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 2.6rem;
-    font-weight: 300;
-    color: #f0e8d8;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 200;
+    color: #d8eeff;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     margin: 0;
@@ -759,7 +827,7 @@ img.social-icon:hover {
     font-family: 'Montserrat', Arial, sans-serif;
     font-size: 0.7rem;
     font-weight: 300;
-    color: rgba(212, 165, 116, 0.65);
+    color: rgba(136, 184, 216, 0.65);
     letter-spacing: 0.32em;
     text-transform: uppercase;
     margin: 0;
@@ -774,14 +842,14 @@ img.social-icon:hover {
 .splash__track {
     width: 180px;
     height: 2px;
-    background: rgba(212, 165, 116, 0.14);
+    background: rgba(77, 184, 255, 0.14);
     border-radius: 1px;
     overflow: hidden;
 }
 .splash__fill {
     height: 100%;
     width: var(--blazor-load-percentage, 0%);
-    background: linear-gradient(to right, #d4a574, #e6c49a);
+    background: linear-gradient(to right, #4db8ff, #78ccff);
     border-radius: 1px;
     transition: width 0.15s ease;
 }
@@ -797,7 +865,7 @@ img.social-icon:hover {
     font-size: 0.65rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: rgba(212, 165, 116, 0.38);
+    color: rgba(77, 184, 255, 0.38);
 }
 
 /* ── Section error fallback ── */

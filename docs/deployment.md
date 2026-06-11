@@ -1,70 +1,67 @@
-# Deployment
+Blazor WebAssembly Deployment Guide (GitHub Pages + GoDaddy Domain)
 
-The site deploys as a static Blazor WebAssembly app to **GitHub Pages**.
+This document outlines how to deploy a static Blazor WebAssembly app to GitHub Pages while renting a custom domain from GoDaddy.
 
-**Live URL:** `https://shalant.github.io/newMusicWebsiteJan26/`
+🌐 Overview
 
----
+Hosting: GitHub Pages (static site)
 
-## Before Publishing — Fix the Filename Bug
+Domain registrar: GoDaddy
 
-One file in `wwwroot/sheetmusic/` has special characters in its name that break `dotnet publish`:
+Live URL (default): https://shalant.github.io/newMusicWebsiteJan26/
 
-```
+Once DNS propagation completes, your site will be accessible via your custom domain (e.g., https://dougrosenberg.com).
+
+🧩 Pre‑Publish Checklist
+
+1. Fix the Filename Bug
+
+One file in wwwroot/sheetmusic/ contains special characters that break dotnet publish:
+
 Put+Your+Records+On+Arrangement+-+Electric+Piano,+Trumpet+in+Bb.pdf
-```
 
-**Fix:**
-1. Rename the file to something like `PutYourRecordsOn.pdf`
-2. Update its entry in `sample-data/sheetmusic.json` — the `url` field already says `PutYourRecordsOn.pdf`, so it may already match after renaming
+Fix:
 
----
+Rename it to PutYourRecordsOn.pdf.
 
-## Build
+Update its entry in sample-data/sheetmusic.json if necessary (the url field should match the new filename).
 
-```bash
+2. Verify Routing
+
+GitHub Pages returns a 404 for non‑root paths. To fix deep‑linking and refresh issues, copy index.html to 404.html in the published output so Blazor’s router handles client‑side navigation.
+
+⚙️ Build Instructions
+
 cd src/BlazorApp
 dotnet publish -c Release -o ../../publish
-```
 
-The output lands in `publish/wwwroot/`. All files are static — no server required.
+The output will appear in publish/wwwroot/. All files are static and ready for deployment.
 
----
+🧠 Base Href Configuration
 
-## Deep-link / Refresh Fix
+The <base href> in index.html is dynamically set at runtime:
 
-GitHub Pages returns a 404 for any path that isn't `index.html`. The `404.html` workaround handles this: copy `index.html` to `404.html` in the published output so GitHub Pages serves the app shell for unknown routes and Blazor's router takes over client-side.
-
----
-
-## GitHub Pages Setup
-
-The `<base href>` in `index.html` is set dynamically at runtime:
-
-```js
 var base = document.getElementsByTagName('base')[0];
 if (window.location.host.includes('localhost')) {
     base.setAttribute('href', '/');
 } else if (path.length > 2) {
     base.setAttribute('href', '/' + path[1] + '/');
 }
-```
 
-This handles the `https://shalant.github.io/newMusicWebsiteJan26/` sub-path automatically. If you rename the repo, update the fallback path here.
+This automatically handles sub‑paths like https://shalant.github.io/newMusicWebsiteJan26/. If you rename the repo, update the fallback path accordingly.
 
----
+🚀 Deployment Options
 
-## Manual Deploy Steps
+Manual Deploy
 
-1. Build in Release mode (see above).
-2. Copy the contents of `publish/wwwroot/` into the `docs/` folder at the repo root (or whichever branch/folder GitHub Pages is configured to serve).
-3. Commit and push to `main`.
+Build in Release mode.
 
----
+Copy the contents of publish/wwwroot/ into the docs/ folder at the repo root (or whichever branch GitHub Pages serves).
 
-## Automated Deploy (GitHub Actions)
+Commit and push to main.
 
-```yaml
+Automated Deploy (GitHub Actions)
+
 name: Deploy to GitHub Pages
 on:
   push:
@@ -82,23 +79,90 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: site/wwwroot
-```
 
----
+This workflow automatically builds and deploys your Blazor app whenever you push to main.
 
-## Environment Notes
+🧾 GoDaddy DNS Configuration
 
-- No API keys or secrets — all content is static JSON.
-- No CORS issues — all data is same-origin.
-- Sheet music PDFs (`wwwroot/sheetmusic/*.pdf`) must be committed to the repo; they are served as static files.
+To connect your domain to GitHub Pages, add these records in GoDaddy’s DNS settings:
 
----
+Type
 
-## Local Development
+Name
 
-```bash
+Value
+
+TTL
+
+A
+
+@
+
+185.199.108.153
+
+3600
+
+A
+
+@
+
+185.199.109.153
+
+3600
+
+A
+
+@
+
+185.199.110.153
+
+3600
+
+A
+
+@
+
+185.199.111.153
+
+3600
+
+CNAME
+
+www
+
+shalant.github.io
+
+3600
+
+Once propagation completes (usually within 30 min – 4 hr), GitHub Pages will detect the domain automatically.
+
+🔒 HTTPS and Custom Domain Setup
+
+Go to GitHub → Settings → Pages.
+
+Enter your custom domain (e.g., dougrosenberg.com).
+
+Click Save, then Check again until DNS verification passes.
+
+Enable Enforce HTTPS.
+
+GitHub will issue a free SSL certificate once DNS resolves correctly.
+
+🧰 Environment Notes
+
+No API keys or secrets — all content is static JSON.
+
+No CORS issues — all data is same‑origin.
+
+Sheet music PDFs (wwwroot/sheetmusic/*.pdf) must be committed to the repo.
+
+💻 Local Development
+
 cd src/BlazorApp
 dotnet watch run
-```
 
-Hot reload is available with `dotnet watch run`. The base href script in `index.html` switches to `/` automatically on localhost — no configuration needed.
+Hot reload is available with dotnet watch run. The base href script automatically switches to / on localhost.
+
+✅ Summary
+
+Once DNS propagation completes and GitHub Pages detects your domain, your Blazor WASM site will serve securely from GitHub Pages under your GoDaddy domain — no server required, just static hosting and automatic CI/CD via GitHub Actions.
