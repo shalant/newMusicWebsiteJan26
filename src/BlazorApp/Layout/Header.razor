@@ -1,4 +1,4 @@
-<div id="header">
+<div id="header" class="@(_menuOpen ? "menu-open" : "")">
     <a href="#home" class="nav-brand" target="_top" aria-label="Doug Rosenberg — home">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 72" class="nav-logo" aria-hidden="true">
             <!-- left tremolo slashes — well clear of text -->
@@ -14,12 +14,23 @@
                   font-weight="300" letter-spacing="8" text-anchor="middle" class="logo-name">DOUG ROSENBERG</text>
         </svg>
     </a>
-    <nav class="nav-links">
-        <a href="#home" target="_top">home</a>
-        <a href="#about" target="_top">about</a>
-        <a href="#albums" target="_top">listen</a>
-        <a href="#education" target="_top">education</a>
-        <a href="#contact" target="_top">contact</a>
-            <a href="https://dougrosenbergdev.com" target="_blank" rel="noopener noreferrer" class="nav-external">dev</a>
+    <button class="hamburger" @onclick="ToggleMenu" aria-label="Toggle navigation" aria-expanded="@(_menuOpen ? "true" : "false")">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav class="nav-links @(_menuOpen ? "open" : "")">
+        <a href="#home" target="_top" @onclick="CloseMenu">home</a>
+        <a href="#about" target="_top" @onclick="CloseMenu">about</a>
+        <a href="#albums" target="_top" @onclick="CloseMenu">listen</a>
+        <a href="#education" target="_top" @onclick="CloseMenu">education</a>
+        <a href="#contact" target="_top" @onclick="CloseMenu">contact</a>
+        <a href="https://dougrosenbergdev.com" target="_blank" rel="noopener noreferrer" class="nav-external" @onclick="CloseMenu">dev</a>
     </nav>
 </div>
+
+@code {
+    private bool _menuOpen;
+    private void ToggleMenu() => _menuOpen = !_menuOpen;
+    private void CloseMenu() => _menuOpen = false;
+}

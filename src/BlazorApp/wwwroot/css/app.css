@@ -111,10 +111,11 @@ section img.background {
     filter: sepia(0.55) saturate(0.7) contrast(1.1) brightness(1.08);
 }
 
-/* Hero image — visible above the section background */
+/* Hero image — starts below the fixed header so the subject's head isn't cropped */
 section img.background.hero-image {
     width: 100%;
-    height: 100%;
+    top: 68px;
+    height: calc(100% - 68px);
     left: 0;
     transform: none;
     object-fit: cover;
@@ -313,7 +314,7 @@ a:hover {
 .custom-hero {
     position: relative;
     z-index: 3;
-    margin-top: 16%;
+    margin-top: 32%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1584,4 +1585,126 @@ section#sheet-music {
     will-change: transform;
 }
 
+/* ── Touch: eliminate 300ms tap delay on interactive elements ── */
+a, button, [role="button"] {
+    touch-action: manipulation;
+}
+
+/* ════════════════════════════════════════
+   Mobile — ≤ 768px
+   ════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .custom-hero {
+        /* % margins are relative to containing block WIDTH — use vh instead on mobile */
+        margin-top: max(100px, 38vh);
+    }
+
+    section.light {
+        padding: 4rem 0 5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .custom-mottled__header {
+        font-size: 2rem;
+        margin: 1.5rem 0 2rem;
+    }
+
+    .custom-glass-pane {
+        width: 92%;
+        padding: 2rem 1.5rem;
+    }
+
+    .albums__glass-pane {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .custom-hero h1 {
+        font-size: 3.8rem;
+    }
+
+    .custom-hero h2 {
+        font-size: 0.95rem;
+        letter-spacing: 0.38em;
+    }
+
+    .perf-stats {
+        gap: 2rem;
+    }
+
+    .perf-stat__number {
+        font-size: 2.8rem;
+    }
+
+    .detail-quote {
+        font-size: 1.2rem;
+        padding: 1.5rem 1.5rem 0.5rem;
+    }
+
+    .detail-quote::before {
+        font-size: 4.5rem;
+        top: 2.8rem;
+        left: 0.25rem;
+    }
+
+    .albums-grid {
+        padding: 0 1rem;
+        gap: 1.25rem;
+    }
+
+    .perf-venues-grid {
+        padding: 0 1rem;
+    }
+}
+
+/* ════════════════════════════════════════
+   Mobile — ≤ 480px
+   ════════════════════════════════════════ */
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.65rem;
+    }
+
+    .custom-mottled__header {
+        font-size: 1.65rem;
+    }
+
+    .custom-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .custom-hero h2 {
+        font-size: 0.8rem;
+        letter-spacing: 0.26em;
+    }
+
+    .artist-name {
+        font-size: 2.2rem;
+    }
+
+    .perf-stats {
+        gap: 1.25rem;
+    }
+
+    .perf-stat__number {
+        font-size: 2.4rem;
+    }
+
+    .custom-glass-pane {
+        width: 94%;
+        padding: 1.5rem 1.25rem;
+    }
+
+    .perf-venue-list--two-col {
+        grid-template-columns: 1fr;
+    }
+
+    section.light {
+        padding: 3.5rem 0 4rem;
+    }
+}
 

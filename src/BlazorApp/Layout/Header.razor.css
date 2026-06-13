@@ -129,40 +129,102 @@
     transform: translate(1px, -1px);
 }
 
+/* ── Hamburger button (hidden on desktop) ── */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 4px;
+    z-index: 110;
+    flex-shrink: 0;
+    touch-action: manipulation;
+}
+
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--text-primary);
+    border-radius: 1px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hamburger → X when menu is open */
+#header.menu-open .hamburger span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+}
+#header.menu-open .hamburger span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+#header.menu-open .hamburger span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+}
+
 @media (max-width: 768px) {
     #header {
         padding: 0.9rem 1.5rem;
     }
 
-    .nav-links {
-        gap: 1.4rem;
-    }
-
-    .nav-links a {
-        font-size: 0.64rem;
-        letter-spacing: 1.8px;
-    }
-
     .nav-logo {
         height: 42px;
     }
-}
 
-@media (max-width: 480px) {
-    .nav-brand {
-        display: none;
+    .hamburger {
+        display: flex;
     }
 
-    #header {
-        justify-content: center;
-    }
-
+    /* Slide-down dropdown nav */
     .nav-links {
-        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        align-items: center;
+        gap: 0;
+        /* --nav-bg can be very transparent (e.g. ocean theme is 10%); use bg-primary for opacity */
+        background: color-mix(in srgb, var(--bg-primary) 92%, transparent);
+        backdrop-filter: blur(20px) saturate(1.5);
+        -webkit-backdrop-filter: blur(20px) saturate(1.5);
+        border-bottom: 1px solid var(--border-color);
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        transition: max-height 0.35s ease, padding 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-links.open {
+        max-height: 500px;
+        padding: 0.5rem 0 1.25rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
     }
 
     .nav-links a {
-        font-size: 0.6rem;
-        letter-spacing: 1.5px;
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.68rem;
+        letter-spacing: 2px;
+        opacity: 0.75;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        opacity: 1;
+    }
+
+    /* Underline hover effect doesn't suit full-width mobile links */
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-links a.nav-external {
+        opacity: 0.65;
     }
 }
