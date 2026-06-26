@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="220" height="220">
-  <style>
+  <!--<style>
     @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400&display=swap');
-  </style>
+  </style>-->
 
   <!-- Background -->
   <rect width="220" height="220" fill="#060f1e"/>
