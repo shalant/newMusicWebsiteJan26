@@ -1,18 +1,6 @@
 <div id="header" class="@(_menuOpen ? "menu-open" : "")">
     <a href="#home" class="nav-brand" target="_top" aria-label="Doug Rosenberg — home">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 72" class="nav-logo" aria-hidden="true">
-            <!-- left tremolo slashes — well clear of text -->
-            <line x1="8"  y1="24" x2="28" y2="44" class="logo-slash logo-slash-1" stroke-width="2.2" stroke-linecap="round"/>
-            <line x1="16" y1="16" x2="36" y2="36" class="logo-slash logo-slash-2" stroke-width="2.2" stroke-linecap="round"/>
-            <line x1="24" y1="8"  x2="44" y2="28" class="logo-slash logo-slash-3" stroke-width="2.2" stroke-linecap="round"/>
-            <!-- right tremolo slashes — well clear of text -->
-            <line x1="372" y1="28" x2="392" y2="48" class="logo-slash logo-slash-1" stroke-width="2.2" stroke-linecap="round"/>
-            <line x1="364" y1="36" x2="384" y2="56" class="logo-slash logo-slash-2" stroke-width="2.2" stroke-linecap="round"/>
-            <line x1="356" y1="44" x2="376" y2="64" class="logo-slash logo-slash-3" stroke-width="2.2" stroke-linecap="round"/>
-            <!-- name — centered in the wider canvas -->
-            <text x="200" y="45" font-family="'Josefin Sans', sans-serif" font-size="24"
-                  font-weight="300" letter-spacing="8" text-anchor="middle" class="logo-name">DOUG ROSENBERG</text>
-        </svg>
+        <img src="images/sax-nav-mark.png" alt="" class="sax-mark" />
     </a>
     <button class="hamburger" @onclick="ToggleMenu" aria-label="Toggle navigation" aria-expanded="@(_menuOpen ? "true" : "false")">
         <span></span>
@@ -25,7 +13,6 @@
         <a href="#albums" target="_top" @onclick="CloseMenu">listen</a>
         <a href="#education" target="_top" @onclick="CloseMenu">education</a>
         <a href="#contact" target="_top" @onclick="CloseMenu">contact</a>
-        <a href="https://dougrosenbergdev.com" target="_blank" rel="noopener noreferrer" class="nav-external" @onclick="CloseMenu">dev</a>
     </nav>
 </div>
 

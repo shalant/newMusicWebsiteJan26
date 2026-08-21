@@ -3,23 +3,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--nav-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     padding: 1.1rem 3rem;
     top: 0;
     width: 100%;
     z-index: 100;
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.22);
     box-sizing: border-box;
-    transition: padding 0.4s ease, box-shadow 0.4s ease;
+    transition: padding 0.4s ease;
 }
 
 #header.scrolled {
     padding-top: 0.72rem;
     padding-bottom: 0.72rem;
-    box-shadow: 0 4px 36px rgba(0, 0, 0, 0.4);
 }
 
 .nav-brand {
@@ -34,32 +28,20 @@
     opacity: 1;
 }
 
-.nav-logo {
-    height: 52px;
-    width: auto;
+.sax-mark {
     display: block;
+    height: 104px;
+    width: auto;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+    transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
 }
 
-/* Tremolo slash colors — accent, fading out */
-.logo-slash {
-    stroke: var(--accent-color);
-    transition: stroke 0.3s ease;
+/* On hover/focus — the mark lifts and glows, no box around it */
+.nav-brand:hover .sax-mark,
+.nav-brand:focus-visible .sax-mark {
+    transform: scale(1.06);
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 14px rgba(var(--accent-rgb), 0.45));
 }
-.logo-slash-1 { opacity: 0.75; }
-.logo-slash-2 { opacity: 0.45; }
-.logo-slash-3 { opacity: 0.22; }
-
-/* Name text color */
-.logo-name {
-    fill: var(--text-primary);
-    transition: fill 0.3s ease;
-}
-
-/* On hover — slashes go full accent, name follows accent */
-.nav-brand:hover .logo-slash-1 { opacity: 1; }
-.nav-brand:hover .logo-slash-2 { opacity: 0.65; }
-.nav-brand:hover .logo-slash-3 { opacity: 0.38; }
-.nav-brand:hover .logo-name    { fill: var(--accent-color); }
 
 .nav-links {
     display: flex;
@@ -107,26 +89,68 @@
     opacity: 1;
 }
 
-/* External link — subtle accent + ↗ indicator */
-.nav-links a.nav-external {
-    color: var(--accent-color);
-    opacity: 0.72;
-}
+/* ── Bloom nav (desktop): links emerge from the sax mark on hover/focus ──
+   Path per link is a short dip off the mark, then a long rising sweep —
+   a checkmark shape, not a straight fan. */
+@media (min-width: 769px) {
+    .nav-links {
+        position: absolute;
+        top: 50%;
+        left: 220px;
+        width: 0;
+        height: 0;
+    }
 
-.nav-links a.nav-external::before {
-    content: '↗';
-    font-size: 0.6rem;
-    margin-right: 2px;
-    display: inline-block;
-    transition: transform 0.22s ease;
-}
+    .nav-links a,
+    .nav-links a:hover,
+    .nav-links a.active {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        pointer-events: none;
+        color: var(--bg-primary);
+        background: var(--accent-color);
+        padding: 0.42rem 0.85rem;
+        border-radius: 20px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease, box-shadow 0.35s ease;
+    }
 
-.nav-links a.nav-external:hover {
-    opacity: 1;
-}
+    .nav-links a::after {
+        display: none;
+    }
 
-.nav-links a.nav-external:hover::before {
-    transform: translate(1px, -1px);
+    .nav-links a.active {
+        box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 3px var(--accent-color);
+    }
+
+    #header:has(.nav-brand:hover, .nav-brand:focus-visible, .nav-links a:hover, .nav-links a:focus-visible) .nav-links a {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    #header:has(.nav-brand:hover, .nav-brand:focus-visible, .nav-links a:hover, .nav-links a:focus-visible) .nav-links a:nth-child(1) {
+        transform: translate(-50%, -50%) translate(14px, 24px);
+        transition-delay: 0s;
+    }
+    #header:has(.nav-brand:hover, .nav-brand:focus-visible, .nav-links a:hover, .nav-links a:focus-visible) .nav-links a:nth-child(2) {
+        transform: translate(-50%, -50%) translate(58px, 34px);
+        transition-delay: 0.05s;
+    }
+    #header:has(.nav-brand:hover, .nav-brand:focus-visible, .nav-links a:hover, .nav-links a:focus-visible) .nav-links a:nth-child(3) {
+        transform: translate(-50%, -50%) translate(114px, 16px);
+        transition-delay: 0.1s;
+    }
+    #header:has(.nav-brand:hover, .nav-brand:focus-visible, .nav-links a:hover, .nav-links a:focus-visible) .nav-links a:nth-child(4) {
+        transform: translate(-50%, -50%) translate(176px, -8px);
+        transition-delay: 0.15s;
+    }
+    #header:has(.nav-brand:hover, .nav-brand:focus-visible, .nav-links a:hover, .nav-links a:focus-visible) .nav-links a:nth-child(5) {
+        transform: translate(-50%, -50%) translate(244px, -26px);
+        transition-delay: 0.2s;
+    }
 }
 
 /* ── Hamburger button (hidden on desktop) ── */
@@ -170,8 +194,8 @@
         padding: 0.9rem 1.5rem;
     }
 
-    .nav-logo {
-        height: 42px;
+    .sax-mark {
+        height: 84px;
     }
 
     .hamburger {
@@ -222,9 +246,5 @@
     /* Underline hover effect doesn't suit full-width mobile links */
     .nav-links a::after {
         display: none;
-    }
-
-    .nav-links a.nav-external {
-        opacity: 0.65;
     }
 }
