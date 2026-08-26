@@ -1,22 +1,22 @@
 [
   {
     "name": "home",
-    "src": "images/BackgroundImage2.png",
+    "src": "images/BackgroundImage2.webp",
     "alt": "handsome saxophonist"
   },
   {
     "name": "about",
-    "src": "images/artDecoBackground1.png",
+    "src": "images/artDecoBackground1.webp",
     "alt": "blue abstract background"
   },
   {
     "name": "albums",
-    "src": "images/artDecoBackground1.png",
+    "src": "images/artDecoBackground1.webp",
     "alt": "blue abstract background"
   },
   {
     "name": "education",
-    "src": "images/artDecoBackground1.png",
+    "src": "images/artDecoBackground1.webp",
     "alt": "blue abstract background"
   },
   {
