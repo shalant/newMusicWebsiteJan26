@@ -19,7 +19,7 @@ html {
     scroll-behavior: smooth;
 }
 
-div#main {
+main#main {
     display: flex;
     flex-direction: column;
 }
@@ -827,7 +827,7 @@ img.social-icon:hover {
     font-family: 'Montserrat', Arial, sans-serif;
     font-size: 0.7rem;
     font-weight: 300;
-    color: rgba(136, 184, 216, 0.65);
+    color: rgba(136, 184, 216, 0.8);
     letter-spacing: 0.32em;
     text-transform: uppercase;
     margin: 0;
