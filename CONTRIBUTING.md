@@ -1,5 +1,13 @@
 # Contributing Guidelines
 
+## Branching
+
+**All changes must be made on a branch, never committed directly to `main`.** Pushes to `main` trigger an automatic GitHub Pages deploy (`.github/workflows/deploy.yml`) with no staging step, so `main` must only ever receive finished, reviewed work via a merged PR.
+
+- Branch off `main` for any change, however small.
+- Open a PR back into `main` when ready; merge (not direct push) is what ships it.
+- Delete or leave branches orphaned once merged/abandoned — an unmerged experimental branch is fine to leave behind, it just never touches `main` directly.
+
 ## Code Style
 
 ### C# / Razor Components

@@ -58,7 +58,7 @@ Build in Release mode.
 
 Copy the contents of publish/wwwroot/ into the docs/ folder at the repo root (or whichever branch GitHub Pages serves).
 
-Commit and push to main.
+Commit on a branch, open a PR, and merge into main — never push directly to main (see CONTRIBUTING.md; main auto-deploys on every push).
 
 Automated Deploy (GitHub Actions)
 
