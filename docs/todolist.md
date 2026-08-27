@@ -70,6 +70,16 @@ Ran a real local Lighthouse pass (`npx lighthouse` against `dotnet run`, mobile 
 - **Deliberately minimal:** just page-view tracking (device split + page-level traffic), no custom events. This site has no contact-dialog/CTA-click surface like `dougrosenbergdev.com`'s `/webdesign` page does, so there's nothing obvious to instrument beyond the automatic pageview/scroll/outbound-click events GA4's Enhanced Measurement already provides. Add custom events later if a real question comes up that pageviews alone can't answer.
 - **Reminder from the sibling `dougrosenbergdev.com` playbook, worth applying here too:** tag any link before pasting it into a DM/text — e.g. `?utm_source=facebook&utm_medium=dm&utm_campaign=sept2026` — since in-app browsers (Facebook Messenger, Instagram DMs) often strip the referrer, showing real traffic as `(direct)` in GA4 otherwise.
 
+## Quick Cleanup from Career-Dev Checklist Cross-Check — 2026-08-26
+
+Cross-referenced `career-development/docs/SITE_QUALITY_CHECKLIST.md` (a master checklist that repo built partly from this project's own todolist) against this project's actual state; these are the genuinely new, quick items it surfaced.
+
+- [x] **Custom 404 page** — GitHub Pages was serving its generic default. `deployment.md` already documented the fix (copy `index.html` → `404.html` at publish time) but `deploy.yml` never actually did it. Added the step. Verified locally by running the exact publish+copy sequence.
+- [x] **Orphaned `Portfolio.razor` component removed** — never composed into `Index.razor`, same dead-code pattern already found and cleaned up on the sibling `dougrosenbergdev.com` repo. Its `heroimages.json` "portfolio" entry removed too — that entry's `images/design-desk.jpeg` turned out to already be a missing file (a second, moot broken reference).
+- [x] **Hardcoded copyright year fixed** — `Footer.razor` had a literal `© 2026`; changed to `© @DateTime.Now.Year`.
+- [x] **Touch-target sweep, round 2** — the earlier a11y pass only fixed the hamburger button. Found and fixed two more real violations: `.footer-icon-link` (social icons, was unset/~30px) and `.theme-toggle` at the ≤480px breakpoint (shrank to 38px). `#back-to-top` was already correctly 44px, no change needed.
+- **Not done here, flagged for a separate call:** GitHub branch protection isn't actually enabled (the rule is only documented in `CONTRIBUTING.md`), and GA4 has no internal-traffic exclusion filter yet — both are account/settings-level changes, not code.
+
 ## Someday / Big Bet — Astro Rebuild
 
 - [ ] **Evaluate rebuilding on Astro instead of Blazor WASM.** Not a quick win — this is the real fix for the Performance score above, not a CSS/asset tweak. The sibling `dougrosenbergdev.com` repo already went through this exact decision for the same reason (Blazor WASM PageSpeed score of 23/100 in production, LCP 19.4s under throttling — root-caused to the runtime download itself, not fixable content-side) and has a documented stack-decision trail worth reading before committing here: Angular → Blazor WebAssembly → MudBlazor → dropping MudBlazor → (on `haxbyte.com`) dropping Blazor WASM for Astro. Worth deciding deliberately rather than defaulting into it — this site's content (JSON-driven sections, theme switcher, sheet music viewer, gallery lightbox) would all need a real port, not a copy-paste.
