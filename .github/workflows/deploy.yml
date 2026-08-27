@@ -26,6 +26,9 @@ jobs:
       - name: Publish Blazor WASM
         run: dotnet publish -c Release -o build
 
+      - name: Create 404 page for GitHub Pages SPA fallback
+        run: cp build/wwwroot/index.html build/wwwroot/404.html
+
       - name: Upload artifact for deployment
         uses: actions/upload-pages-artifact@v3
         with:

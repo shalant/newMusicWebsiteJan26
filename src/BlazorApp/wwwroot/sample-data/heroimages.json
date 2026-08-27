@@ -18,10 +18,5 @@
     "name": "education",
     "src": "images/artDecoBackground1.webp",
     "alt": "blue abstract background"
-  },
-  {
-    "name": "portfolio",
-    "src": "images/design-desk.jpeg",
-    "alt": "desktop with books and laptop"
   }
 ]
