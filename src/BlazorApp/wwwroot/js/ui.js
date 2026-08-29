@@ -25,7 +25,7 @@
 
     function tryInitScrollSpy() {
         if (scrollSpyObserver) return;
-        const sections = document.querySelectorAll('section[id]');
+        const sections = document.querySelectorAll('section[id], footer[id]');
         const navLinks = document.querySelectorAll('#header a[href^="#"]');
         if (!sections.length || !navLinks.length) return;
 
@@ -86,6 +86,24 @@
         });
     }, { threshold: 0.6 });
 
+    // ── Hash-target scroll correction ──
+    // Sections like Gallery fetch their data asynchronously and render only a
+    // placeholder until it arrives, so the browser's native scroll-to-#hash on
+    // load/navigation can fire before that content has expanded the page,
+    // leaving the target scrolled past. Re-correct for a short window after
+    // load whenever the DOM mutates (i.e. whenever a section's data finishes
+    // loading and renders), so a link to e.g. #contact actually lands there
+    // even if it sits below still-loading content. Bounded to 2s so it never
+    // fights a user who has since scrolled away on purpose.
+    let hashCorrectionDeadline = null;
+    function tryCorrectHashScroll() {
+        if (!location.hash) return;
+        if (hashCorrectionDeadline === null) hashCorrectionDeadline = Date.now() + 2000;
+        if (Date.now() > hashCorrectionDeadline) return;
+        const target = document.querySelector(location.hash);
+        if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }
+
     // ── Observe new elements (called at init and after each Blazor DOM mutation) ──
     function observeElements() {
         document.querySelectorAll('.reveal:not([data-rv])').forEach(el => {
@@ -102,6 +120,7 @@
         });
         tryInitScrollSpy();
         tryInitParallax();
+        tryCorrectHashScroll();
     }
 
     // ── Scroll progress bar ──
@@ -129,6 +148,13 @@
         initScrollProgress();
         initBackToTop();
         new MutationObserver(observeElements).observe(document.body, { childList: true, subtree: true });
+        // Re-arm the hash-correction window on every real navigation (e.g. clicking
+        // a nav link to a different section) — a click to the *same* hash the URL
+        // already has doesn't fire hashchange, but there's nothing to correct then anyway.
+        window.addEventListener('hashchange', () => {
+            hashCorrectionDeadline = null;
+            tryCorrectHashScroll();
+        });
     }
 
     if (document.readyState === 'loading') {
